@@ -28,7 +28,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 
 | Day | Topic / Task | Notes |
 | --- | ------------ | ----- |
-| 1   | Getting Started with Kubernetes | [Link to Day 1](day01.md) |
+| 1   | Getting Started with Kubernetes | [Link to Day 1](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20001-Getting%20Started%20with%20Kubernetes/day01.md) |
 | 2   | Understanding Pods and Deployments | [Link to Day 2](day02.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
