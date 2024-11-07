@@ -45,6 +45,13 @@ Minikube runs a local Kubernetes cluster on your machine and is a great way to t
 
    This command should list the nodes in your Minikube cluster, confirming that Kubernetes is running.
 
+**Summary:**
+
+Install the following 
+
+- [minikube start](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#install-nonstandard-package-tools)
+
 #### Option 2: Kind (Kubernetes in Docker)
 
 Kind is another lightweight way to run Kubernetes clusters locally by using Docker containers.
