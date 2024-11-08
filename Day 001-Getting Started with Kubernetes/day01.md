@@ -89,7 +89,7 @@ This command should display information about your Kubernetes cluster, like the 
 
 - **Installation steps**: List any specific steps you took or issues encountered.
 - **Command outputs**: Include the output of `kubectl get nodes` and `kubectl cluster-info` to verify the setup.
-- **Screenshots**: Optional, but screenshots can help show your initial setup progress.
+- **Screenshots**: [Screenshots](https://github.com/oneananda/100-Days-of-Kubernetes/tree/main/Day%20001-Getting%20Started%20with%20Kubernetes/Screenshots) of initial setup progress.
 
 ---
 
