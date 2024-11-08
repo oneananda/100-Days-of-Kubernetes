@@ -85,9 +85,8 @@ This command should display information about your Kubernetes cluster, like the 
 
 ---
 
-### 📝 Document Your Setup
+### 📝 Setup Documentation
 
-Create a `day01.md` file in your repository with notes on:
 - **Installation steps**: List any specific steps you took or issues encountered.
 - **Command outputs**: Include the output of `kubectl get nodes` and `kubectl cluster-info` to verify the setup.
 - **Screenshots**: Optional, but screenshots can help show your initial setup progress.
