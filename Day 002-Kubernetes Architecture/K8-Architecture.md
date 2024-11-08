@@ -1,4 +1,6 @@
-Explanation of each component in the Kubernetes architecture depicted in the [diagram](/Day 002-Kubernetes Architecture/Screenshots/K8-Architecture.png):
+# K8-Architecture Flow
+
+Explanation of each component in the Kubernetes architecture depicted in the [diagram](Day 002-Kubernetes Architecture/Screenshots/K8-Architecture.png):
 
 1. **User**: Represents the person or application that interacts with the Kubernetes cluster, typically using `kubectl` or a web interface. Users communicate with the **API Server** to manage resources.
 
