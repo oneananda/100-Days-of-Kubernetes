@@ -17,12 +17,6 @@ Before running commands, make sure you have:
 1. A running Kubernetes cluster (e.g., through Minikube or Kind from Day 1).
 2. `kubectl` installed and configured to interact with your cluster.
 
-We can start using the kubernetes-dashboard by issuing the following command
-
-```bash
-minikube start
-```
-
 We can check that `kubectl` is configured correctly by running:
 ```bash
 kubectl cluster-info
