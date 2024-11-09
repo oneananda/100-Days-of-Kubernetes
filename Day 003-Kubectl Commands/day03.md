@@ -100,4 +100,120 @@ The **Minikube dashboard** is a web-based user interface for Kubernetes that pro
 
 ---
 
+### 2. `kubectl get`
+
+The `get` command displays information about resources in the cluster. You can view specific resource types or all resources in a namespace.
+
+#### Example: Get Pods
+```bash
+kubectl get pods
+```
+
+This command lists all Pods in the current namespace, including their status and IPs.
+
+#### Example: Get Deployments
+```bash
+kubectl get deployments
+```
+
+#### Example: Get Services
+```bash
+kubectl get services
+```
+
+#### Example: Get More Details
+To get additional details, use the `-o wide` option to see more information, such as the node each Pod is running on:
+```bash
+kubectl get pods -o wide
+```
+
+#### Example: Get Specific Pod
+To get a specific Pod:
+```bash
+kubectl get pod nginx-pod
+```
+
+---
+
+### 3. `kubectl describe`
+
+The `describe` command shows detailed information about a specific resource, including configuration details, events, and any errors. This is useful for troubleshooting.
+
+#### Example: Describe a Pod
+```bash
+kubectl describe pod nginx-pod
+```
+
+This command shows the Pod's configuration, current state, events, and any error messages, which are helpful for debugging.
+
+#### Example: Describe a Deployment
+```bash
+kubectl describe deployment nginx-deployment
+```
+
+This gives information on the Deployment's strategy, replicas, and events related to its Pods.
+
+---
+
+### 4. `kubectl delete`
+
+The `delete` command removes resources from the cluster. Be cautious with `delete`, especially when deleting resources in production environments.
+
+#### Example: Delete a Pod
+```bash
+kubectl delete pod nginx-pod
+```
+
+#### Example: Delete a Deployment
+```bash
+kubectl delete deployment nginx-deployment
+```
+
+#### Example: Delete from YAML file
+If you created resources using a YAML file, you can delete them with:
+```bash
+kubectl delete -f nginx-pod.yaml
+```
+
+#### Example: Delete All Pods (Use Carefully)
+```bash
+kubectl delete pods --all
+```
+
+This command deletes all Pods in the current namespace. Be careful with commands like this in production environments.
+
+---
+
+### Hands-On Practice
+
+1. **Create Resources**: Try creating a Pod and a Deployment using the `kubectl run` and `kubectl create` commands.
+2. **List Resources**: Use `kubectl get` to list all Pods, Deployments, and Services, experimenting with different `-o` options.
+3. **Inspect Resources**: Use `kubectl describe` to examine a Pod and a Deployment, paying attention to events and statuses.
+4. **Delete Resources**: Clean up by deleting the Pod and Deployment you created.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day03.md` file, record:
+- The `kubectl` commands you used and their output.
+- Notes on any challenges faced or insights gained.
+- Screenshots or code snippets (optional but useful for future reference).
+
+---
+
+### 🎯 Outcome for Day 3
+
+By the end of Day 3, you should:
+1. Be comfortable creating and deleting resources in Kubernetes.
+2. Know how to list and inspect resources with `kubectl`.
+3. Understand how to troubleshoot using `kubectl describe`.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: kubectl CLI](https://kubernetes.io/docs/reference/kubectl/overview/)
+- [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
+---
+
 
