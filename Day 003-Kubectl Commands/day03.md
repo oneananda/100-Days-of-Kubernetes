@@ -24,6 +24,19 @@ kubectl cluster-info
 
 ---
 
+### How to Access the Minikube Dashboard
+
+1. **Start Minikube** (if it’s not running):
+   ```bash
+   minikube start
+   ```
+
+2. **Launch the Dashboard**:
+   ```bash
+   minikube dashboard
+   ```
+---
+
 ### Core `kubectl` Commands
 
 We’ll use `kubectl` to manage Pods and Deployments in the following examples.
@@ -86,17 +99,7 @@ In summary, this command creates a deployment with one replica of a pod running 
 
 The **Minikube dashboard** is a web-based user interface for Kubernetes that provides an overview of the cluster's resources, enabling users to monitor and manage their applications within the cluster easily.
 
-### How to Access the Minikube Dashboard
-
-1. **Start Minikube** (if it’s not running):
-   ```bash
-   minikube start
-   ```
-
-2. **Launch the Dashboard**:
-   ```bash
-   minikube dashboard
-   ```
+More kubectl create examples are found [here]("/Day%20003-Kubectl%20Commands/kubectl-create.md")
 
 ---
 
