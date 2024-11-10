@@ -99,7 +99,7 @@ In summary, this command creates a deployment with one replica of a pod running 
 
 The **Minikube dashboard** is a web-based user interface for Kubernetes that provides an overview of the cluster's resources, enabling users to monitor and manage their applications within the cluster easily.
 
-More kubectl create examples are found [here](/kubectl-create.md)
+More kubectl create examples are found [here](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20003-Kubectl%20Commands/kubectl-create.md)
 
 ---
 
