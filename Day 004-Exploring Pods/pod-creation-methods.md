@@ -28,4 +28,30 @@ There are several ways to create a pod in Kubernetes, each suited to different n
      ```
    - Note: This command is typically used for testing purposes, and in production, using YAML files for configuration is preferred for better management and version control.
 
-
+### 3. **Using a Deployment or ReplicaSet**
+   - Instead of creating a standalone pod, it's often preferable to create a pod through a **Deployment** or **ReplicaSet**.
+   - This approach allows Kubernetes to automatically restart or recreate the pod if it fails.
+   - Example Deployment YAML (`deployment.yaml`):
+     ```yaml
+     apiVersion: apps/v1
+     kind: Deployment
+     metadata:
+       name: my-deployment
+     spec:
+       replicas: 1
+       selector:
+         matchLabels:
+           app: my-app
+       template:
+         metadata:
+           labels:
+             app: my-app
+         spec:
+           containers:
+           - name: my-container
+             image: nginx
+     ```
+   - To create the Deployment, run:
+     ```bash
+     kubectl apply -f deployment.yaml
+     ```
