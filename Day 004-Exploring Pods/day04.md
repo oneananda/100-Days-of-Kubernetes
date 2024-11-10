@@ -25,6 +25,23 @@ A **Pod** is the smallest and simplest Kubernetes object. It encapsulates one or
 
 ---
 
+### Pods - Use cases
+
+#### **Microservices Applications**
+   - In a microservices architecture, each microservice can run in its own pod. For example, in an e-commerce application, you might have separate pods for the user service, product catalog service, payment service, and order management service.
+   - Each pod hosts a single containerized microservice, allowing individual scaling, versioning, and management per service, making it easier to update specific parts of the application without affecting others.
+   
+#### **Job Processing with Multiple Containers**
+   - In job processing systems (e.g., video encoding, data transformation), one pod might contain a main container that pulls a job from a queue and processes it, along with a sidecar container that handles logging, cleanup, or alerting.
+   - This allows for efficient processing, where each pod processes a single job and can be scaled up or down depending on the job queue size.
+
+#### **Continuous Integration (CI) Pipelines**
+   - In a CI/CD pipeline, Kubernetes can run each stage as a separate pod. For example, one pod might handle code compilation, another pod handles unit tests, and a third pod handles integration tests.
+   - This setup allows each pod to operate independently, scale on demand, and be disposed of after task completion, enhancing resource efficiency.
+  
+---
+
+
 ### Hands-On with Pods
 
 We’ll explore creating, inspecting, and understanding the lifecycle of Pods using `kubectl` commands.
