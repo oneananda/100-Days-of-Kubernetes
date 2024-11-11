@@ -70,3 +70,32 @@ kubectl apply -f nginx-replicaset.yaml
 - This command creates a ReplicaSet named `nginx-replicaset` that will maintain three replicas of an Nginx container.
 
 ---
+
+### 2. Inspecting ReplicaSets
+
+Once created, you can view the ReplicaSet’s status and its managed Pods with various `kubectl` commands.
+
+#### View ReplicaSets
+```bash
+kubectl get rs
+```
+
+This command lists all ReplicaSets, showing their desired, current, and ready replica counts.
+
+#### Describe a ReplicaSet
+```bash
+kubectl describe rs nginx-replicaset
+```
+
+This command provides details about the ReplicaSet, including:
+- Events related to the creation and management of Pods.
+- Status of each replica and error messages, if any.
+
+#### View Pods Created by the ReplicaSet
+```bash
+kubectl get pods -l app=nginx
+```
+
+This lists all Pods with the `app=nginx` label, which are managed by the ReplicaSet.
+
+---
