@@ -125,3 +125,53 @@ kubectl rollout status deployment/nginx-deployment
 This command shows the progress of the rolling update, including when all replicas have been updated.
 
 ---
+
+### 4. Rolling Back a Deployment
+
+If an update causes issues, you can roll back the Deployment to a previous version.
+
+#### Roll Back to the Previous Version
+
+Use the following command to roll back to the last known good configuration:
+
+```bash
+kubectl rollout undo deployment/nginx-deployment
+```
+
+#### View Rollout History
+
+To see the history of all rollouts for the Deployment:
+
+```bash
+kubectl rollout history deployment/nginx-deployment
+```
+
+This command lists previous versions of the Deployment, allowing you to see what changes were made.
+
+---
+
+### 5. Scaling a Deployment
+
+Scaling a Deployment is straightforward and adjusts the number of replicas managed by the underlying ReplicaSet.
+
+#### Scale Up the Deployment
+
+To increase the number of replicas to 5:
+
+```bash
+kubectl scale deployment/nginx-deployment --replicas=5
+```
+
+This command automatically creates additional Pods to meet the desired replica count.
+
+#### Scale Down the Deployment
+
+To decrease the number of replicas to 2:
+
+```bash
+kubectl scale deployment/nginx-deployment --replicas=2
+```
+
+Scaling operations adjust the number of Pods in the Deployment, increasing or decreasing availability as needed.
+
+---
