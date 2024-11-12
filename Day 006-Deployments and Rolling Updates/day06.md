@@ -188,4 +188,39 @@ This command deletes the Deployment and its managed resources, including Pods an
 
 ---
 
+### Hands-On Practice
+
+1. **Create a Deployment**: Create an Nginx Deployment with 3 replicas.
+2. **Inspect the Deployment**: Use `kubectl get` and `kubectl describe` to check Deployment status and details.
+3. **Update the Deployment**: Perform a rolling update to change the Nginx image version.
+4. **Roll Back**: Practice rolling back the Deployment to a previous version.
+5. **Scale the Deployment**: Scale the Deployment up to 5 replicas and then down to 2.
+6. **Delete the Deployment**: Clean up by deleting the Deployment.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day06.md` file, record:
+- Commands used to create, update, roll back, scale, and delete the Deployment.
+- Observations about how Kubernetes manages updates and maintains desired state.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 6
+
+By the end of Day 6, you should:
+1. Understand the purpose of Deployments and how they differ from ReplicaSets.
+2. Be able to perform rolling updates and rollbacks for your applications.
+3. Know how to scale Deployments up and down to meet resource requirements.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- [Kubernetes Rolling Updates](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/)
+
+---
+
+
 
