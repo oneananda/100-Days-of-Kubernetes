@@ -99,3 +99,29 @@ kubectl describe deployment nginx-deployment
 This command shows detailed information about the Deployment, including rollout history, conditions, and events.
 
 ---
+
+### 3. Performing a Rolling Update
+
+A rolling update allows you to update the image of your application gradually, without downtime.
+
+#### Example: Update the Deployment Image
+
+Update the `nginx-deployment` to use a newer Nginx image (e.g., `nginx:1.16.0`):
+
+```bash
+kubectl set image deployment/nginx-deployment nginx=nginx:1.16.0
+```
+
+Kubernetes will initiate a rolling update, gradually replacing the old Pods with new ones running the updated image.
+
+#### Verify the Update
+
+Monitor the status of the update to ensure it completes successfully:
+
+```bash
+kubectl rollout status deployment/nginx-deployment
+```
+
+This command shows the progress of the rolling update, including when all replicas have been updated.
+
+---
