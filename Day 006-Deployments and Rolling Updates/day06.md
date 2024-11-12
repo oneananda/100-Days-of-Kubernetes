@@ -26,3 +26,56 @@ A **Deployment** in Kubernetes is a higher-level resource that manages ReplicaSe
 
 ---
 
+### Hands-On with Deployments
+
+In this section, we’ll cover creating, updating, rolling back, and scaling Deployments using `kubectl` commands and YAML configurations.
+
+---
+
+### 1. Creating a Deployment
+
+You can create a Deployment using either `kubectl` commands or a YAML file.
+
+#### Example: Create a Deployment with `kubectl`
+
+Create a Deployment named `nginx-deployment` with 3 replicas, using the Nginx image:
+
+```bash
+kubectl create deployment nginx-deployment --image=nginx --replicas=3
+```
+
+This command creates a Deployment that automatically manages a ReplicaSet with 3 Nginx Pods.
+
+#### Example: Create a Deployment with a YAML File
+
+Here’s a YAML configuration for an Nginx Deployment. Save this as `nginx-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+Create the Deployment by applying the YAML file:
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+
+---
