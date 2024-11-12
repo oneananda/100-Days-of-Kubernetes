@@ -79,3 +79,23 @@ kubectl apply -f nginx-deployment.yaml
 ```
 
 ---
+
+### 2. Inspecting and Managing the Deployment
+
+Once created, you can inspect the Deployment and its managed resources.
+
+#### Check the Status of the Deployment
+```bash
+kubectl get deployments
+```
+
+This command lists all Deployments in the current namespace, showing the desired, current, and available replica counts.
+
+#### View Detailed Information
+```bash
+kubectl describe deployment nginx-deployment
+```
+
+This command shows detailed information about the Deployment, including rollout history, conditions, and events.
+
+---
