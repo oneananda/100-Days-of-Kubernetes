@@ -175,3 +175,17 @@ kubectl scale deployment/nginx-deployment --replicas=2
 Scaling operations adjust the number of Pods in the Deployment, increasing or decreasing availability as needed.
 
 ---
+
+### 6. Deleting the Deployment
+
+To remove the Deployment (and all associated Pods and ReplicaSets):
+
+```bash
+kubectl delete deployment nginx-deployment
+```
+
+This command deletes the Deployment and its managed resources, including Pods and ReplicaSets.
+
+---
+
+
