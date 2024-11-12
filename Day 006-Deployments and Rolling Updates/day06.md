@@ -17,4 +17,12 @@ A **Deployment** in Kubernetes is a higher-level resource that manages ReplicaSe
 
 ---
 
+### Key Features of Deployments
+
+1. **Rolling Updates**: Gradually replace old Pods with new ones to minimize downtime.
+2. **Rollbacks**: Quickly revert to a previous version if an update fails.
+3. **Declarative Updates**: Manage application updates by changing the desired state in the Deployment specification.
+4. **Scaling**: Easily increase or decrease the number of replicas for your application.
+
+---
 
