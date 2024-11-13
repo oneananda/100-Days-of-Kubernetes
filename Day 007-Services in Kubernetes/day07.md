@@ -70,3 +70,80 @@ Apply the Deployment:
 ```bash
 kubectl apply -f nginx-deployment.yaml
 ```
+
+#### Step 2: Create a ClusterIP Service
+
+Create a file named `nginx-service.yaml` with the following configuration:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP
+```
+
+- **selector**: Matches the Pods labeled `app: nginx`, directing traffic to them.
+- **port**: The port on which the Service is exposed.
+- **targetPort**: The port on the container to which traffic is directed.
+- **type: ClusterIP**: Restricts access to within the cluster.
+
+Apply the Service:
+
+```bash
+kubectl apply -f nginx-service.yaml
+```
+
+#### Step 3: Test the ClusterIP Service
+
+To access the Service from within the cluster, you can use `kubectl` to execute commands in a different Pod and reach the Service by its name:
+
+```bash
+kubectl run test-pod --image=busybox --rm -it -- /bin/sh
+# Inside the pod, test the connection
+wget -qO- nginx-service
+```
+
+---
+
+### 2. Creating a NodePort Service
+
+A **NodePort** Service exposes the application on each node’s IP at a specific port, allowing external traffic to access the application.
+
+Edit the `nginx-service.yaml` file and change the type to `NodePort`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30007  # Choose a port in the range 30000-32767
+  type: NodePort
+```
+
+Apply the changes:
+
+```bash
+kubectl apply -f nginx-service.yaml
+```
+
+#### Access the NodePort Service
+
+Find the IP of any node in the cluster (or use `minikube ip` if using Minikube) and access the application at `http://<NodeIP>:30007`.
+
+---
+
