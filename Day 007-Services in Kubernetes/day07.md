@@ -20,4 +20,10 @@ Key types of Services include:
 
 ---
 
+### Key Features of Services
 
+1. **Service Discovery**: Provides a stable network endpoint, allowing other applications to connect without worrying about Pod IP changes.
+2. **Load Balancing**: Distributes traffic among all Pods in the Service.
+3. **Port Mapping**: Services provide port mapping options to make it easier to expose applications on specific ports.
+
+---
