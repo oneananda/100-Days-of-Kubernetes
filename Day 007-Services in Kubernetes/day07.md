@@ -27,3 +27,46 @@ Key types of Services include:
 3. **Port Mapping**: Services provide port mapping options to make it easier to expose applications on specific ports.
 
 ---
+
+### Hands-On with Services
+
+Let’s explore creating and inspecting different types of Services using `kubectl` and YAML configurations.
+
+---
+
+### 1. Creating a ClusterIP Service
+
+A **ClusterIP** Service allows communication only within the cluster, providing an internal IP for other Pods to access the application.
+
+#### Step 1: Create a Deployment
+
+If you haven’t already, create a Deployment to represent the application:
+
+```yaml
+# Save this as nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+
+Apply the Deployment:
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
