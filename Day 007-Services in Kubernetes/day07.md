@@ -147,3 +147,33 @@ Find the IP of any node in the cluster (or use `minikube ip` if using Minikube) 
 
 ---
 
+### 3. Creating a LoadBalancer Service (Cloud Environment Only)
+
+A **LoadBalancer** Service is typically used in cloud environments (e.g., GCP, AWS) and provides an external load balancer that distributes traffic across the Pods.
+
+Change the type in `nginx-service.yaml` to `LoadBalancer`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+```
+
+Apply the changes:
+
+```bash
+kubectl apply -f nginx-service.yaml
+```
+
+In a cloud environment, this will provision a load balancer and assign it an external IP. You can access the application through this IP.
+
+---
