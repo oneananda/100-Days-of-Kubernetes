@@ -177,3 +177,65 @@ kubectl apply -f nginx-service.yaml
 In a cloud environment, this will provision a load balancer and assign it an external IP. You can access the application through this IP.
 
 ---
+
+### 4. Inspecting and Managing Services
+
+After creating Services, you can inspect and manage them with `kubectl`.
+
+#### View All Services
+```bash
+kubectl get services
+```
+
+This command lists all Services, showing their types, cluster IPs, external IPs, and ports.
+
+#### Describe a Service
+```bash
+kubectl describe service nginx-service
+```
+
+This provides detailed information about the Service, including its endpoints and events.
+
+#### Delete a Service
+To delete a Service, run:
+
+```bash
+kubectl delete service nginx-service
+```
+
+This command removes the Service without affecting the Pods.
+
+---
+
+### Hands-On Practice
+
+1. **Create a ClusterIP Service**: Create a ClusterIP Service for an Nginx Deployment and test connectivity within the cluster.
+2. **Create a NodePort Service**: Change the Service to NodePort and access the application from outside the cluster.
+3. **Experiment with LoadBalancer Service**: (If on a cloud provider) Create a LoadBalancer Service and access the application through the load balancer’s external IP.
+4. **Inspect and Manage Services**: Use `kubectl get`, `kubectl describe`, and `kubectl delete` to manage Services.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day07.md` file, record:
+- Commands used to create, inspect, and manage each type of Service.
+- Observations about how Services work and how they handle network traffic.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 7
+
+By the end of Day 7, you should:
+1. Understand the purpose and types of Services in Kubernetes.
+2. Know how to create ClusterIP, NodePort, and LoadBalancer Services.
+3. Be able to access applications inside and outside the cluster using different Service types.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Services](https://kubernetes.io/docs/concepts/services-networking/service/)
+- [Connecting Applications with Services](https://kubernetes.io/docs/concepts/services-networking/)
+
+---
+
