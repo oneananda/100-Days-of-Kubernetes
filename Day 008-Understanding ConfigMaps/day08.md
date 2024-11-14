@@ -110,4 +110,97 @@ This will display the ConfigMap in YAML format, showing all key-value pairs.
 
 ---
 
+### 3. Using ConfigMaps in Pods
 
+ConfigMap data can be injected into Pods in various ways, including as environment variables and mounted files.
+
+#### Inject ConfigMap Data as Environment Variables
+
+Create a Deployment using the `my-config` ConfigMap. Save this as `nginx-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        envFrom:
+        - configMapRef:
+            name: my-config
+```
+
+- **envFrom**: Specifies the ConfigMap to load as environment variables.
+
+Apply the YAML file:
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+
+#### Access ConfigMap Data in the Container
+
+To verify the ConfigMap data is available as environment variables, run a shell inside the Pod:
+
+```bash
+kubectl exec -it <pod-name> -- env
+```
+
+Look for `APP_COLOR`, `APP_MODE`, and any other ConfigMap keys to confirm they’re loaded as environment variables.
+
+#### Mount ConfigMap as a Volume
+
+You can also mount a ConfigMap as a volume to make configuration data available as files.
+
+Edit the `nginx-deployment.yaml` to add a volume mount:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: my-config
+```
+
+- **volumeMounts**: Specifies where to mount the ConfigMap in the container’s filesystem.
+- **volumes**: References the ConfigMap by name, making its data available as files in the container.
+
+Apply the updated YAML file:
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+
+In the container, each ConfigMap key will appear as a file in `/etc/config`, with the content being the corresponding value.
+
+---
