@@ -35,6 +35,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 5   | Working with ReplicaSets | [Link to Day 5](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20005-Working%20with%20ReplicaSets/day05.md) |
 | 6   | Deployments and Rolling Updates | [Link to Day 6](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20006-Deployments%20and%20Rolling%20Updates/day06.md) |
 | 7   | Services — Exposing Applications Within and Outside the Cluster | [Link to Day 7](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20007-Services%20in%20Kubernetes/day07.md) |
+| 8   | Understanding ConfigMaps for External Configuration | [Link to Day 8](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20008-Understanding%20ConfigMaps/day08.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
