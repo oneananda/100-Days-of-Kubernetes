@@ -79,3 +79,35 @@ kubectl apply -f my-config.yaml
 ```
 
 ---
+
+### 2. Inspecting ConfigMaps
+
+Once created, you can inspect ConfigMaps using `kubectl` commands.
+
+#### List All ConfigMaps
+
+```bash
+kubectl get configmaps
+```
+
+#### View ConfigMap Details
+
+```bash
+kubectl describe configmap my-config
+```
+
+This command shows the content and metadata of the ConfigMap.
+
+#### Display ConfigMap Data
+
+To view the ConfigMap data directly, use:
+
+```bash
+kubectl get configmap my-config -o yaml
+```
+
+This will display the ConfigMap in YAML format, showing all key-value pairs.
+
+---
+
+
