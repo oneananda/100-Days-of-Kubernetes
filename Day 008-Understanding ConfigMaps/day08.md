@@ -14,4 +14,11 @@ A **ConfigMap** is an API object that allows you to store configuration data as 
 
 ---
 
+### Key Features of ConfigMaps
+
+1. **Environment-Agnostic Configurations**: Store configuration data separately from code, making it easier to manage across environments.
+2. **Flexible Usage**: Inject configuration as environment variables, files, or command-line arguments.
+3. **Centralized Management**: Update configuration in a centralized ConfigMap without modifying the application code or image.
+
+---
 
