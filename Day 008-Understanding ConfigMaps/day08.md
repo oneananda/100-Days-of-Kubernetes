@@ -22,3 +22,60 @@ A **ConfigMap** is an API object that allows you to store configuration data as 
 
 ---
 
+### Hands-On with ConfigMaps
+
+Let’s explore creating, inspecting, and using ConfigMaps in various ways to configure an application.
+
+---
+
+### 1. Creating ConfigMaps
+
+You can create a ConfigMap directly from the command line or from a YAML file.
+
+#### Example: Create a ConfigMap from Literal Values
+
+You can create a ConfigMap with literal key-value pairs directly from the command line:
+
+```bash
+kubectl create configmap my-config --from-literal=APP_COLOR=blue --from-literal=APP_MODE=production
+```
+
+#### Example: Create a ConfigMap from a File
+
+Alternatively, you can store configuration data in a file and create a ConfigMap from it.
+
+Create a file named `app-config.properties` with the following content:
+
+```
+APP_COLOR=green
+APP_MODE=staging
+```
+
+Then, create a ConfigMap from the file:
+
+```bash
+kubectl create configmap my-config --from-file=app-config.properties
+```
+
+#### Example: Create a ConfigMap from a YAML File
+
+You can also define a ConfigMap in a YAML file for more flexibility. Create a file named `my-config.yaml`:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  APP_COLOR: "red"
+  APP_MODE: "development"
+  MAX_RETRIES: "5"
+```
+
+Apply the YAML file to create the ConfigMap:
+
+```bash
+kubectl apply -f my-config.yaml
+```
+
+---
