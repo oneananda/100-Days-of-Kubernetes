@@ -224,3 +224,35 @@ kubectl edit configmap my-config
 
 ---
 
+### Hands-On Practice
+
+1. **Create ConfigMaps**: Create a ConfigMap from literal values, a file, and a YAML file.
+2. **Inspect ConfigMaps**: Use `kubectl get` and `kubectl describe` to examine ConfigMaps.
+3. **Inject ConfigMap Data**: Use ConfigMap data in a Deployment by injecting it as environment variables and mounting it as a volume.
+4. **Update ConfigMaps**: Experiment with updating ConfigMaps and observe how changes are applied in Pods.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day08.md` file, record:
+- Commands used to create, inspect, and use ConfigMaps in Pods.
+- Observations about different ways to use ConfigMaps.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 8
+
+By the end of Day 8, you should:
+1. Understand the purpose and functionality of ConfigMaps.
+2. Know how to create, inspect, and update ConfigMaps.
+3. Be able to inject configuration data into Pods using environment variables and mounted volumes.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
+- [Using ConfigMaps in Applications](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
