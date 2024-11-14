@@ -204,3 +204,23 @@ kubectl apply -f nginx-deployment.yaml
 In the container, each ConfigMap key will appear as a file in `/etc/config`, with the content being the corresponding value.
 
 ---
+
+### 4. Updating ConfigMaps
+
+To update a ConfigMap, modify the YAML file or recreate it with new values. Note that **Pods do not automatically detect ConfigMap changes**, so you’ll need to recreate or restart Pods for updates to take effect.
+
+To delete and recreate a ConfigMap:
+
+```bash
+kubectl delete configmap my-config
+kubectl apply -f my-config.yaml
+```
+
+Or, edit it directly with:
+
+```bash
+kubectl edit configmap my-config
+```
+
+---
+
