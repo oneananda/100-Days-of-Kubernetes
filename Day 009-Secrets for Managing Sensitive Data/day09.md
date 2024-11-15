@@ -94,3 +94,31 @@ kubectl apply -f my-secret.yaml
 
 ---
 
+### 2. Inspecting Secrets
+
+#### List All Secrets
+```bash
+kubectl get secrets
+```
+
+This shows all Secrets in the current namespace.
+
+#### View Secret Details
+```bash
+kubectl describe secret my-secret
+```
+
+This command shows metadata about the Secret but does not display its data.
+
+#### Decode Secret Data
+To view the actual data stored in a Secret, decode the base64 values:
+
+```bash
+kubectl get secret my-secret -o jsonpath='{.data.username}' | base64 --decode
+```
+
+```bash
+kubectl get secret my-secret -o jsonpath='{.data.password}' | base64 --decode
+```
+
+---
