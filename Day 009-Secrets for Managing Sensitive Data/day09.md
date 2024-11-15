@@ -15,3 +15,12 @@
 - Secrets can be injected into Pods as **environment variables** or **mounted volumes**.
 
 ---
+
+### Key Features of Secrets
+
+1. **Secure Storage**: Sensitive data is stored in base64-encoded format and can be encrypted using external tools.
+2. **Access Control**: Kubernetes RBAC (Role-Based Access Control) can restrict who can view or use Secrets.
+3. **Flexible Injection**: Secrets can be injected as environment variables or mounted as files in Pods.
+
+---
+
