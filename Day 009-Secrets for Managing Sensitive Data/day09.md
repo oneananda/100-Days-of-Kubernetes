@@ -218,4 +218,15 @@ Inside the Pod, the Secret data will be available as files in `/etc/secrets`.
 
 ---
 
+### 4. Updating Secrets
 
+To update a Secret, you can delete and recreate it, or edit it directly:
+
+#### Edit the Secret Inline
+```bash
+kubectl edit secret my-secret
+```
+
+Make sure to base64-encode any new values.
+
+---
