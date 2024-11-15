@@ -135,7 +135,7 @@ Edit the Deployment file to include the Secret as environment variables. Save th
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment-secrets.yaml
 spec:
   replicas: 1
   selector:
@@ -175,4 +175,47 @@ kubectl exec -it <pod-name> -- env
 ```
 
 Look for `USERNAME` and `PASSWORD`.
+
+#### Mount Secret as a Volume
+
+Edit the Deployment to mount the Secret as a volume:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-secrets.yaml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /etc/secrets
+          readOnly: true
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: my-secret
+```
+
+Apply the updated Deployment:
+
+```bash
+kubectl apply -f nginx-deployment-secrets.yaml
+```
+
+Inside the Pod, the Secret data will be available as files in `/etc/secrets`.
+
+---
+
 
