@@ -230,3 +230,36 @@ kubectl edit secret my-secret
 Make sure to base64-encode any new values.
 
 ---
+
+### Hands-On Practice
+
+1. **Create Secrets**: Create a Secret using literals, files, and a YAML file.
+2. **Inspect Secrets**: Use `kubectl` to inspect and decode Secret data.
+3. **Use Secrets in Pods**: Inject Secret data as environment variables and mount it as a volume.
+4. **Update Secrets**: Experiment with updating Secret values and observe changes.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day09.md` file, record:
+- Commands used to create, inspect, and use Secrets.
+- Observations about how Kubernetes manages sensitive data securely.
+- Notes on any challenges or insights.
+
+---
+
+### 🎯 Outcome for Day 9
+
+By the end of Day 9, you should:
+1. Understand the purpose and functionality of Secrets in Kubernetes.
+2. Know how to create, inspect, and use Secrets in Pods.
+3. Be able to securely manage sensitive data using Secrets.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+- [Using Secrets in Applications](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/)
+
+---
+
