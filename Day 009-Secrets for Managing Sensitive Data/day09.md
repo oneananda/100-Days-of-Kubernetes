@@ -24,3 +24,36 @@
 
 ---
 
+### Hands-On with Secrets
+
+We’ll explore creating, inspecting, and using Secrets in Kubernetes to securely pass sensitive data to applications.
+
+---
+
+### 1. Creating Secrets
+
+You can create Secrets from the command line or define them in YAML files.
+
+#### Example: Create a Secret from Literal Values
+
+Use `kubectl` to create a Secret with literal key-value pairs:
+
+```bash
+kubectl create secret generic my-secret --from-literal=username=admin --from-literal=password=pass123
+```
+
+- `generic`: Specifies the type of Secret.
+- `my-secret`: The name of the Secret.
+- `--from-literal`: Provides the key-value pairs to store in the Secret.
+
+#### Example: Create a Secret from a File
+
+You can store sensitive data in a file and create a Secret from it.
+
+Create a file `username.txt` with the content `admin` and a file `password.txt` with the content `pass123`.
+
+Then, create the Secret:
+
+```bash
+kubectl create secret generic my-secret --from-file=username.txt --from-file=password.txt
+```
