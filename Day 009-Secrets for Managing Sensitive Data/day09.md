@@ -57,3 +57,40 @@ Then, create the Secret:
 ```bash
 kubectl create secret generic my-secret --from-file=username.txt --from-file=password.txt
 ```
+
+#### Example: Create a Secret from a YAML File
+
+To create a Secret in YAML, you must encode the data in base64 format.
+
+1. Encode the data using a command-line tool:
+   ```bash
+   echo -n 'admin' | base64
+   ```
+   Output: `YWRtaW4=`
+
+   ```bash
+   echo -n 'pass123' | base64
+   ```
+   Output: `cGFzczEyMw==`
+
+2. Create a file named `my-secret.yaml` with the following content:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: cGFzczEyMw==
+```
+
+Apply the YAML file:
+
+```bash
+kubectl apply -f my-secret.yaml
+```
+
+---
+
