@@ -122,3 +122,57 @@ kubectl get secret my-secret -o jsonpath='{.data.password}' | base64 --decode
 ```
 
 ---
+
+### 3. Using Secrets in Pods
+
+You can use Secrets in Pods as environment variables or mount them as files.
+
+#### Inject Secret Data as Environment Variables
+
+Edit the Deployment file to include the Secret as environment variables. Save this as `nginx-deployment-secrets.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: password
+```
+
+Apply the Deployment:
+
+```bash
+kubectl apply -f nginx-deployment-secrets.yaml
+```
+
+Verify that the environment variables are injected by accessing the Pod:
+
+```bash
+kubectl exec -it <pod-name> -- env
+```
+
+Look for `USERNAME` and `PASSWORD`.
+
