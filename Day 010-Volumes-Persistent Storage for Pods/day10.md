@@ -204,3 +204,17 @@ kubectl apply -f pvc-pod.yaml
 3. Delete and recreate the Pod. The data in the PersistentVolume will still be available.
 
 ---
+
+### 4. Inspecting and Managing Volumes
+
+#### View PersistentVolumes
+```bash
+kubectl get pv
+```
+
+#### View PersistentVolumeClaims
+```bash
+kubectl get pvc
+```
+
+---
