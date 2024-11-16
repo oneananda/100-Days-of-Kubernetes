@@ -219,6 +219,18 @@ kubectl get pvc
 
 ---
 
+### Key Differences between PersistentVolume (PV) and PersistentVolumeClaim (PVC):
+
+| Feature                | PersistentVolume (PV) | PersistentVolumeClaim (PVC) |
+|------------------------|------------------------|-----------------------------|
+| **Definition**         | Physical storage resource | Request for storage |
+| **Scope**              | Cluster-wide          | Namespace-specific         |
+| **Provisioned By**     | Admin/Dynamic provisioner | User/Application          |
+| **Lifecycle**          | Independent           | Tied to Pod but reusable   |
+| **Purpose**            | Supplies storage      | Requests storage           |
+
+---
+
 ### Hands-On Practice
 
 1. **Create and Use EmptyDir**: Use `EmptyDir` for temporary storage shared between containers.
