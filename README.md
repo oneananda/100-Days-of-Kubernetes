@@ -42,10 +42,15 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 
 Each daily log file will contain notes, commands, and code snippets.
 
+## Important Note
+
+The grammar and styling of the text contents have been corrected with the assistance of [ChatGPT](https://chatgpt.com/).
+
 ## Resources
 
 Here are some of the resources I’ll be using throughout this challenge:
 
+- [ChatGPT](https://chatgpt.com/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [Kubernetes for Developers by Kelsey Hightower](https://kubernetes.io/docs/tutorials/)
 - [Kubernetes Patterns Book](https://www.oreilly.com/library/view/kubernetes-patterns/9781492050285/)
