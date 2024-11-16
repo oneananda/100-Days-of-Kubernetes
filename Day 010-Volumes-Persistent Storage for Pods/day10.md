@@ -23,3 +23,51 @@ A **Volume** is a directory accessible to containers in a Pod. The lifecycle of 
 5. **PersistentVolumeClaim (PVC)**: A request for storage by a Pod, linked to a PersistentVolume.
 
 ---
+
+
+### Hands-On with Volumes
+
+We’ll explore different types of Volumes by creating and using them in Pods.
+
+---
+
+### 1. Using `EmptyDir`
+
+An **EmptyDir** Volume is created when the Pod starts and is deleted when the Pod stops. It’s useful for temporary storage shared between containers in a Pod.
+
+#### Example: Pod with `EmptyDir`
+
+Create a file named `emptydir-pod.yaml`: [File Link](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20010-Volumes-Persistent%20Storage%20for%20Pods/YAMLs/emptydir-pod.yaml)
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: temp-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: temp-storage
+    emptyDir: {}
+```
+
+Apply the Pod configuration:
+
+```bash
+kubectl apply -f emptydir-pod.yaml
+```
+
+#### Verify the Volume
+
+1. Access the container:
+   ```bash
+   kubectl exec -it emptydir-pod -- /bin/sh
+   ```
+2. Check the contents of `/usr/share/nginx/html`. Any files created here will persist for the duration of the Pod’s lifecycle.
+
+---
