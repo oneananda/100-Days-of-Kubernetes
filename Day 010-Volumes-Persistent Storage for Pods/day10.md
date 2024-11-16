@@ -218,3 +218,35 @@ kubectl get pvc
 ```
 
 ---
+
+### Hands-On Practice
+
+1. **Create and Use EmptyDir**: Use `EmptyDir` for temporary storage shared between containers.
+2. **Create and Use HostPath**: Use `HostPath` to access storage on the host Node.
+3. **Use Persistent Volumes and Claims**: Set up a PersistentVolume and PersistentVolumeClaim and use them in a Pod.
+4. **Verify Persistence**: Test data persistence across Pod restarts.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day10.md` file, record:
+- Commands and YAML configurations used to create and use Volumes.
+- Observations about how different Volume types behave.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 10
+
+By the end of Day 10, you should:
+1. Understand the purpose and types of Volumes in Kubernetes.
+2. Know how to configure and use Volumes like EmptyDir, HostPath, and PersistentVolumes.
+3. Be able to manage persistent storage for applications running in Kubernetes.
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Volumes](https://kubernetes.io/docs/concepts/storage/volumes/)
+- [Kubernetes Documentation: Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+
+---
