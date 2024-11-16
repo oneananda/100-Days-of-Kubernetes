@@ -71,3 +71,43 @@ kubectl apply -f emptydir-pod.yaml
 2. Check the contents of `/usr/share/nginx/html`. Any files created here will persist for the duration of the Pod’s lifecycle.
 
 ---
+
+### 2. Using `HostPath`
+
+A **HostPath** Volume mounts a directory from the host Node into the Pod. It’s useful for applications requiring direct access to host storage.
+
+#### Example: Pod with `HostPath`
+
+Create a file named `hostpath-pod.yaml`:[File Link](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20010-Volumes-Persistent%20Storage%20for%20Pods/YAMLs/hostpath-pod.yaml)
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sh", "-c", "echo Hello Kubernetes > /data/hello.txt && sleep 3600"]
+    volumeMounts:
+    - name: host-storage
+      mountPath: /data
+  volumes:
+  - name: host-storage
+    hostPath:
+      path: /tmp/hostpath-demo
+      type: DirectoryOrCreate
+```
+
+Apply the Pod configuration:
+
+```bash
+kubectl apply -f hostpath-pod.yaml
+```
+
+#### Verify the Volume
+
+Check the host Node’s `/tmp/hostpath-demo` directory to confirm the data is written there.
+
+---
