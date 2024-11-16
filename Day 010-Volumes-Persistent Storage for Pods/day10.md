@@ -111,3 +111,96 @@ kubectl apply -f hostpath-pod.yaml
 Check the host Node’s `/tmp/hostpath-demo` directory to confirm the data is written there.
 
 ---
+
+### 3. Using Persistent Volumes (PV) and Persistent Volume Claims (PVC)
+
+**PersistentVolumes** (PVs) provide a way to use external storage that persists beyond Pod lifecycles. **PersistentVolumeClaims** (PVCs) are requests by Pods for storage resources.
+
+#### Step 1: Create a PersistentVolume
+
+Create a file named `persistent-volume.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-demo
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /tmp/pv-demo
+```
+
+Apply the PersistentVolume:
+
+```bash
+kubectl apply -f persistent-volume.yaml
+```
+
+#### Step 2: Create a PersistentVolumeClaim
+
+Create a file named `persistent-volume-claim.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-demo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+```
+
+Apply the PersistentVolumeClaim:
+
+```bash
+kubectl apply -f persistent-volume-claim.yaml
+```
+
+#### Step 3: Use the PVC in a Pod
+
+Create a file named `pvc-pod.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: pvc-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: pvc-storage
+    persistentVolumeClaim:
+      claimName: pvc-demo
+```
+
+Apply the Pod configuration:
+
+```bash
+kubectl apply -f pvc-pod.yaml
+```
+
+#### Verify the PVC and Data Persistence
+
+1. Access the Pod:
+   ```bash
+   kubectl exec -it pvc-pod -- /bin/sh
+   ```
+2. Create a file in `/usr/share/nginx/html`:
+   ```bash
+   echo "Hello from PVC" > /usr/share/nginx/html/index.html
+   ```
+3. Delete and recreate the Pod. The data in the PersistentVolume will still be available.
+
+---
