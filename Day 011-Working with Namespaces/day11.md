@@ -15,3 +15,12 @@
 - Resources like Pods, Services, and Deployments can be assigned to specific Namespaces, and their scope is limited to that Namespace.
 
 ---
+
+### Key Features of Namespaces
+
+1. **Resource Isolation**: Separate resources for different environments or teams.
+2. **Resource Quotas**: Limit the resources (CPU, memory, etc.) used by a Namespace.
+3. **Access Control**: Restrict access to resources within a Namespace using RBAC (Role-Based Access Control).
+4. **Default Namespace**: If no Namespace is specified, resources are created in the `default` Namespace.
+
+---
