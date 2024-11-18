@@ -124,4 +124,39 @@ kubectl annotate namespace dev purpose=development
 
 ---
 
+### 5. Using Resource Quotas with Namespaces
+
+Resource quotas limit the amount of CPU, memory, or other resources that a Namespace can use.
+
+#### Create a Resource Quota
+
+Create a file named `resource-quota.yaml`:
+
+```yaml
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: dev
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+```
+
+Apply the resource quota:
+```bash
+kubectl apply -f resource-quota.yaml
+```
+
+#### Verify the Quota
+```bash
+kubectl get resourcequota -n dev
+```
+
+---
+
+
 
