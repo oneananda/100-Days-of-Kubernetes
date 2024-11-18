@@ -52,3 +52,34 @@ kubectl get pods -n kube-system
 ```
 
 ---
+
+
+### 2. Creating a New Namespace
+
+#### Create a Namespace Using `kubectl`
+```bash
+kubectl create namespace dev
+```
+
+#### Create a Namespace Using a YAML File
+
+Create a file named `dev-namespace.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+```
+
+Apply the file:
+```bash
+kubectl apply -f dev-namespace.yaml
+```
+
+#### Verify the Namespace
+```bash
+kubectl get namespaces
+```
+
+---
