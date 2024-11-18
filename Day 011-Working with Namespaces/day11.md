@@ -107,3 +107,21 @@ kubectl config set-context --current --namespace=dev
 ```
 
 ---
+
+### 4. Managing Namespaces
+
+#### Delete a Namespace
+Deleting a Namespace removes all resources within it:
+```bash
+kubectl delete namespace dev
+```
+
+#### Annotate a Namespace
+You can add metadata to a Namespace using annotations:
+```bash
+kubectl annotate namespace dev purpose=development
+```
+
+---
+
+
