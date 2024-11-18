@@ -69,3 +69,39 @@ kubectl get pods -o wide
 
 ---
 
+
+### 2. Pod Anti-Affinity Example
+
+#### Use Case: Ensuring Pods labeled `app: backend` are not scheduled on the same node.
+
+Create a YAML file named `pod-anti-affinity.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-anti-affinity
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app: backend
+          topologyKey: "kubernetes.io/hostname"
+  containers:
+    - name: nginx
+      image: nginx
+```
+
+#### Apply the configuration:
+```bash
+kubectl apply -f pod-anti-affinity.yaml
+```
+
+#### Verify Pod Placement:
+```bash
+kubectl get pods -o wide
+```
+
+---
