@@ -33,4 +33,39 @@ Let’s explore how to implement Pod Affinity and Anti-Affinity.
 
 ---
 
+### 1. Pod Affinity Example
+
+#### Use Case: Scheduling a Pod on the same node as another Pod labeled `app: frontend`.
+
+Create a YAML file named `pod-affinity.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-affinity
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app: frontend
+          topologyKey: "kubernetes.io/hostname"
+  containers:
+    - name: nginx
+      image: nginx
+```
+
+#### Apply the configuration:
+```bash
+kubectl apply -f pod-affinity.yaml
+```
+
+#### Verify Pod Placement:
+```bash
+kubectl get pods -o wide
+```
+
+---
 
