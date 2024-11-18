@@ -83,3 +83,27 @@ kubectl get namespaces
 ```
 
 ---
+
+
+### 3. Using a Namespace for Resources
+
+By default, resources are created in the `default` Namespace. You can specify a Namespace explicitly.
+
+#### Create a Deployment in a Specific Namespace
+Use the `-n` flag to specify the Namespace:
+```bash
+kubectl create deployment nginx --image=nginx -n dev
+```
+
+#### List Resources in a Namespace
+```bash
+kubectl get all -n dev
+```
+
+#### Set a Default Namespace for `kubectl`
+To avoid typing `-n <namespace>` repeatedly, set a default Namespace for your `kubectl` context:
+```bash
+kubectl config set-context --current --namespace=dev
+```
+
+---
