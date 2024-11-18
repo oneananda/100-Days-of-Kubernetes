@@ -105,3 +105,29 @@ kubectl get pods -o wide
 ```
 
 ---
+
+
+### 3. Combining Affinity and Anti-Affinity
+
+You can use both Affinity and Anti-Affinity to fine-tune Pod placement. For example:
+
+```yaml
+affinity:
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: frontend
+          topologyKey: "kubernetes.io/hostname"
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: backend
+        topologyKey: "kubernetes.io/hostname"
+```
+
+---
+
