@@ -24,3 +24,31 @@
 4. **Default Namespace**: If no Namespace is specified, resources are created in the `default` Namespace.
 
 ---
+
+### Hands-On with Namespaces
+
+Let’s explore creating, listing, and managing Namespaces and their resources.
+
+---
+
+### 1. Viewing and Using Default Namespaces
+
+Every Kubernetes cluster includes these default Namespaces:
+
+- `default`: The default Namespace for resources when no Namespace is specified.
+- `kube-system`: Contains system components like the API server, scheduler, and DNS.
+- `kube-public`: Readable by all users, often used for public information.
+- `kube-node-lease`: Manages node leases for node heartbeat tracking.
+
+#### List All Namespaces
+```bash
+kubectl get namespaces
+```
+
+#### View Resources in a Namespace
+To list resources (e.g., Pods) in a specific Namespace:
+```bash
+kubectl get pods -n kube-system
+```
+
+---
