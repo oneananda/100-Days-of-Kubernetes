@@ -159,4 +159,93 @@ kubectl get resourcequota -n dev
 ---
 
 
+### 6. Access Control with Namespaces
+
+You can use Role-Based Access Control (RBAC) to restrict access to specific Namespaces. For example, create a Role and RoleBinding to allow a user to manage resources in the `dev` Namespace.
+
+To implement **Access Control with Namespaces** in Kubernetes using Role-Based Access Control (RBAC), follow these steps:
+
+
+### **Step 1: Create a Namespace**
+Ensure the Namespace (`dev` in this case) exists.
+
+```bash
+kubectl create namespace dev
+```
+
+
+### **Step 2: Define a Role**
+A Role is used to grant permissions for specific resources within a Namespace. Create a YAML file named `dev-role.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev
+  name: dev-role
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["create", "get", "list", "update", "delete"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["create", "get", "list", "update", "delete"]
+```
+
+Apply the Role:
+
+```bash
+kubectl apply -f dev-role.yaml
+```
+
+
+### **Step 3: Create a RoleBinding**
+A RoleBinding associates a Role with a specific user, group, or service account. Create a YAML file named `dev-rolebinding.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev-rolebinding
+  namespace: dev
+subjects:
+  - kind: User
+    name: your-username # Replace with the actual username
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: dev-role
+  apiGroup: rbac.authorization.k8s.io
+```
+
+Apply the RoleBinding:
+
+```bash
+kubectl apply -f dev-rolebinding.yaml
+```
+
+
+### **Step 4: Verify Access**
+To test the access restrictions:
+
+1. Authenticate as the specified user (`your-username`).
+2. Try accessing resources in the `dev` Namespace.
+
+Example command for listing pods:
+
+```bash
+kubectl get pods -n dev
+```
+
+If configured correctly, the user will have access to the specified resources in the `dev` Namespace but not in other Namespaces.
+
+
+### **Notes:**
+- Replace `your-username` with the user or group you want to grant access to.
+- Use `ClusterRole` and `ClusterRoleBinding` if permissions span across all Namespaces.
+- For authentication, Kubernetes may require an external identity provider (e.g., certificates, IAM).
+
+---
+
+
 
