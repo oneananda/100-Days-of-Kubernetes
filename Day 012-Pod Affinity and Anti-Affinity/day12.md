@@ -131,3 +131,28 @@ affinity:
 
 ---
 
+
+### 📝 Document Your Progress
+
+In your `day12.md` file, record:
+- Configurations for Pod Affinity and Anti-Affinity.
+- Commands used for applying and verifying configurations.
+- Observations on how Pods are placed and any challenges faced.
+
+---
+
+### 🎯 Outcome for Day 12
+
+By the end of Day 12, you should:
+1. Understand how to use Pod Affinity and Anti-Affinity for advanced scheduling.
+2. Be able to write YAML configurations to control Pod placement.
+3. Appreciate how these features improve performance and fault tolerance.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Pod Affinity and Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+- [Topology Aware Scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-aware-scheduling/)
+
+--- 
