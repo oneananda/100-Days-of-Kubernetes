@@ -247,5 +247,37 @@ If configured correctly, the user will have access to the specified resources in
 
 ---
 
+### Hands-On Practice
 
+1. **Create Namespaces**: Create a `dev` and `prod` Namespace using `kubectl` and YAML.
+2. **Deploy Resources**: Create resources in each Namespace and verify their isolation.
+3. **Set Resource Quotas**: Apply a Resource Quota to limit resource usage in the `dev` Namespace.
+4. **Test Access**: Use `kubectl` to switch between Namespaces and observe resource segregation.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day11.md` file, record:
+- Commands and YAML configurations used to create and manage Namespaces.
+- Observations about how resources are organized and isolated.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 11
+
+By the end of Day 11, you should:
+1. Understand the purpose and functionality of Namespaces in Kubernetes.
+2. Know how to create and manage Namespaces and their resources.
+3. Be able to apply resource quotas and manage resource isolation effectively.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+- [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+
+---
 
