@@ -25,6 +25,15 @@ A **Pod** is the smallest and simplest Kubernetes object. It encapsulates one or
 
 ---
 
+### **Key Relationships of Pods and Nodes**
+- **Nodes host Pods**: Every Pod runs on a specific Node.
+- **Control Plane schedules Pods**: The Scheduler assigns Pods to Nodes based on available resources and scheduling rules.
+- **Pods are ephemeral**: If a Node fails, Pods are rescheduled to other Nodes if the deployment has replication or failover settings.
+
+---
+
+
+
 ### Hierarchy Diagram of Pods and Nodes
 
 Kubernetes Cluster
