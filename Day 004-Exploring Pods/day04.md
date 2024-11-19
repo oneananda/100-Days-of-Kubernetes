@@ -32,7 +32,12 @@ A **Pod** is the smallest and simplest Kubernetes object. It encapsulates one or
 
 ---
 
+### **Summary of Pods and Nodes**
+- A **Node** is a machine (physical/virtual) in the cluster.
+- A **Pod** is the smallest deployable unit and runs on a Node.
+- The **Control Plane** manages the assignment of Pods to Nodes, ensuring optimal resource usage and availability.
 
+---
 
 ### Hierarchy Diagram of Pods and Nodes
 
