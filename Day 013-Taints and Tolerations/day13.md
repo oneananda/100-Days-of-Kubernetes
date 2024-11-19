@@ -160,3 +160,29 @@ tolerations:
 This configuration allows the Pod to remain on the node for 600 seconds after the taint is applied.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day13.md` file, record:
+- Commands and YAML configurations used for taints and tolerations.
+- Observations about how Pods are scheduled or evicted based on taints.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 13
+
+By the end of Day 13, you should:
+1. Understand how taints and tolerations control Pod scheduling.
+2. Be able to configure taints on nodes and tolerations in Pod specifications.
+3. Use `NoSchedule`, `PreferNoSchedule`, and `NoExecute` effects effectively.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+- [Node Affinity and Taints](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
+
+---
