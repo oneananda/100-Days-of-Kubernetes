@@ -8,6 +8,22 @@
 
 ---
 
+### What are Taints and Tolerations?
+
+1. **Taints**:  
+   - Applied to nodes to prevent Pods from being scheduled unless they tolerate the taint.
+   - Format: `key=value:effect`
+   - **Effects**:
+     - `NoSchedule`: Prevents scheduling of Pods without tolerations.
+     - `PreferNoSchedule`: Avoids scheduling Pods if possible.
+     - `NoExecute`: Evicts Pods that don’t tolerate the taint.
+
+2. **Tolerations**:  
+   - Added to Pods to allow them to be scheduled on tainted nodes.
+   - Format: Defined in the Pod’s YAML to match the taint’s key, value, and effect.
+
+---
+
 ### **Taints and Tolerations Made Simple**
 
 - **Taint**: A **rule** on a Node that says,  
@@ -36,3 +52,12 @@
 - **PreferNoSchedule**: Kubernetes tries to avoid scheduling Pods here, but may allow it if necessary.
 - **NoExecute**: Pods without the pass will be **evicted** from the Node and can't enter again.
 
+---
+
+### Taints and Tolerations - Key Features
+
+1. **Node Protection**: Reserve nodes for specific workloads or environments.
+2. **Fault Tolerance**: Evict Pods if a node becomes unsuitable.
+3. **Workload Segregation**: Ensure certain types of workloads only run on specific nodes.
+
+---
