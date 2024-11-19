@@ -136,3 +136,27 @@ kubectl taint nodes node1 environment=production:NoSchedule-
 ```
 
 ---
+
+
+### 4. Taints with `NoExecute` Effect
+
+The `NoExecute` effect evicts existing Pods that do not tolerate the taint.
+
+#### Add a Taint with `NoExecute`:
+```bash
+kubectl taint nodes <node-name> key=value:NoExecute
+```
+
+#### Example Pod with Toleration for `NoExecute`:
+```yaml
+tolerations:
+  - key: "environment"
+    operator: "Equal"
+    value: "production"
+    effect: "NoExecute"
+    tolerationSeconds: 600
+```
+
+This configuration allows the Pod to remain on the node for 600 seconds after the taint is applied.
+
+---
