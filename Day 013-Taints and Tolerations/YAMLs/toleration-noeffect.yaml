@@ -1,0 +1,6 @@
+tolerations:
+  - key: "environment"
+    operator: "Equal"
+    value: "production"
+    effect: "NoExecute"
+    tolerationSeconds: 600
