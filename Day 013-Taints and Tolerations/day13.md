@@ -62,7 +62,6 @@
 
 ---
 
-
 ### Hands-On with Taints and Tolerations
 
 Let’s explore applying taints to nodes and configuring Pods with tolerations.
@@ -84,6 +83,40 @@ kubectl taint nodes node1 environment=production:NoSchedule
 #### Verify the Taint
 ```bash
 kubectl describe node <node-name>
+```
+
+---
+
+### 2. Scheduling Pods with Tolerations
+
+#### Create a Pod with a Matching Toleration
+
+Create a YAML file named `toleration-pod.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toleration-pod
+spec:
+  tolerations:
+    - key: "environment"
+      operator: "Equal"
+      value: "production"
+      effect: "NoSchedule"
+  containers:
+    - name: nginx
+      image: nginx
+```
+
+#### Apply the Pod Configuration:
+```bash
+kubectl apply -f toleration-pod.yaml
+```
+
+#### Verify Pod Scheduling:
+```bash
+kubectl get pods -o wide
 ```
 
 ---
