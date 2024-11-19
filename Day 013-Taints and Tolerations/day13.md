@@ -120,3 +120,19 @@ kubectl get pods -o wide
 ```
 
 ---
+
+### 3. Removing a Taint from a Node
+
+If you no longer need the taint, you can remove it.
+
+#### Remove a Taint:
+```bash
+kubectl taint nodes <node-name> key=value:NoSchedule-
+```
+
+Example:
+```bash
+kubectl taint nodes node1 environment=production:NoSchedule-
+```
+
+---
