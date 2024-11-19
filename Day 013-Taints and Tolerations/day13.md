@@ -61,3 +61,29 @@
 3. **Workload Segregation**: Ensure certain types of workloads only run on specific nodes.
 
 ---
+
+
+### Hands-On with Taints and Tolerations
+
+Let’s explore applying taints to nodes and configuring Pods with tolerations.
+
+---
+
+### 1. Adding a Taint to a Node
+
+#### Add a Taint
+```bash
+kubectl taint nodes <node-name> key=value:NoSchedule
+```
+
+Example:
+```bash
+kubectl taint nodes node1 environment=production:NoSchedule
+```
+
+#### Verify the Taint
+```bash
+kubectl describe node <node-name>
+```
+
+---
