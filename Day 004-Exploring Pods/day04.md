@@ -25,6 +25,26 @@ A **Pod** is the smallest and simplest Kubernetes object. It encapsulates one or
 
 ---
 
+### Hierarchy Diagram of Pods and Nodes
+
+Kubernetes Cluster
+  ├── Control Plane
+  │     ├── Scheduler
+  │     ├── API Server
+  │     ├── etcd
+  │     └── Controller Manager
+  └── Nodes (Worker Nodes)
+        ├── Node 1
+        │     ├── Pod A (Container 1, Container 2)
+        │     └── Pod B (Container 3)
+        ├── Node 2
+        │     ├── Pod C (Container 4)
+        │     └── Pod D (Container 5, Container 6)
+        └── Node 3
+              └── Pod E (Container 7)
+
+---
+
 ### Pods - Use cases
 
 #### **Microservices Applications**
