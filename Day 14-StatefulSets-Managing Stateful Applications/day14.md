@@ -28,3 +28,62 @@ While **Deployments** and **ReplicaSets** are excellent for stateless applicatio
    - Distributed systems like Kafka, Zookeeper.
 
 ---
+
+
+### Hands-On with StatefulSets
+
+Let’s create and manage a StatefulSet for a stateful application.
+
+---
+
+### 1. Creating a StatefulSet
+
+#### Example: Deploying a StatefulSet for a Stateful Application
+
+Create a YAML file named `statefulset.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  serviceName: "web-service"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - name: web-storage
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: web-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+```
+
+#### Apply the Configuration:
+```bash
+kubectl apply -f statefulset.yaml
+```
+
+#### Verify the StatefulSet:
+```bash
+kubectl get statefulsets
+kubectl get pods -l app=web
+```
+
+---
+
