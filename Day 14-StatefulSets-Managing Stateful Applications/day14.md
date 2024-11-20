@@ -87,3 +87,30 @@ kubectl get pods -l app=web
 
 ---
 
+
+### 2. Creating a Headless Service
+
+StatefulSets often require a **headless service** for stable network identities.
+
+Create a YAML file named `headless-service.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  clusterIP: None
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+```
+
+#### Apply the Service:
+```bash
+kubectl apply -f headless-service.yaml
+```
+
+---
