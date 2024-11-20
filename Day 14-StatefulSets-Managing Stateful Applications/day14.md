@@ -169,3 +169,28 @@ kubectl get pvc
 PVCs remain to preserve the data.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day14.md` file, record:
+- Commands and YAML configurations for StatefulSets and Headless Services.
+- Observations about Pod stability and behavior.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 14
+
+By the end of Day 14, you should:
+1. Understand the purpose and functionality of StatefulSets in Kubernetes.
+2. Know how to create StatefulSets with stable identities and persistent storage.
+3. Be able to scale, manage, and troubleshoot StatefulSets.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+- [Kubernetes: Headless Services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+
+---
