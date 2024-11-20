@@ -114,3 +114,23 @@ kubectl apply -f headless-service.yaml
 ```
 
 ---
+
+
+### 3. Accessing StatefulSet Pods
+
+Each Pod in a StatefulSet has a predictable DNS name:
+
+```
+<statefulset-name>-<ordinal>.<service-name>
+```
+
+For example:
+- `web-0.web-service`
+- `web-1.web-service`
+
+#### Test Connectivity Between Pods:
+```bash
+kubectl exec web-0 -- ping web-1.web-service
+```
+
+---
