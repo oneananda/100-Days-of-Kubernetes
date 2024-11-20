@@ -134,3 +134,20 @@ kubectl exec web-0 -- ping web-1.web-service
 ```
 
 ---
+
+### 4. Scaling StatefulSets
+
+#### Scale the StatefulSet to Add Pods:
+```bash
+kubectl scale statefulset web --replicas=5
+```
+
+#### Verify the New Pods:
+```bash
+kubectl get pods -l app=web
+```
+
+#### Observe Order:
+Check the order in which Pods are added (`web-3`, `web-4`).
+
+---
