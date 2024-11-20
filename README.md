@@ -38,6 +38,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 8   | Understanding ConfigMaps for External Configuration | [Link to Day 8](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20008-Understanding%20ConfigMaps/day08.md) |
 | 9   | Secrets for Managing Sensitive Data | [Link to Day 9](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20009-Secrets%20for%20Managing%20Sensitive%20Data/day09.md) |
 | 10  | Exploring Volumes — Persistent Storage for Pods | [Link to Day 10](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20010-Volumes-Persistent%20Storage%20for%20Pods/day10.md) |
+| 11  | Working with Namespaces — Organizing and Isolating Cluster Resources | [Link to Day 11](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20011-Working%20with%20Namespaces/day11.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
