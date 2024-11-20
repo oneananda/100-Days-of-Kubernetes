@@ -151,3 +151,21 @@ kubectl get pods -l app=web
 Check the order in which Pods are added (`web-3`, `web-4`).
 
 ---
+
+### 5. Deleting a StatefulSet
+
+Deleting a StatefulSet does not delete its associated PersistentVolumeClaims (PVCs).
+
+#### Delete the StatefulSet:
+```bash
+kubectl delete statefulset web
+```
+
+#### Verify PVCs:
+```bash
+kubectl get pvc
+```
+
+PVCs remain to preserve the data.
+
+---
