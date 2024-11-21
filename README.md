@@ -41,7 +41,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 11  | Working with Namespaces — Organizing and Isolating Cluster Resources | [Link to Day 11](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20011-Working%20with%20Namespaces/day11.md) |
 | 12  | Pod Affinity and Anti-Affinity — Controlling Pod Placement | [Link to Day 12](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20012-Pod%20Affinity%20and%20Anti-Affinity/day12.md) |
 | 13  | Taints and Tolerations — Managing Pod Scheduling on Nodes | [Link to Day 13](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20013-Taints%20and%20Tolerations/day13.md) |
-| 14  | StatefulSets — Managing Stateful Applications in Kubernetes | [Link to Day 14](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2014-StatefulSets-Managing%20Stateful%20Applications/day14.md) |
+| 14  | StatefulSets — Managing Stateful Applications | [Link to Day 14](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2014-StatefulSets-Managing%20Stateful%20Applications/day14.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
