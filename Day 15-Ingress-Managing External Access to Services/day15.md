@@ -150,3 +150,49 @@ kubectl apply -f frontend-deployment.yaml
 ```
 
 ---
+
+
+### 4. Configuring Ingress
+
+#### Create an Ingress Resource:
+
+```yaml
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /backend
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
+          - path: /frontend
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+```
+
+#### Apply the Ingress Resource:
+```bash
+kubectl apply -f ingress.yaml
+```
+
+#### Verify the Ingress:
+```bash
+kubectl get ingress
+```
+
+---
