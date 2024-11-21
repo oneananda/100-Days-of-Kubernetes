@@ -157,7 +157,7 @@ kubectl apply -f frontend-deployment.yaml
 #### Create an Ingress Resource:
 
 ```yaml
-# ingress.yaml
+# apply-ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
