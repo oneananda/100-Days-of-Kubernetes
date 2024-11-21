@@ -47,3 +47,45 @@ kubectl get services -n ingress-nginx
 ```
 
 ---
+
+### 2. Creating Services for Ingress
+
+#### Create Two Services:
+
+```yaml
+# backend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
+---
+# frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
+```
+
+#### Apply the Services:
+```bash
+kubectl apply -f backend-service.yaml
+kubectl apply -f frontend-service.yaml
+```
+
+---
