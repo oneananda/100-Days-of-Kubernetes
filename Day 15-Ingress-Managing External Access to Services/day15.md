@@ -196,3 +196,20 @@ kubectl get ingress
 ```
 
 ---
+
+### 5. Testing the Ingress
+
+#### Add a Hostname to Your `/etc/hosts` File:
+
+```plaintext
+<EXTERNAL-IP> example.com
+```
+
+Replace `<EXTERNAL-IP>` with the external IP of the Ingress Controller.
+
+#### Access Services via Ingress:
+
+- Visit `http://example.com/backend` to access the backend service.
+- Visit `http://example.com/frontend` to access the frontend service.
+
+---
