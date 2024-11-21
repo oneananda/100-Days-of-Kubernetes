@@ -213,3 +213,4 @@ Replace `<EXTERNAL-IP>` with the external IP of the Ingress Controller.
 - Visit `http://example.com/frontend` to access the frontend service.
 
 ---
+
