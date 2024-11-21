@@ -89,3 +89,64 @@ kubectl apply -f frontend-service.yaml
 ```
 
 ---
+
+
+### 3. Deploying Applications for Services
+
+#### Deploy Backend and Frontend Pods:
+
+```yaml
+# backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: hashicorp/http-echo
+          args:
+            - "-text=Hello from Backend"
+          ports:
+            - containerPort: 8080
+---
+# frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: hashicorp/http-echo
+          args:
+            - "-text=Hello from Frontend"
+          ports:
+            - containerPort: 8080
+```
+
+#### Apply the Deployments:
+```bash
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
+```
+
+---
