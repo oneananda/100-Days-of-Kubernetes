@@ -214,3 +214,28 @@ Replace `<EXTERNAL-IP>` with the external IP of the Ingress Controller.
 
 ---
 
+### 📝 Document Your Progress
+
+In your `day15.md` file, record:
+- Commands and configurations for setting up Ingress.
+- Observations about traffic routing.
+- Notes on any challenges encountered or insights gained.
+
+---
+
+### 🎯 Outcome for Day 15
+
+By the end of Day 15, you should:
+1. Understand how Ingress works and its purpose in Kubernetes.
+2. Be able to configure path-based and host-based routing using Ingress.
+3. Set up and verify an Ingress Controller in your cluster.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+
+---
