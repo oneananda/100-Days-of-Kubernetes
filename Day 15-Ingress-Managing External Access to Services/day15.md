@@ -24,3 +24,26 @@
 4. **Centralized Management**: Manage access to multiple services using a single resource.
 
 ---
+
+
+### Hands-On with Ingress
+
+Let’s create and configure Ingress to expose services externally.
+
+---
+
+### 1. Setting Up an Ingress Controller
+
+#### Deploy an NGINX Ingress Controller (Commonly Used):
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+```
+
+#### Verify the Ingress Controller:
+```bash
+kubectl get pods -n ingress-nginx
+kubectl get services -n ingress-nginx
+```
+
+---
