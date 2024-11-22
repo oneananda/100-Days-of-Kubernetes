@@ -139,3 +139,16 @@ kubectl get hpa -w
 Observe the number of Pods increasing as the CPU utilization rises above the target.
 
 ---
+
+
+### 5. Cleaning Up
+
+After testing, clean up the resources:
+
+```bash
+kubectl delete -f nginx-hpa.yaml
+kubectl delete -f hpa-nginx-deployment.yaml
+kubectl delete pod load-generator
+```
+
+---
