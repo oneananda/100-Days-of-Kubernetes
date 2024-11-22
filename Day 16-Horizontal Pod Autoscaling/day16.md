@@ -152,3 +152,29 @@ kubectl delete pod load-generator
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day16.md` file, record:
+- YAML configurations for HPA and the NGINX deployment.
+- Observations on how the HPA adjusted the number of Pods in response to load.
+- Challenges or insights encountered while configuring autoscaling.
+
+---
+
+### 🎯 Outcome for Day 16
+
+By the end of Day 16, you should:
+1. Understand the basics of Horizontal Pod Autoscaling and its role in maintaining application performance.
+2. Be able to deploy an HPA and observe scaling behavior in response to workload changes.
+3. Gain experience in stress testing a Kubernetes application to see how HPA reacts.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+- [Metrics Server Overview](https://github.com/kubernetes-sigs/metrics-server)
+
+--- 
