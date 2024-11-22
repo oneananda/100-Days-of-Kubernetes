@@ -115,3 +115,27 @@ kubectl get hpa
 ```
 
 ---
+
+### 4. Stress Testing the Application
+
+To trigger scaling, generate CPU load. Use a load generator or run a stress test:
+
+#### Deploy a Stress Pod:
+```bash
+kubectl run -i --tty load-generator --image=busybox /bin/sh
+```
+
+In the shell, use a loop to generate continuous requests to the NGINX service:
+
+```sh
+while true; do wget -q -O- http://nginx-deployment; done
+```
+
+#### Monitor Scaling:
+```bash
+kubectl get hpa -w
+```
+
+Observe the number of Pods increasing as the CPU utilization rises above the target.
+
+---
