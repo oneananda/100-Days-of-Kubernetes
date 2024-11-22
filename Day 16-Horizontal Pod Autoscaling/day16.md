@@ -38,7 +38,7 @@ kubectl get deployment metrics-server -n kube-system
 
 ### 2. Deploying a Sample Application
 
-Create a deployment using an NGINX container. Create a file named `nginx-deployment.yaml`:
+Create a deployment using an NGINX container. Create a file named `hpa-nginx-deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1
@@ -79,3 +79,39 @@ kubectl get deployments
 
 ---
 
+### 3. Configuring Horizontal Pod Autoscaling
+
+Create an HPA resource that scales based on CPU utilization. Create a file named `nginx-hpa.yaml`:
+
+```yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+```
+
+#### Apply the HPA Configuration:
+```bash
+kubectl apply -f nginx-hpa.yaml
+```
+
+#### Verify the HPA:
+```bash
+kubectl get hpa
+```
+
+---
