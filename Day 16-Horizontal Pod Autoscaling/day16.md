@@ -35,3 +35,47 @@ kubectl get deployment metrics-server -n kube-system
 ```
 
 ---
+
+### 2. Deploying a Sample Application
+
+Create a deployment using an NGINX container. Create a file named `nginx-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+```
+
+#### Apply the Deployment:
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+
+#### Verify the Deployment:
+```bash
+kubectl get deployments
+```
+
+---
+
