@@ -140,7 +140,6 @@ Observe the number of Pods increasing as the CPU utilization rises above the tar
 
 ---
 
-
 ### 5. Cleaning Up
 
 After testing, clean up the resources:
@@ -152,7 +151,6 @@ kubectl delete pod load-generator
 ```
 
 ---
-
 
 ### 📝 Document Your Progress
 
