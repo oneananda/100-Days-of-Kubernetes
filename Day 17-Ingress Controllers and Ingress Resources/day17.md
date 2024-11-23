@@ -190,3 +190,16 @@ Once you have the external IP address, you can test the routing:
 - Visit `http://<EXTERNAL_IP>/service2` to be routed to `service2`.
 
 ---
+
+### 5. Cleaning Up
+
+Clean up the resources after testing:
+
+```bash
+kubectl delete -f ingress.yaml
+kubectl delete -f service1.yaml
+kubectl delete -f service2.yaml
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+```
+
+---
