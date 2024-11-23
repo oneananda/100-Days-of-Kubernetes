@@ -131,3 +131,47 @@ kubectl get services
 ```
 
 ---
+
+
+### 3. Creating an Ingress Resource
+
+Create an Ingress resource to route requests to either `service1` or `service2` based on the request path. Create a file named `ingress.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /service1
+            pathType: Prefix
+            backend:
+              service:
+                name: service1
+                port:
+                  number: 80
+          - path: /service2
+            pathType: Prefix
+            backend:
+              service:
+                name: service2
+                port:
+                  number: 80
+```
+
+#### Apply the Ingress Configuration:
+```bash
+kubectl apply -f ingress.yaml
+```
+
+#### Verify the Ingress:
+```bash
+kubectl get ingress
+```
+
+---
