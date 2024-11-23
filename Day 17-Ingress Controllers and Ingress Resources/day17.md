@@ -203,3 +203,29 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/mai
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day17.md` file, record:
+- The YAML configurations for services and Ingress resources.
+- Observations about how the Ingress resource routes requests.
+- Challenges or insights while deploying and testing Ingress.
+
+---
+
+### 🎯 Outcome for Day 17
+
+By the end of Day 17, you should:
+1. Understand how Ingress works and how it differs from standard Services.
+2. Be able to deploy an NGINX Ingress Controller and configure routing for multiple services.
+3. Gain practical experience in using Ingress for managing HTTP traffic in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+
+--- 
