@@ -175,3 +175,18 @@ kubectl get ingress
 ```
 
 ---
+
+### 4. Testing the Ingress
+
+Retrieve the external IP of the Ingress controller:
+
+```bash
+kubectl get svc -n ingress-nginx
+```
+
+Once you have the external IP address, you can test the routing:
+
+- Visit `http://<EXTERNAL_IP>/service1` to be routed to `service1`.
+- Visit `http://<EXTERNAL_IP>/service2` to be routed to `service2`.
+
+---
