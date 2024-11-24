@@ -171,3 +171,29 @@ kubectl auth can-i delete nodes --as=john
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day18.md` file, record:
+- The YAML configurations for Roles, ClusterRoles, RoleBindings, and ClusterRoleBindings.
+- Observations regarding how permissions affect user actions.
+- Challenges or insights related to managing access and security using RBAC.
+
+---
+
+### 🎯 Outcome for Day 18
+
+By the end of Day 18, you should:
+1. Understand the role of RBAC in securing Kubernetes clusters.
+2. Be able to create and manage Roles, ClusterRoles, RoleBindings, and ClusterRoleBindings.
+3. Know how to test permissions and troubleshoot access issues using Kubernetes impersonation.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Role-Based Access Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [Kubernetes RBAC Best Practices](https://kubernetes.io/docs/concepts/security/rbac-good-practices/)
+
+---
