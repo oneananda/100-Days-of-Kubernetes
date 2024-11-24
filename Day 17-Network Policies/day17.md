@@ -152,3 +152,40 @@ kubectl get networkpolicy
 ```
 
 ---
+
+
+
+### 3. Testing Network Connectivity
+
+Use a busybox Pod to test connectivity between `app1` and `app2`:
+
+#### Deploy a Busybox Pod:
+
+```bash
+kubectl run -it --rm busybox --image=busybox --restart=Never /bin/sh
+```
+
+In the Busybox shell, test connectivity to `app1` and `app2`:
+
+- **From App2 to App1**:
+  ```sh
+  wget --spider --timeout=1 app1-service
+  ```
+
+  This should **succeed** as `app2` has access to `app1`.
+
+- **From Busybox to App1**:
+  ```sh
+  wget --spider --timeout=1 app1-service
+  ```
+
+  This should **fail** as there is no policy allowing `busybox` to access `app1`.
+
+- **From Busybox to App2**:
+  ```sh
+  wget --spider --timeout=1 app2-service
+  ```
+
+  This should **succeed** as there are no network policies restricting access to `app2`.
+
+---
