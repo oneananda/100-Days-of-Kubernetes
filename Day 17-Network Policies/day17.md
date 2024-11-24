@@ -223,16 +223,16 @@ spec:
 
 ### 📝 Document Your Progress
 
-In your `day18.md` file, record:
+In your `day17.md` file, record:
 - YAML configurations for Network Policies and test results for connectivity.
 - Observations regarding how the policy affects the flow of traffic between Pods.
 - Any challenges or insights regarding creating and testing network policies.
 
 ---
 
-### 🎯 Outcome for Day 18
+### 🎯 Outcome for Day 17
 
-By the end of Day 18, you should:
+By the end of Day 17, you should:
 1. Understand what Network Policies are and their role in managing cluster security.
 2. Be able to create and apply Network Policies to control the flow of traffic between Pods.
 3. Gain experience in testing Pod connectivity to verify Network Policy behavior.
