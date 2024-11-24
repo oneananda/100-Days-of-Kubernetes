@@ -122,3 +122,35 @@ kubectl get clusterrole node-manager -o yaml
 ```
 
 ---
+
+
+### 4. Creating a ClusterRoleBinding
+
+Create a **ClusterRoleBinding** to bind the `node-manager` role to a user. Create a file named `node-manager-binding.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: node-manager-binding
+subjects:
+- kind: User
+  name: john
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: node-manager
+  apiGroup: rbac.authorization.k8s.io
+```
+
+#### Apply the ClusterRoleBinding:
+```bash
+kubectl apply -f node-manager-binding.yaml
+```
+
+#### Verify the ClusterRoleBinding:
+```bash
+kubectl get clusterrolebinding node-manager-binding -o yaml
+```
+
+---
