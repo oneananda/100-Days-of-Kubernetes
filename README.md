@@ -14,6 +14,23 @@ Welcome to the **100 Days of Kubernetes** challenge! This repository is a journe
 
 Kubernetes has become the go-to platform for managing containerized applications at scale. This challenge is designed to deepen my understanding of Kubernetes, improve my practical skills, and build a repository of knowledge that others can use to kickstart their own Kubernetes journey.
 
+## Structure of this course?
+
+100 Days of Kubernetes Challenge
+|
+├── Theory
+│   ├── Basic
+│   └── Advanced
+|
+├── Practical Sessions
+│   ├── Basic Practical Sessions
+│   ├── Advanced Practical Sessions
+│   └── Real-World Implementations
+|
+├── Additional Resources
+│
+└── Practical Tools and Setup
+
 ## Challenge Goals
 
 1. **Understand Core Concepts**: Master the fundamentals of Kubernetes, including Pods, Deployments, Services, and ConfigMaps.
