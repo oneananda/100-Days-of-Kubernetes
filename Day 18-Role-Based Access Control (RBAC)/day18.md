@@ -62,3 +62,35 @@ kubectl get role pod-reader -n default -o yaml
 
 ---
 
+
+### 2. Creating a RoleBinding
+
+Bind the `pod-reader` role to a specific user or service account. Create a file named `read-pods-binding.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods-binding
+  namespace: default
+subjects:
+- kind: User
+  name: jane
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+```
+
+#### Apply the RoleBinding:
+```bash
+kubectl apply -f read-pods-binding.yaml
+```
+
+#### Verify the RoleBinding:
+```bash
+kubectl get rolebinding read-pods-binding -n default -o yaml
+```
+
+---
