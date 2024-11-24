@@ -94,3 +94,31 @@ kubectl get rolebinding read-pods-binding -n default -o yaml
 ```
 
 ---
+
+
+### 3. Creating a ClusterRole
+
+Create a **ClusterRole** to manage nodes across the cluster. Create a file named `node-manager-clusterrole.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: node-manager
+rules:
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get", "list", "watch", "delete"]
+```
+
+#### Apply the ClusterRole:
+```bash
+kubectl apply -f node-manager-clusterrole.yaml
+```
+
+#### Verify the ClusterRole:
+```bash
+kubectl get clusterrole node-manager -o yaml
+```
+
+---
