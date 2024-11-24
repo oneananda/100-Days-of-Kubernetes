@@ -59,6 +59,8 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 12  | Pod Affinity and Anti-Affinity — Controlling Pod Placement | [Link to Day 12](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20012-Pod%20Affinity%20and%20Anti-Affinity/day12.md) |
 | 13  | Taints and Tolerations — Managing Pod Scheduling on Nodes | [Link to Day 13](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20013-Taints%20and%20Tolerations/day13.md) |
 | 14  | StatefulSets — Managing Stateful Applications | [Link to Day 14](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2014-StatefulSets-Managing%20Stateful%20Applications/day14.md) |
+| 15  | Managing External Access to Services | [Link to Day 15](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2015-Ingress-Managing%20External%20Access%20to%20Services/day15.md) |
+| 16  | Horizontal Pod Autoscaling — Dynamic Scaling in Kubernetes | [Link to Day 16](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2016-Horizontal%20Pod%20Autoscaling/day16.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
