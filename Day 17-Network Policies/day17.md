@@ -189,3 +189,33 @@ In the Busybox shell, test connectivity to `app1` and `app2`:
   This should **succeed** as there are no network policies restricting access to `app2`.
 
 ---
+
+
+### 4. Expanding Network Policies
+
+You can expand network policies to also control **egress** (outgoing) traffic.
+
+Add egress rules to the network policy:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-app2-to-app1-egress
+spec:
+  podSelector:
+    matchLabels:
+      app: app1
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: app2
+      ports:
+        - protocol: TCP
+          port: 80
+```
+
+---
