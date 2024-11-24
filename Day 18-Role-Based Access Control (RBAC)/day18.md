@@ -154,3 +154,20 @@ kubectl get clusterrolebinding node-manager-binding -o yaml
 ```
 
 ---
+
+
+### 5. Testing Permissions
+
+Test the permissions granted by the roles:
+
+- **As `jane`**: Attempt to list pods in the `default` namespace.
+- **As `john`**: Attempt to list or delete nodes.
+
+You can use **Kubernetes impersonation** to test these permissions:
+
+```bash
+kubectl auth can-i list pods --namespace=default --as=jane
+kubectl auth can-i delete nodes --as=john
+```
+
+---
