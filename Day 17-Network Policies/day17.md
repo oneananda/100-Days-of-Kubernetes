@@ -114,3 +114,41 @@ kubectl get services
 ```
 
 ---
+
+
+### 2. Creating a Network Policy
+
+Create a network policy to allow `app2` to communicate with `app1`, while restricting other access.
+
+Create a file named `network-policy.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-app2-to-app1
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: app1
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: app2
+```
+
+#### Apply the Network Policy:
+```bash
+kubectl apply -f network-policy.yaml
+```
+
+#### Verify the Network Policy:
+```bash
+kubectl get networkpolicy
+```
+
+---
