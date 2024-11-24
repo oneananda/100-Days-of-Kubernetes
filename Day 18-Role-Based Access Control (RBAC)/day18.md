@@ -32,3 +32,33 @@
 In today’s session, we’ll create **Roles** and **RoleBindings** to manage permissions for specific users and service accounts.
 
 ---
+
+
+### 1. Creating a Role
+
+Create a role to allow reading Pods within a namespace. Create a file named `read-pods-role.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+```
+
+#### Apply the Role:
+```bash
+kubectl apply -f read-pods-role.yaml
+```
+
+#### Verify the Role:
+```bash
+kubectl get role pod-reader -n default -o yaml
+```
+
+---
+
