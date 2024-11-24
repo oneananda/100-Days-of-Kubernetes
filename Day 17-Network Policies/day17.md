@@ -8,3 +8,109 @@
 
 ---
 
+
+### Key Concepts
+
+1. **Namespace Scope**: Network policies are applied at the namespace level.
+2. **Label Selectors**: Network policies use label selectors to select the target Pods.
+3. **Ingress and Egress Rules**: Define allowed sources/destinations for inbound/outbound traffic.
+
+---
+
+### Hands-On with Network Policies
+
+Today, we’ll explore creating and applying network policies to control traffic between Pods within a Kubernetes cluster.
+
+---
+
+### 1. Deploying a Sample Application
+
+Deploy two applications, `app1` and `app2`, to test network communication.
+
+Create `app1.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  labels:
+    app: app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+        - name: app1
+          image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-service
+spec:
+  selector:
+    app: app1
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+Create `app2.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  labels:
+    app: app2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+        - name: app2
+          image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2-service
+spec:
+  selector:
+    app: app2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+#### Apply the Deployments and Services:
+```bash
+kubectl apply -f app1.yaml
+kubectl apply -f app2.yaml
+```
+
+#### Verify the Deployments:
+```bash
+kubectl get pods
+kubectl get services
+```
+
+---
