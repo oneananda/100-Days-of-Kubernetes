@@ -15,3 +15,21 @@
 - CRDs are commonly used alongside custom controllers to implement advanced automation.
 
 ---
+
+### Key Concepts
+
+1. **Custom Resources**:
+   - User-defined Kubernetes objects based on CRDs.
+   - Defined using YAML/JSON manifests, like built-in resources.
+
+2. **CustomResourceDefinition**:
+   - A special API object that registers the new resource type with the Kubernetes API server.
+
+3. **Custom Controllers**:
+   - Optional, but they enhance CRDs by adding custom logic to manage the lifecycle of custom resources.
+
+4. **Versioning and Schema Validation**:
+   - CRDs support multiple versions for resource compatibility.
+   - Schema validation ensures the custom resources follow the expected structure.
+
+---
