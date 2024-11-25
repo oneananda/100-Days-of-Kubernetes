@@ -86,3 +86,31 @@ kubectl get crd crontabs.example.com -o yaml
 ```
 
 ---
+
+
+### 2. Creating a Custom Resource
+
+Create a custom resource using the `CronTab` CRD. Save it in `example-crontab.yaml`:
+
+```yaml
+apiVersion: example.com/v1
+kind: CronTab
+metadata:
+  name: my-crontab
+spec:
+  cronSpec: "*/5 * * * *"
+  image: "nginx:latest"
+  replicas: 3
+```
+
+#### Apply the Custom Resource:
+```bash
+kubectl apply -f example-crontab.yaml
+```
+
+#### Verify the Custom Resource:
+```bash
+kubectl get crontabs -o yaml
+```
+
+---
