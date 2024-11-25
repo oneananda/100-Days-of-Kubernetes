@@ -64,6 +64,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 15  | Managing External Access to Services | [Link to Day 15](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2015-Ingress-Managing%20External%20Access%20to%20Services/day15.md) |
 | 16  | Horizontal Pod Autoscaling — Dynamic Scaling in Kubernetes | [Link to Day 16](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2016-Horizontal%20Pod%20Autoscaling/day16.md) |
 | 17  | Network Policies — Controlling Network Traffic in Kubernetes | [Link to Day 17](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2017-Network%20Policies/day17.md) |
+| 18  | Role-Based Access Control (RBAC) — Securing Kubernetes | [Link to Day 18](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2018-Role-Based%20Access%20Control%20(RBAC)/day18.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
