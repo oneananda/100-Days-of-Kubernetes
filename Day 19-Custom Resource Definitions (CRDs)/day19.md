@@ -33,3 +33,56 @@
    - Schema validation ensures the custom resources follow the expected structure.
 
 ---
+
+### Hands-On with CRDs
+
+In today’s session, we’ll create a CRD, define a custom resource, and interact with it using `kubectl`.
+
+---
+
+### 1. Creating a CRD
+
+Define a CRD for a custom resource type `CronTab` that schedules jobs. Create a file named `crontab-crd.yaml`:
+
+```yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: crontabs.example.com
+spec:
+  group: example.com
+  names:
+    plural: crontabs
+    singular: crontab
+    kind: CronTab
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                cronSpec:
+                  type: string
+                image:
+                  type: string
+                replicas:
+                  type: integer
+```
+
+#### Apply the CRD:
+```bash
+kubectl apply -f crontab-crd.yaml
+```
+
+#### Verify the CRD:
+```bash
+kubectl get crd crontabs.example.com -o yaml
+```
+
+---
