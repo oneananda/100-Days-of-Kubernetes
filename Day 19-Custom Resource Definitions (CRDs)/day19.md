@@ -114,3 +114,27 @@ kubectl get crontabs -o yaml
 ```
 
 ---
+
+
+### 3. Automating with a Custom Controller (Optional)
+
+Pair the CRD with a custom controller that watches `CronTab` resources and performs tasks such as creating Pods or Deployments. For now, we will explore the concept without implementation.
+
+---
+
+### 4. Testing and Validating CRDs
+
+Use `kubectl` commands to interact with the custom resources:
+
+- List all `CronTab` resources:
+  ```bash
+  kubectl get crontabs
+  ```
+- Describe a specific `CronTab`:
+  ```bash
+  kubectl describe crontab my-crontab
+  ```
+
+Test how schema validation handles incorrect specifications by applying a faulty resource definition.
+
+---
