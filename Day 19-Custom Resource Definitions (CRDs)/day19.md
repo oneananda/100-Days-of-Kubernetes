@@ -138,3 +138,29 @@ Use `kubectl` commands to interact with the custom resources:
 Test how schema validation handles incorrect specifications by applying a faulty resource definition.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day19.md` file, record:
+- The YAML configuration for the CRD and custom resources.
+- Steps to create and validate the CRD.
+- Insights or challenges faced when working with CRDs.
+
+---
+
+### 🎯 Outcome for Day 19
+
+By the end of Day 19, you should:
+1. Understand how CRDs extend Kubernetes functionality.
+2. Be able to create and manage CRDs and custom resources.
+3. Know the basics of pairing CRDs with custom controllers for advanced automation.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Custom Resource Definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)
+- [Building Controllers for CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#custom-controllers)
+
+---
