@@ -139,3 +139,29 @@ helm rollback my-app 1
 ```
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day20.md` file, record:
+- The steps for using Helm to deploy and manage applications.
+- Custom chart creation details, including any modifications to the default templates.
+- Observations on how Helm simplifies Kubernetes resource management.
+
+---
+
+### 🎯 Outcome for Day 20
+
+By the end of Day 20, you should:
+1. Understand the basics of Helm and its role in Kubernetes.
+2. Be able to deploy applications using existing Helm charts.
+3. Know how to create and customize Helm charts for your applications.
+4. Manage application upgrades and rollbacks effectively using Helm.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Helm](https://helm.sh/docs/)
+- [Helm Chart Repository](https://artifacthub.io/)
+
+---
