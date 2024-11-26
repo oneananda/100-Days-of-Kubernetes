@@ -87,3 +87,41 @@ kubectl get pods
 ```
 
 ---
+
+
+### 3. Creating a Custom Helm Chart
+
+#### Create a New Chart:
+```bash
+helm create my-chart
+```
+
+This command creates a directory `my-chart` with a default structure:
+- `Chart.yaml`: Chart metadata.
+- `values.yaml`: Default configuration values.
+- `templates/`: Kubernetes manifests as templates.
+
+#### Modify the Chart:
+1. Edit `values.yaml` to set default values for your application:
+   ```yaml
+   replicaCount: 2
+   image:
+     repository: nginx
+     tag: "1.21.6"
+     pullPolicy: IfNotPresent
+   ```
+2. Update the template in `templates/deployment.yaml` to use the values.
+
+#### Install the Custom Chart:
+```bash
+helm install my-app ./my-chart
+```
+
+#### Verify the Deployment:
+```bash
+helm list
+kubectl get all
+```
+
+---
+
