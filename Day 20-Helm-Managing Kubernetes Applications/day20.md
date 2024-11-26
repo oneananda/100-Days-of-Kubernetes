@@ -60,3 +60,30 @@ helm version
 
 ---
 
+
+### 2. Using a Pre-Existing Chart
+
+Deploy an NGINX application using an existing chart:
+
+#### Add the Helm Stable Repository:
+```bash
+helm repo add stable https://charts.helm.sh/stable
+```
+
+#### Update the Chart Repository:
+```bash
+helm repo update
+```
+
+#### Install the NGINX Chart:
+```bash
+helm install my-nginx stable/nginx-ingress
+```
+
+#### Verify the Installation:
+```bash
+helm list
+kubectl get pods
+```
+
+---
