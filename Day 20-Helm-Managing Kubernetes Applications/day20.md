@@ -32,3 +32,31 @@
    - Configuration settings for the chart, defined in `values.yaml`.
 
 ---
+
+### Hands-On with Helm
+
+In today’s session, we’ll install Helm, use a pre-existing chart, and create a custom chart.
+
+---
+
+### 1. Installing Helm
+
+Download and install Helm:
+
+#### On macOS:
+```bash
+brew install helm
+```
+
+#### On Linux:
+```bash
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+```
+
+#### Verify the Installation:
+```bash
+helm version
+```
+
+---
+
