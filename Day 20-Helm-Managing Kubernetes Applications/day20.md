@@ -125,3 +125,17 @@ kubectl get all
 
 ---
 
+### 4. Upgrading and Rolling Back Applications
+
+#### Upgrade the Release:
+Modify `values.yaml` and apply the changes:
+```bash
+helm upgrade my-app ./my-chart
+```
+
+#### Roll Back to a Previous Release:
+```bash
+helm rollback my-app 1
+```
+
+---
