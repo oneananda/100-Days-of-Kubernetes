@@ -19,4 +19,5 @@
 - Day 17: Network Policies — Controlling Network Traffic in Kubernetes  
 - Day 18: Role-Based Access Control (RBAC) — Securing Kubernetes
 - Day 19: Custom Resource Definitions (CRDs) — Extending Kubernetes
+- Day 20: Helm — Managing Kubernetes Applications
 
