@@ -15,3 +15,20 @@
 - Helm organizes Kubernetes resources into a single unit called a **chart**, which can be easily shared and reused.
 
 ---
+
+### Key Concepts
+
+1. **Helm Chart**:
+   - A collection of files that describe a set of Kubernetes resources.
+   - Includes templates, values, and metadata.
+
+2. **Helm Release**:
+   - A running instance of a Helm chart deployed in a Kubernetes cluster.
+
+3. **Repository**:
+   - A place where Helm charts are stored and shared, such as the official Helm Hub.
+
+4. **Values**:
+   - Configuration settings for the chart, defined in `values.yaml`.
+
+---
