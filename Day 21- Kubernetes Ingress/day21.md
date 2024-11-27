@@ -19,3 +19,18 @@
   - **Load balancing**: Distribute traffic across multiple instances of a service.
 
 ---
+
+
+### Key Concepts
+
+1. **Ingress Controller**:
+   - A controller that implements the Ingress API, managing the actual network rules.
+   - Examples include NGINX Ingress Controller, Traefik, and HAProxy.
+
+2. **Ingress Resource**:
+   - A YAML configuration file defining the routing rules and other details.
+
+3. **Backend Services**:
+   - The Kubernetes services to which Ingress routes traffic.
+
+---
