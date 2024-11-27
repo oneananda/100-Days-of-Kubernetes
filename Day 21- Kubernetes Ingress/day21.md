@@ -192,3 +192,30 @@ kubectl apply -f demo-ingress.yaml
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day21.md` file, record:
+- Steps to install and configure the Ingress Controller.
+- Configuration details for the Ingress resource.
+- Observations on routing traffic and adding TLS.
+
+---
+
+### 🎯 Outcome for Day 21
+
+By the end of Day 21, you should:
+1. Understand how Ingress manages external traffic in Kubernetes.
+2. Be able to deploy and configure an Ingress Controller.
+3. Create and manage Ingress resources for routing traffic to services.
+4. Secure traffic using TLS.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [NGINX Ingress Controller Documentation](https://kubernetes.github.io/ingress-nginx/)
+
+---
