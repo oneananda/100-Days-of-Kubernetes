@@ -67,6 +67,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 18  | Role-Based Access Control (RBAC) — Securing Kubernetes | [Link to Day 18](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2018-Role-Based%20Access%20Control%20(RBAC)/day18.md) |
 | 19  | Custom Resource Definitions (CRDs) — Extending Kubernetes | [Link to Day 19](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2019-Custom%20Resource%20Definitions%20(CRDs)/day19.md) |
 | 20  | Helm — Managing Kubernetes Applications | [Link to Day 20](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2020-Helm-Managing%20Kubernetes%20Applications/day20.md) |
+| 21  | Kubernetes Ingress — Managing External Access to Services | [Link to Day 21](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2021-%20Kubernetes%20Ingress/day21.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
