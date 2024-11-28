@@ -78,3 +78,28 @@ kubectl get pods -o wide
 ```
 
 ---
+
+
+### 2. Using Node Selectors
+
+Run the DaemonSet on specific nodes by adding a node selector. Update `nginx-daemonset.yaml`:
+
+```yaml
+spec:
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+```
+
+#### Apply the Changes:
+```bash
+kubectl apply -f nginx-daemonset.yaml
+```
+
+#### Verify the Pods Placement:
+```bash
+kubectl get pods -o wide
+```
+
+---
