@@ -192,3 +192,30 @@ kubectl get pods -o wide
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day22.md` file, record:
+- YAML configurations for the DaemonSets created today.
+- Steps and commands used for node selection, tolerations, and rolling updates.
+- Observations on how DaemonSets behave across nodes.
+
+---
+
+### 🎯 Outcome for Day 22
+
+By the end of Day 22, you should:
+1. Understand the purpose and use cases for DaemonSets.
+2. Be able to create and manage DaemonSets for various tasks.
+3. Know how to control DaemonSet pod placement using node selectors and tolerations.
+4. Perform rolling updates for DaemonSets without disrupting the cluster.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+- [DaemonSet Best Practices](https://kubernetes.io/docs/tasks/manage-daemon/daemonset-best-practices/)
+
+---
