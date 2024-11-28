@@ -132,3 +132,63 @@ kubectl describe pods
 
 ---
 
+
+### 4. Performing Rolling Updates
+
+Update the container image for the DaemonSet:
+
+```yaml
+containers:
+- name: nginx
+  image: nginx:1.23
+```
+
+#### Apply the Updated YAML:
+```bash
+kubectl apply -f nginx-daemonset.yaml
+```
+
+#### Monitor the Update:
+```bash
+kubectl rollout status daemonset nginx-daemonset
+```
+
+---
+
+### 5. Practical Use Case: Node Monitoring with DaemonSet
+
+Deploy a **Node Exporter** DaemonSet for monitoring nodes:
+
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+spec:
+  selector:
+    matchLabels:
+      app: node-exporter
+  template:
+    metadata:
+      labels:
+        app: node-exporter
+    spec:
+      containers:
+      - name: node-exporter
+        image: quay.io/prometheus/node-exporter:v1.6.0
+        ports:
+        - containerPort: 9100
+```
+
+#### Apply the DaemonSet:
+```bash
+kubectl apply -f node-exporter.yaml
+```
+
+#### Verify the Deployment:
+```bash
+kubectl get daemonsets
+kubectl get pods -o wide
+```
+
+---
