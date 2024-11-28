@@ -17,3 +17,17 @@
   - **Cluster services** (e.g., DNS caching, storage management).
 
 ---
+
+
+### Key Concepts
+
+1. **Node Affinity and Tolerations**:
+   - You can control which nodes DaemonSet pods are scheduled on using node selectors, affinities, or tolerations.
+   
+2. **Rolling Updates**:
+   - DaemonSets support rolling updates, enabling non-disruptive updates to the pods.
+
+3. **Pod Management**:
+   - Like Deployments, DaemonSets ensure pods remain in the desired state.
+
+---
