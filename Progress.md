@@ -21,4 +21,5 @@
 - Day 19: Custom Resource Definitions (CRDs) — Extending Kubernetes
 - Day 20: Helm — Managing Kubernetes Applications
 - Day 21: Kubernetes Ingress — Managing External Access to Services
+- Day 22: Kubernetes DaemonSets — Running Pods on Every Node
 
