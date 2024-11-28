@@ -31,3 +31,50 @@
    - Like Deployments, DaemonSets ensure pods remain in the desired state.
 
 ---
+
+
+### Hands-On with DaemonSets
+
+In today’s session, we’ll create and manage DaemonSets and explore their practical use cases.
+
+---
+
+### 1. Creating a Basic DaemonSet
+
+Deploy a simple DaemonSet to run `nginx` on every node. Save the following YAML as `nginx-daemonset.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-daemonset
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21
+        ports:
+        - containerPort: 80
+```
+
+#### Apply the DaemonSet:
+```bash
+kubectl apply -f nginx-daemonset.yaml
+```
+
+#### Verify the DaemonSet:
+```bash
+kubectl get daemonsets
+kubectl get pods -o wide
+```
+
+---
