@@ -103,3 +103,32 @@ kubectl get pods -o wide
 ```
 
 ---
+
+
+### 3. Adding Tolerations for Tainted Nodes
+
+Deploy the DaemonSet on nodes with specific taints. Update `nginx-daemonset.yaml`:
+
+```yaml
+spec:
+  template:
+    spec:
+      tolerations:
+      - key: "example-key"
+        operator: "Equal"
+        value: "example-value"
+        effect: "NoSchedule"
+```
+
+#### Apply the Changes:
+```bash
+kubectl apply -f nginx-daemonset.yaml
+```
+
+#### Verify the Pods Placement:
+```bash
+kubectl describe pods
+```
+
+---
+
