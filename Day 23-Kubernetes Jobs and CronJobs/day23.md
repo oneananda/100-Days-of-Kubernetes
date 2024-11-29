@@ -144,3 +144,20 @@ kubectl logs <pod-name>
 ```
 
 ---
+
+
+### 4. Managing Failed Jobs and CronJobs
+
+#### Set `backoffLimit` for Retries:
+Add or modify the `backoffLimit` field to specify the number of retries for a failed Job.
+
+#### Clean Up Old Jobs:
+Configure the `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` fields in the CronJob to limit the number of retained Job histories.
+
+```yaml
+spec:
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+```
+
+---
