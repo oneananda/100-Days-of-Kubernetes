@@ -107,3 +107,40 @@ kubectl get pods -o wide
 ```
 
 ---
+
+
+### 3. Creating a CronJob
+
+Deploy a CronJob to print a message every minute. Save the following YAML as `simple-cronjob.yaml`:
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: simple-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: simple-cronjob
+            image: busybox
+            command: ["echo", "Hello from Kubernetes CronJob!"]
+          restartPolicy: Never
+```
+
+#### Apply the CronJob:
+```bash
+kubectl apply -f simple-cronjob.yaml
+```
+
+#### Verify the CronJob:
+```bash
+kubectl get cronjobs
+kubectl get jobs
+kubectl logs <pod-name>
+```
+
+---
