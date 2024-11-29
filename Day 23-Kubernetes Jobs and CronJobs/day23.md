@@ -32,3 +32,44 @@
    - CronJobs use a standard cron expression to schedule tasks.
 
 ---
+
+
+### Hands-On with Jobs and CronJobs
+
+In today’s session, we’ll create and manage Jobs and CronJobs, exploring their features and practical use cases.
+
+---
+
+### 1. Creating a Simple Job
+
+Deploy a Job to print a message. Save the following YAML as `simple-job.yaml`:
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: simple-job
+        image: busybox
+        command: ["echo", "Hello from Kubernetes Job!"]
+      restartPolicy: Never
+  backoffLimit: 4
+```
+
+#### Apply the Job:
+```bash
+kubectl apply -f simple-job.yaml
+```
+
+#### Verify the Job:
+```bash
+kubectl get jobs
+kubectl logs <pod-name>
+```
+
+---
+
