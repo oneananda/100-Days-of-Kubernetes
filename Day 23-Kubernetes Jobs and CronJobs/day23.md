@@ -73,3 +73,37 @@ kubectl logs <pod-name>
 
 ---
 
+
+### 2. Running a Parallel Job
+
+Deploy a Job with multiple parallel tasks. Save the following YAML as `parallel-job.yaml`:
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallel-job
+spec:
+  parallelism: 3
+  completions: 6
+  template:
+    spec:
+      containers:
+      - name: parallel-job
+        image: busybox
+        command: ["echo", "Task completed!"]
+      restartPolicy: Never
+```
+
+#### Apply the Job:
+```bash
+kubectl apply -f parallel-job.yaml
+```
+
+#### Verify the Parallelism:
+```bash
+kubectl get jobs
+kubectl get pods -o wide
+```
+
+---
