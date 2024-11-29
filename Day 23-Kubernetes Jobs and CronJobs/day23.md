@@ -161,3 +161,60 @@ spec:
 ```
 
 ---
+
+
+### 5. Practical Use Case: Database Backup with CronJob
+
+Deploy a CronJob to back up a database daily:
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-backup
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: db-backup
+            image: alpine
+            command: ["/bin/sh", "-c", "echo 'Backing up database...' && sleep 10"]
+          restartPolicy: Never
+```
+
+#### Apply the CronJob:
+```bash
+kubectl apply -f db-backup.yaml
+```
+
+---
+
+
+### 📝 Document Your Progress
+
+In your `day23.md` file, record:
+- YAML configurations for Jobs and CronJobs.
+- Steps and observations on parallelism, scheduling, and retry mechanisms.
+- Insights on managing task automation in Kubernetes.
+
+---
+
+### 🎯 Outcome for Day 23
+
+By the end of Day 23, you should:
+1. Understand the purpose of Jobs and CronJobs in Kubernetes.
+2. Be able to create and manage one-off and recurring tasks.
+3. Know how to handle parallelism and retries in Jobs.
+4. Automate periodic tasks using CronJobs effectively.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+- [Kubernetes Documentation: CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+
+---
