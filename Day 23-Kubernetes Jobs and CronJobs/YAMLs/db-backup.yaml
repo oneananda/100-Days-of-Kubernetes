@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-backup
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: db-backup
+            image: alpine
+            command: ["/bin/sh", "-c", "echo 'Backing up database...' && sleep 10"]
+          restartPolicy: Never
