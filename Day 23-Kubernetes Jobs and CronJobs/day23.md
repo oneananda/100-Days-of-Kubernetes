@@ -19,3 +19,16 @@
    - Ideal for periodic tasks like log rotation or database cleanups.
 
 ---
+
+### Key Concepts
+
+1. **Completion Criteria**:
+   - A Job is considered complete when the specified number of successful pods (`completions`) is reached.
+
+2. **Parallelism**:
+   - Jobs can run multiple pods in parallel using the `parallelism` field.
+
+3. **Scheduling with CronJobs**:
+   - CronJobs use a standard cron expression to schedule tasks.
+
+---
