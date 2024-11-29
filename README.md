@@ -69,6 +69,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 20  | Helm — Managing Kubernetes Applications | [Link to Day 20](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2020-Helm-Managing%20Kubernetes%20Applications/day20.md) |
 | 21  | Kubernetes Ingress — Managing External Access to Services | [Link to Day 21](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2021-%20Kubernetes%20Ingress/day21.md) |
 | 22  | Kubernetes DaemonSets — Running Pods on Every Node | [Link to Day 22](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2022-Kubernetes%20DaemonSets/day22.md) |
+| 23  | Kubernetes Jobs and CronJobs — Running Tasks in Kubernetes | [Link to Day 23](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2023-Kubernetes%20Jobs%20and%20CronJobs/day23.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
