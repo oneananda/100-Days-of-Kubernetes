@@ -22,4 +22,5 @@
 - Day 20: Helm — Managing Kubernetes Applications
 - Day 21: Kubernetes Ingress — Managing External Access to Services
 - Day 22: Kubernetes DaemonSets — Running Pods on Every Node
+- Day 23: Kubernetes Jobs and CronJobs — Running Tasks in Kubernetes
 
