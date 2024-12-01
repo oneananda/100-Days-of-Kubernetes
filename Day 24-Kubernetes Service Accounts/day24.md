@@ -159,3 +159,29 @@ kubectl describe secret $(kubectl get secrets | grep custom-sa | awk '{print $1}
 Use the token to interact with the Kubernetes API using tools like `curl` or `Postman`.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day24.md` file, record:
+- YAML configurations for service accounts, roles, and bindings.
+- Steps and observations on attaching service accounts to pods and granting permissions.
+- Insights on enhancing workload security using service accounts.
+
+---
+
+### 🎯 Outcome for Day 24
+
+By the end of Day 24, you should:
+1. Understand the role of service accounts in Kubernetes.
+2. Be able to create and manage custom service accounts.
+3. Attach service accounts to pods and control permissions using RBAC.
+4. Use service account tokens to interact with the Kubernetes API.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+- [Kubernetes RBAC Guide](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+
+---
