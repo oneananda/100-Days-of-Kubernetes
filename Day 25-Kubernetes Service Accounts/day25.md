@@ -1,6 +1,6 @@
 ﻿---
 
-## Day 24: Kubernetes Service Accounts — Managing Pod Identities and Access
+## Day 25: Kubernetes Service Accounts — Managing Pod Identities and Access
 
 ### 📘 Overview
 
@@ -162,16 +162,16 @@ Use the token to interact with the Kubernetes API using tools like `curl` or `Po
 
 ### 📝 Document Your Progress
 
-In your `day24.md` file, record:
+In your `day25.md` file, record:
 - YAML configurations for service accounts, roles, and bindings.
 - Steps and observations on attaching service accounts to pods and granting permissions.
 - Insights on enhancing workload security using service accounts.
 
 ---
 
-### 🎯 Outcome for Day 24
+### 🎯 Outcome for Day 25
 
-By the end of Day 24, you should:
+By the end of Day 25, you should:
 1. Understand the role of service accounts in Kubernetes.
 2. Be able to create and manage custom service accounts.
 3. Attach service accounts to pods and control permissions using RBAC.
