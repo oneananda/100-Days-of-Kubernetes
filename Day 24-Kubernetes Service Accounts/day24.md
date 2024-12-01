@@ -37,3 +37,125 @@
 
 ---
 
+
+### Hands-On with Service Accounts
+
+In today’s session, we’ll create custom service accounts, attach them to pods, and configure permissions.
+
+---
+
+### 1. Creating a Service Account
+
+#### Create a Service Account:
+Save the following YAML as `custom-service-account.yaml`:
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: custom-sa
+  namespace: default
+```
+
+#### Apply the Service Account:
+```bash
+kubectl apply -f custom-service-account.yaml
+```
+
+#### Verify the Service Account:
+```bash
+kubectl get serviceaccounts
+kubectl describe serviceaccount custom-sa
+```
+
+---
+
+### 2. Attaching a Service Account to a Pod
+
+#### Create a Pod with a Service Account:
+Save the following YAML as `sa-pod.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sa-pod
+spec:
+  serviceAccountName: custom-sa
+  containers:
+  - name: demo-container
+    image: busybox
+    command: ["sh", "-c", "sleep 3600"]
+```
+
+#### Apply the Pod:
+```bash
+kubectl apply -f sa-pod.yaml
+```
+
+#### Verify the Service Account Attachment:
+```bash
+kubectl get pod sa-pod -o yaml
+kubectl describe pod sa-pod
+```
+
+---
+
+### 3. Granting Permissions to a Service Account
+
+#### Create a Role and RoleBinding:
+Save the following YAML as `role-and-binding.yaml`:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: custom-sa
+  namespace: default
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+```
+
+#### Apply the Role and RoleBinding:
+```bash
+kubectl apply -f role-and-binding.yaml
+```
+
+#### Test Permissions:
+Use `kubectl` to impersonate the service account and check permissions:
+
+```bash
+kubectl auth can-i list pods --as=system:serviceaccount:default:custom-sa
+```
+
+---
+
+### 4. Using Service Account Tokens
+
+#### Inspect the Token:
+Retrieve the token for the service account:
+
+```bash
+kubectl describe secret $(kubectl get secrets | grep custom-sa | awk '{print $1}')
+```
+
+Use the token to interact with the Kubernetes API using tools like `curl` or `Postman`.
+
+---
