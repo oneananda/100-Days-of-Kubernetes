@@ -152,3 +152,29 @@ kubectl apply -f test-pod.yaml
 Review logs from the webhook server to see admission requests and responses.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day26.md` file, record:
+- YAML configurations for admission webhook setups.
+- Observations on webhook functionality and request validation/mutation.
+- Challenges encountered during setup and their solutions.
+
+---
+
+### 🎯 Outcome for Day 26
+
+By the end of Day 26, you should:
+1. Understand the role of admission controllers in Kubernetes.
+2. Configure mutating and validating admission webhooks.
+3. Use admission controllers to enforce and standardize policies in your cluster.
+4. Gain insights into advanced resource governance techniques.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Admission Controllers](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/)
+- [Admission Webhooks Guide](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/)
+
+---
