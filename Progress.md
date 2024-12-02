@@ -25,6 +25,7 @@
 - Day 23: Kubernetes Jobs and CronJobs — Running Tasks in Kubernetes
 - Day 24: Kubernetes Probes — Ensuring Application Health
 - Day 25: Kubernetes Service Accounts — Managing Pod Identities and Access
+- Day 26: Kubernetes Admission Controllers — Validating and Mutating Workloads
 
 
 
