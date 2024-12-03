@@ -70,7 +70,10 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 21  | Kubernetes Ingress — Managing External Access to Services | [Link to Day 21](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2021-%20Kubernetes%20Ingress/day21.md) |
 | 22  | Kubernetes DaemonSets — Running Pods on Every Node | [Link to Day 22](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2022-Kubernetes%20DaemonSets/day22.md) |
 | 23  | Kubernetes Jobs and CronJobs — Running Tasks in Kubernetes | [Link to Day 23](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2023-Kubernetes%20Jobs%20and%20CronJobs/day23.md) |
-| 24  | Kubernetes Jobs and CronJobs — Running Tasks in Kubernetes | [Link to Day 23](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2024-Kubernetes%20Service%20Accounts/day24.md) |
+| 24  | Kubernetes Probes — Ensuring Application Health | [Link to Day 24](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2024-Kubernetes%20Service%20Accounts/day24.md) |
+| 25  | Kubernetes Service Accounts — Managing Pod Identities and Access | [Link to Day 25](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2025-Kubernetes%20Service%20Accounts/day25.md) |
+| 26  | Kubernetes Admission Controllers — Validating and Mutating Workloads | [Link to Day 26](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2026-Kubernetes%20Admission%20Controllers/day26.md) |
+| 27  | Kubernetes Pod Disruption Budgets — Ensuring Application Availability | [Link to Day 27](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2027-Kubernetes%20Pod%20Disruption%20Budgets/day27.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
