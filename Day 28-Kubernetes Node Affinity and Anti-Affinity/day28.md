@@ -203,3 +203,20 @@ In your `day28.md` file, record:
 - Insights on combining affinity and anti-affinity for workload distribution.
 
 ---
+
+### 🎯 Outcome for Day 28
+
+By the end of Day 28, you should:
+1. Understand the role of Node Affinity and Anti-Affinity in Kubernetes scheduling.
+2. Label nodes and configure pods with specific affinity rules.
+3. Combine affinity and anti-affinity to optimize workload placement.
+4. Apply best practices for effective resource utilization and fault tolerance.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Node Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity)
+- [Optimizing Workload Placement](https://kubernetes.io/docs/concepts/scheduling-eviction/)
+
+---
