@@ -39,3 +39,167 @@
    - Distributing workloads across fault domains.
 
 ---
+
+
+### Hands-On with Node Affinity and Anti-Affinity
+
+---
+
+### 1. Labeling Nodes
+
+#### Add Labels to Nodes:
+```bash
+kubectl label nodes <node-name> environment=production
+kubectl label nodes <node-name> environment=staging
+```
+
+#### Verify Node Labels:
+```bash
+kubectl get nodes --show-labels
+```
+
+---
+
+### 2. Configuring Node Affinity
+
+#### Pod with Required Node Affinity:
+Save the following as `node-affinity-hard.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-node-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: environment
+            operator: In
+            values:
+            - production
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+#### Apply the Pod:
+```bash
+kubectl apply -f node-affinity-hard.yaml
+```
+
+#### Verify Pod Placement:
+```bash
+kubectl get pod pod-with-node-affinity -o wide
+```
+
+---
+
+### 3. Configuring Node Anti-Affinity
+
+#### Pod with Preferred Node Affinity:
+Save the following as `node-affinity-soft.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-soft-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: environment
+            operator: In
+            values:
+            - staging
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+#### Apply the Pod:
+```bash
+kubectl apply -f node-affinity-soft.yaml
+```
+
+#### Verify Pod Placement:
+```bash
+kubectl get pod pod-with-soft-affinity -o wide
+```
+
+---
+
+### 4. Advanced Scenarios
+
+#### Combining Affinity and Anti-Affinity:
+Save the following as `combined-affinity.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-combined-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: environment
+            operator: In
+            values:
+            - production
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: my-app
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+#### Apply the Pod:
+```bash
+kubectl apply -f combined-affinity.yaml
+```
+
+#### Verify Pod Placement and Distribution:
+```bash
+kubectl describe pod pod-with-combined-affinity
+```
+
+---
+
+### Best Practices
+
+1. **Use Node Affinity for Resource Optimization**:
+   - Schedule GPU-intensive workloads on GPU-enabled nodes.
+   - Use labels to separate development, staging, and production environments.
+
+2. **Avoid Overuse of Hard Affinity**:
+   - Excessive constraints can lead to scheduling failures if no nodes meet the criteria.
+
+3. **Combine Affinity and Anti-Affinity**:
+   - Balance placement with fault tolerance by using both affinity and anti-affinity.
+
+4. **Monitor Node Labels**:
+   - Keep labels up to date to ensure proper pod placement.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day28.md` file, record:
+- YAML configurations for affinity and anti-affinity.
+- Observations on pod placement based on affinity rules.
+- Insights on combining affinity and anti-affinity for workload distribution.
+
+---
