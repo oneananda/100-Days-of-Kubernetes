@@ -27,6 +27,8 @@
 - Day 25: Kubernetes Service Accounts — Managing Pod Identities and Access
 - Day 26: Kubernetes Admission Controllers — Validating and Mutating Workloads
 - Day 27: Kubernetes Pod Disruption Budgets — Ensuring Application Availability
+- Day 28: Kubernetes Node Affinity and Anti-Affinity — Optimizing Pod Placement
+- 
 
 
 
