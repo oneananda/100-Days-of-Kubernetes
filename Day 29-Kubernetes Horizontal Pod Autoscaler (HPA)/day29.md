@@ -35,3 +35,143 @@
    - Prevents frequent scaling by introducing a delay between scaling actions.
 
 ---
+
+
+### Hands-On with Horizontal Pod Autoscaler
+
+---
+
+### 1. Prerequisites
+
+#### Install the Metrics Server:
+Ensure the Metrics Server is deployed in your cluster:
+
+```bash
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
+Verify the Metrics Server:
+```bash
+kubectl get apiservices | grep metrics
+kubectl top nodes
+```
+
+---
+
+### 2. Deploy a Sample Application
+
+#### Create a Deployment:
+Save the following as `hpa-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-apache
+  template:
+    metadata:
+      labels:
+        app: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: k8s.gcr.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 200m
+          limits:
+            cpu: 500m
+```
+
+Apply the Deployment:
+```bash
+kubectl apply -f hpa-deployment.yaml
+```
+
+Verify Deployment:
+```bash
+kubectl get deployment php-apache
+```
+
+---
+
+### 3. Create a Horizontal Pod Autoscaler
+
+#### Define an HPA:
+```bash
+kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+```
+
+#### Verify the HPA:
+```bash
+kubectl get hpa
+kubectl describe hpa php-apache
+```
+
+---
+
+### 4. Simulate Load
+
+#### Generate Load Using a Load Testing Tool:
+Run a load generator like `kubectl run` with a continuous curl command:
+
+```bash
+kubectl run -i --tty load-generator --image=busybox --restart=Never -- /bin/sh -c "while true; do wget -q -O- http://php-apache; done"
+```
+
+#### Observe Scaling:
+Monitor the HPA and pods:
+
+```bash
+kubectl get hpa
+kubectl get pods -o wide
+```
+
+---
+
+### 5. Custom Metrics with HPA (Optional)
+
+#### Deploy Prometheus Adapter:
+Use the Prometheus Adapter to expose custom metrics to the HPA.
+
+#### Define a Custom HPA:
+Save the following YAML as `custom-hpa.yaml`:
+
+```yaml
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: custom-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+  - type: External
+    external:
+      metricName: queue_depth
+      targetValue: 100
+```
+
+Apply the Custom HPA:
+```bash
+kubectl apply -f custom-hpa.yaml
+```
+
+---
