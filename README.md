@@ -74,6 +74,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 25  | Kubernetes Service Accounts — Managing Pod Identities and Access | [Link to Day 25](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2025-Kubernetes%20Service%20Accounts/day25.md) |
 | 26  | Kubernetes Admission Controllers — Validating and Mutating Workloads | [Link to Day 26](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2026-Kubernetes%20Admission%20Controllers/day26.md) |
 | 27  | Kubernetes Pod Disruption Budgets — Ensuring Application Availability | [Link to Day 27](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2027-Kubernetes%20Pod%20Disruption%20Budgets/day27.md) |
+| 28  | Kubernetes Node Affinity and Anti-Affinity — Optimizing Pod Placement | [Link to Day 28](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2028-Kubernetes%20Node%20Affinity%20and%20Anti-Affinity/day28.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
