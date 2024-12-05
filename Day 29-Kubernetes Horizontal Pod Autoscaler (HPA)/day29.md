@@ -192,3 +192,30 @@ kubectl apply -f custom-hpa.yaml
    - Simulate both high and low loads to ensure HPA responds as expected.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day29.md` file, record:
+- Steps for deploying the Metrics Server and HPA.
+- YAML configurations for deployments and autoscalers.
+- Observations during scaling and load testing.
+- Insights on optimizing scaling behavior.
+
+---
+
+### 🎯 Outcome for Day 29
+
+By the end of Day 29, you should:
+1. Understand the role of Horizontal Pod Autoscaler in Kubernetes.
+2. Set up and configure HPA for resource-based and custom metrics.
+3. Simulate load and observe dynamic scaling in action.
+4. Apply best practices for effective scaling of Kubernetes workloads.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+- [Autoscaling with Custom Metrics](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-custom-metrics)
+
+---
