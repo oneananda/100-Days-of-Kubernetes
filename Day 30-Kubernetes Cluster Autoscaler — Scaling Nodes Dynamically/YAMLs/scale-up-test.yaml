@@ -1,0 +1,22 @@
+  apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: scale-up-test
+   spec:
+     replicas: 20
+     selector:
+       matchLabels:
+         app: busybox
+     template:
+       metadata:
+         labels:
+           app: busybox
+       spec:
+         containers:
+         - name: busybox
+           image: busybox
+           resources:
+             requests:
+               memory: "500Mi"
+               cpu: "200m"
+           command: ["sleep", "3600"]
