@@ -29,6 +29,7 @@
 - Day 27: Kubernetes Pod Disruption Budgets — Ensuring Application Availability
 - Day 28: Kubernetes Node Affinity and Anti-Affinity — Optimizing Pod Placement
 - Day 29: Kubernetes Horizontal Pod Autoscaler (HPA) — Scaling Workloads Dynamically
+- Day 30: Kubernetes Cluster Autoscaler — Scaling Nodes Dynamically
 
 
 
