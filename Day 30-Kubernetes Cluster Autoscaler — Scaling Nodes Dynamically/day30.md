@@ -152,3 +152,31 @@ command:
    - Use Horizontal Pod Autoscaler with Cluster Autoscaler for efficient workload and node scaling.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day30.md` file, record:
+- Steps for deploying and configuring Cluster Autoscaler.
+- YAML configurations for test workloads.
+- Observations during scale-up and scale-down scenarios.
+- Insights on optimizing cluster scaling for cost and performance.
+
+---
+
+### 🎯 Outcome for Day 30
+
+By the end of Day 30, you should:
+1. Understand the role of Kubernetes Cluster Autoscaler in managing node scaling.
+2. Deploy and configure Cluster Autoscaler in your environment.
+3. Simulate scaling scenarios and observe how Cluster Autoscaler responds.
+4. Apply best practices to optimize resource usage and minimize costs.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Cluster Autoscaler](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#cluster-autoscaler)
+- [Autoscaler GitHub Repository](https://github.com/kubernetes/autoscaler)
+
+---
