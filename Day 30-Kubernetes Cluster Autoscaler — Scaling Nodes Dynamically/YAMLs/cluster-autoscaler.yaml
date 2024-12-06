@@ -1,0 +1,6 @@
+command:
+  - ./cluster-autoscaler
+  - --cloud-provider=<cloud-provider>
+  - --namespace=kube-system
+  - --scale-down-utilization-threshold=0.5
+  - --scale-down-unneeded-time=10m
