@@ -76,3 +76,34 @@ kubectl describe pv static-pv
 ```
 
 ---
+
+### 2. Creating a Persistent Volume Claim
+
+#### Define a PVC:
+Save the following YAML as `static-pvc.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+```
+
+#### Apply the PVC:
+```bash
+kubectl apply -f static-pvc.yaml
+```
+
+#### Verify the PVC:
+```bash
+kubectl get pvc
+kubectl describe pvc static-pvc
+```
+
+---
