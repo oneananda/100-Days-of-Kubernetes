@@ -215,3 +215,31 @@ kubectl get pv
 ```
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day31.md` file, record:
+- YAML configurations for PVs, PVCs, and Pods.
+- Steps and observations during static and dynamic provisioning.
+- Results of persistence tests and troubleshooting notes.
+
+---
+
+### 🎯 Outcome for Day 31
+
+By the end of Day 31, you should:
+1. Understand the concepts of Persistent Volumes and Persistent Volume Claims.
+2. Configure and test static and dynamic storage provisioning.
+3. Use PVCs in pods to enable data persistence.
+4. Troubleshoot common issues related to storage in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+- [Dynamic Provisioning with Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+- [Common Storage Problems](https://kubernetes.io/docs/concepts/storage/)
+
+---
