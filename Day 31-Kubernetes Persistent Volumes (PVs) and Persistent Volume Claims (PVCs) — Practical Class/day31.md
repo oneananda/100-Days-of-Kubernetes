@@ -40,4 +40,39 @@
 
 ---
 
+### Practical Exercises
 
+---
+
+### 1. Setting Up a Static Persistent Volume
+
+#### Define a PV:
+Save the following YAML as `static-pv.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: static-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data
+  persistentVolumeReclaimPolicy: Retain
+```
+
+#### Apply the PV:
+```bash
+kubectl apply -f static-pv.yaml
+```
+
+#### Verify the PV:
+```bash
+kubectl get pv
+kubectl describe pv static-pv
+```
+
+---
