@@ -107,3 +107,111 @@ kubectl describe pvc static-pvc
 ```
 
 ---
+
+### 3. Using the PVC in a Pod
+
+#### Create a Pod with Persistent Storage:
+Save the following YAML as `pod-with-pvc.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-pvc
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: storage-volume
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: storage-volume
+    persistentVolumeClaim:
+      claimName: static-pvc
+```
+
+#### Apply the Pod:
+```bash
+kubectl apply -f pod-with-pvc.yaml
+```
+
+#### Verify the Pod:
+```bash
+kubectl get pod pod-with-pvc
+kubectl describe pod pod-with-pvc
+```
+
+#### Test Data Persistence:
+1. Access the pod:
+   ```bash
+   kubectl exec -it pod-with-pvc -- /bin/sh
+   ```
+2. Add a file to the mounted volume:
+   ```bash
+   echo "Hello, Persistent Storage!" > /usr/share/nginx/html/index.html
+   ```
+3. Exit the pod:
+   ```bash
+   exit
+   ```
+4. Delete and recreate the pod:
+   ```bash
+   kubectl delete pod pod-with-pvc
+   kubectl apply -f pod-with-pvc.yaml
+   ```
+5. Verify the data persists:
+   ```bash
+   kubectl exec -it pod-with-pvc -- cat /usr/share/nginx/html/index.html
+   ```
+
+---
+
+### 4. Dynamic Provisioning with StorageClass
+
+#### Define a StorageClass:
+Save the following YAML as `storage-class.yaml`:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: dynamic-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+
+#### Apply the StorageClass:
+```bash
+kubectl apply -f storage-class.yaml
+```
+
+#### Create a PVC Using the StorageClass:
+Save the following YAML as `dynamic-pvc.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dynamic-pvc
+spec:
+  storageClassName: dynamic-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+```
+
+#### Apply the PVC:
+```bash
+kubectl apply -f dynamic-pvc.yaml
+```
+
+#### Verify the PVC and Associated PV:
+```bash
+kubectl get pvc dynamic-pvc
+kubectl get pv
+```
+
+---
