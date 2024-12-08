@@ -30,6 +30,8 @@
 - Day 28: Kubernetes Node Affinity and Anti-Affinity — Optimizing Pod Placement
 - Day 29: Kubernetes Horizontal Pod Autoscaler (HPA) — Scaling Workloads Dynamically
 - Day 30: Kubernetes Cluster Autoscaler — Scaling Nodes Dynamically
+- Day 31: Kubernetes Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) — Practical Class
+- Day 32: Kubernetes Secrets — Managing Sensitive Data — Practical Class
 
 
 
