@@ -181,3 +181,30 @@ kubectl exec -it secret-volume-pod -- cat /etc/secrets/password
 
 ---
 
+
+### 📝 Document Your Progress
+
+In your `day32.md` file, record:
+- YAML configurations for Secrets and pods.
+- Observations on mounting Secrets as environment variables and volumes.
+- Steps for decoding and verifying Secrets.
+- Notes on best practices for securing Secrets.
+
+---
+
+### 🎯 Outcome for Day 32
+
+By the end of Day 32, you should:
+1. Understand the purpose of Secrets in Kubernetes.
+2. Create and manage Secrets using YAML and `kubectl`.
+3. Use Secrets in pods securely as environment variables and volumes.
+4. Apply best practices to protect sensitive data in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+- [Securing Kubernetes Secrets](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/)
+
+---
