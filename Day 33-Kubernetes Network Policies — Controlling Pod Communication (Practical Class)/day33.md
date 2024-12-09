@@ -213,3 +213,21 @@ kubectl delete namespace test-ns
 ```
 
 ---
+
+
+### Best Practices for Network Policies
+
+1. **Default Deny Policy**:
+   - Start with a "default deny" policy to block all traffic and explicitly allow required traffic.
+
+2. **Fine-Grained Access Control**:
+   - Use specific selectors and IP blocks to restrict communication to the minimum required.
+
+3. **Audit and Monitor Policies**:
+   - Regularly audit policies to ensure they align with security requirements.
+   - Monitor traffic to validate policy enforcement.
+
+4. **Test Policies in Staging**:
+   - Test policies in a staging environment before applying them in production.
+
+---
