@@ -36,3 +36,180 @@ This session focuses on creating and testing Network Policies for common use cas
 
 ---
 
+
+### Practical Exercises
+
+---
+
+### 1. Preparing the Environment
+
+#### Deploy a Sample Application:
+Save the following YAML as `sample-app.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-ns
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: test-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: test-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sleep", "3600"]
+```
+
+#### Apply the Application:
+```bash
+kubectl apply -f sample-app.yaml
+```
+
+#### Verify the Deployments:
+```bash
+kubectl get pods -n test-ns
+```
+
+---
+
+### 2. Creating a Network Policy
+
+#### Allow Ingress Traffic from Specific Pods:
+Save the following YAML as `allow-web-to-backend.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-web-to-backend
+  namespace: test-ns
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: web
+    ports:
+    - protocol: TCP
+      port: 80
+```
+
+#### Apply the Network Policy:
+```bash
+kubectl apply -f allow-web-to-backend.yaml
+```
+
+#### Verify the Policy:
+```bash
+kubectl describe networkpolicy allow-web-to-backend -n test-ns
+```
+
+---
+
+### 3. Testing the Network Policy
+
+#### Test Communication Before Applying the Policy:
+1. Exec into a `web` pod:
+   ```bash
+   kubectl exec -it <web-pod-name> -n test-ns -- /bin/sh
+   ```
+2. Test connection to `backend` pod:
+   ```bash
+   wget -qO- http://<backend-pod-ip>:80
+   ```
+
+#### Test Communication After Applying the Policy:
+1. Repeat the above steps. Only `web` pods should now be able to communicate with `backend` pods.
+
+---
+
+### 4. Egress Network Policy
+
+#### Restrict Outgoing Traffic to External Resources:
+Save the following YAML as `restrict-egress.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-egress
+  namespace: test-ns
+spec:
+  podSelector:
+    matchLabels:
+      app: web
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 8.8.8.8/33
+    ports:
+    - protocol: TCP
+      port: 53
+```
+
+#### Apply the Policy:
+```bash
+kubectl apply -f restrict-egress.yaml
+```
+
+#### Test Egress Restriction:
+1. Exec into a `web` pod:
+   ```bash
+   kubectl exec -it <web-pod-name> -n test-ns -- /bin/sh
+   ```
+2. Test DNS resolution (should fail except for 8.8.8.8):
+   ```bash
+   nslookup google.com
+   ```
+
+---
+
+### 5. Cleanup
+
+Remove all resources:
+```bash
+kubectl delete namespace test-ns
+```
+
+---
