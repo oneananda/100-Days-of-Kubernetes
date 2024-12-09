@@ -231,3 +231,31 @@ kubectl delete namespace test-ns
    - Test policies in a staging environment before applying them in production.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day33.md` file, record:
+- YAML configurations for Network Policies and test results.
+- Observations on how policies impact pod communication.
+- Insights and challenges faced while implementing Network Policies.
+
+---
+
+### 🎯 Outcome for Day 33
+
+By the end of Day 33, you should:
+1. Understand how to create and use Kubernetes Network Policies.
+2. Restrict and allow pod communication using practical examples.
+3. Implement both ingress and egress traffic rules.
+4. Apply best practices for securing pod communication in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+- [Calico Documentation](https://docs.projectcalico.org/network-policy/)
+- [Cilium Documentation](https://docs.cilium.io/en/stable/policy/)
+
+---
