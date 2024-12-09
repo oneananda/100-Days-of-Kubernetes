@@ -79,6 +79,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 30  | Kubernetes Cluster Autoscaler — Scaling Nodes Dynamically | [Link to Day 30](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2030-Kubernetes%20Cluster%20Autoscaler%20%E2%80%94%20Scaling%20Nodes%20Dynamically/day30.md) |
 | 31  | Kubernetes Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) — Practical Class | [Link to Day 31](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2031-Kubernetes%20Persistent%20Volumes%20(PVs)%20and%20Persistent%20Volume%20Claims%20(PVCs)%20%E2%80%94%20Practical%20Class/day31.md) |
 | 32  | Kubernetes Secrets — Managing Sensitive Data (Practical Class) | [Link to Day 32](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2032-Kubernetes%20Secrets%20%E2%80%94%20Managing%20Sensitive%20Data%20(Practical%20Class)/day32.md) |
+| 33  | Kubernetes Network Policies — Controlling Pod Communication (Practical Class) | [Link to Day 33](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2033-Kubernetes%20Network%20Policies%20%E2%80%94%20Controlling%20Pod%20Communication%20(Practical%20Class)/day33.md) |
 | ... | ... | ... |
 | 100 | Final Project and Wrap-up | [Link to Day 100](day100.md) |
 
