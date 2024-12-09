@@ -32,6 +32,7 @@
 - Day 30: Kubernetes Cluster Autoscaler — Scaling Nodes Dynamically
 - Day 31: Kubernetes Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) — Practical Class
 - Day 32: Kubernetes Secrets — Managing Sensitive Data — Practical Class
+- Day 33: Kubernetes Network Policies — Controlling Pod Communication (Practical Class)
 
 
 
