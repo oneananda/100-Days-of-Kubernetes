@@ -34,3 +34,233 @@ This practical session focuses on setting up Ingress controllers, defining Ingre
    - Ingress supports secure HTTPS traffic using TLS certificates.
 
 ---
+
+
+### Practical Exercises
+
+---
+
+### 1. Installing an Ingress Controller
+
+#### Install NGINX Ingress Controller:
+Use the official Kubernetes NGINX Ingress manifest:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+```
+
+#### Verify the Installation:
+```bash
+kubectl get pods -n ingress-nginx
+kubectl get svc -n ingress-nginx
+```
+
+Take note of the external IP for the ingress controller service.
+
+---
+
+### 2. Deploying Sample Services
+
+#### Create a Namespace:
+```bash
+kubectl create namespace ingress-demo
+```
+
+#### Deploy Two Sample Services:
+Save the following YAML as `services.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  namespace: ingress-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: hashicorp/http-echo
+        args:
+        - "-text=Welcome to App 1"
+        ports:
+        - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1
+  namespace: ingress-demo
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5678
+  selector:
+    app: app1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  namespace: ingress-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: app2
+        image: hashicorp/http-echo
+        args:
+        - "-text=Welcome to App 2"
+        ports:
+        - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2
+  namespace: ingress-demo
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5678
+  selector:
+    app: app2
+```
+
+#### Apply the Services:
+```bash
+kubectl apply -f services.yaml
+```
+
+---
+
+### 3. Configuring an Ingress Resource
+
+#### Define an Ingress Resource:
+Save the following YAML as `ingress.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  namespace: ingress-demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: demo.local
+    http:
+      paths:
+      - path: /app1
+        pathType: Prefix
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80
+      - path: /app2
+        pathType: Prefix
+        backend:
+          service:
+            name: app2
+            port:
+              number: 80
+```
+
+#### Apply the Ingress Resource:
+```bash
+kubectl apply -f ingress.yaml
+```
+
+#### Test the Ingress:
+Add `demo.local` to your `/etc/hosts` file, mapping it to the ingress controller's external IP:
+```bash
+<EXTERNAL_IP> demo.local
+```
+
+Access the services in your browser or with `curl`:
+```bash
+curl http://demo.local/app1
+curl http://demo.local/app2
+```
+
+---
+
+### 4. Enabling HTTPS with TLS
+
+#### Create a Self-Signed Certificate:
+Generate a certificate and key:
+```bash
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=demo.local/O=demo.local"
+```
+
+Create a Kubernetes Secret for TLS:
+```bash
+kubectl create secret tls demo-tls --key tls.key --cert tls.crt -n ingress-demo
+```
+
+#### Update the Ingress Resource:
+Save the following as `ingress-tls.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  namespace: ingress-demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - demo.local
+    secretName: demo-tls
+  rules:
+  - host: demo.local
+    http:
+      paths:
+      - path: /app1
+        pathType: Prefix
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80
+      - path: /app2
+        pathType: Prefix
+        backend:
+          service:
+            name: app2
+            port:
+              number: 80
+```
+
+Apply the updated Ingress:
+```bash
+kubectl apply -f ingress-tls.yaml
+```
+
+Test HTTPS access:
+```bash
+curl https://demo.local/app1 --insecure
+curl https://demo.local/app2 --insecure
+```
+
+---
