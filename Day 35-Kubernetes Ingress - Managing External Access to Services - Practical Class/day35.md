@@ -264,3 +264,23 @@ curl https://demo.local/app2 --insecure
 ```
 
 ---
+
+
+### Best Practices for Ingress
+
+1. **Use Hostnames**:
+   - Prefer host-based routing for production setups.
+
+2. **Enable HTTPS**:
+   - Always secure traffic with TLS certificates.
+
+3. **Monitor Ingress Traffic**:
+   - Use tools like Prometheus and Grafana for monitoring.
+
+4. **External DNS**:
+   - Integrate with external DNS services for dynamic domain management.
+
+5. **Ingress Classes**:
+   - Specify ingress controllers using annotations to avoid conflicts.
+
+---
