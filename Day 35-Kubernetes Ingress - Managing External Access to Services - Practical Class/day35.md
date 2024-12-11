@@ -284,3 +284,31 @@ curl https://demo.local/app2 --insecure
    - Specify ingress controllers using annotations to avoid conflicts.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day35.md` file, record:
+- YAML configurations for services, Ingress, and TLS.
+- Steps for testing HTTP and HTTPS access.
+- Observations on traffic routing and challenges faced.
+
+---
+
+### 🎯 Outcome for Day 35
+
+By the end of Day 35, you should:
+1. Understand the purpose of Kubernetes Ingress.
+2. Deploy and configure an Ingress controller.
+3. Create and test Ingress rules for multiple services.
+4. Enable HTTPS access using TLS certificates.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+- [Securing Ingress with TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls)
+
+---
