@@ -35,6 +35,8 @@
 - Day 33: Kubernetes Network Policies — Controlling Pod Communication (Practical Class)
 - Day 34: Kubernetes StatefulSets — Managing Stateful Applications (Practical Class)
 - Day 35: Kubernetes Ingress — Managing External Access to Services (Practical Class)
+- Day 36: Kubernetes Role-Based Access Control (RBAC) — Practical Class
+
 
 
 
