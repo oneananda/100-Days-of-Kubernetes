@@ -199,3 +199,50 @@ kubectl delete clusterrolebinding namespace-reader-binding
 ```
 
 ---
+
+
+### Best Practices for RBAC
+
+1. **Least Privilege**:
+   - Grant only the permissions necessary for a task.
+
+2. **Namespace Isolation**:
+   - Use Roles and RoleBindings to limit permissions within namespaces.
+
+3. **Audit and Review**:
+   - Regularly review RBAC rules to ensure compliance and security.
+
+4. **Use Groups**:
+   - Assign permissions to groups instead of individual users for easier management.
+
+5. **Test Permissions**:
+   - Validate permissions before applying them in production.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day36.md` file, record:
+- YAML configurations for roles, bindings, and test scenarios.
+- Observations during permission testing.
+- Challenges and how they were resolved.
+
+---
+
+### 🎯 Outcome for Day 36
+
+By the end of Day 36, you should:
+1. Understand how to use RBAC to manage access control in Kubernetes.
+2. Create roles, role bindings, and service accounts.
+3. Test and validate RBAC rules for different users.
+4. Apply best practices to secure your Kubernetes cluster.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/overview/)
+- [Testing RBAC Permissions](https://kubernetes.io/docs/tasks/administer-cluster/rbac-testing/)
+
+---
