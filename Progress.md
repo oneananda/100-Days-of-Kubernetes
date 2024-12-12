@@ -33,6 +33,8 @@
 - Day 31: Kubernetes Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) — Practical Class
 - Day 32: Kubernetes Secrets — Managing Sensitive Data — Practical Class
 - Day 33: Kubernetes Network Policies — Controlling Pod Communication (Practical Class)
+- Day 34: Kubernetes StatefulSets — Managing Stateful Applications (Practical Class)
+
 
 
 
