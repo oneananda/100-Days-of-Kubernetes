@@ -192,3 +192,23 @@ kubectl delete deployment widget-controller
 ```
 
 ---
+
+
+### Best Practices for CRDs
+
+1. **Validate Schema**:
+   - Define detailed OpenAPI schemas to validate custom resources.
+
+2. **Namespace Scope**:
+   - Use `Namespaced` scope for application-specific resources.
+
+3. **Versioning**:
+   - Maintain multiple versions of CRDs for backward compatibility.
+
+4. **Custom Controllers**:
+   - Use controllers to manage the lifecycle of custom resources.
+
+5. **Monitoring**:
+   - Monitor the behavior of custom controllers to ensure reliability.
+
+---
