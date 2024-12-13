@@ -212,3 +212,31 @@ kubectl delete deployment widget-controller
    - Monitor the behavior of custom controllers to ensure reliability.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day37.md` file, record:
+- YAML configurations for CRDs and resources.
+- Steps for deploying and testing the controller.
+- Observations and challenges encountered.
+
+---
+
+### 🎯 Outcome for Day 37
+
+By the end of Day 37, you should:
+1. Understand how to create and manage Custom Resource Definitions in Kubernetes.
+2. Define and use custom resources with `kubectl`.
+3. Deploy a controller to manage the lifecycle of custom resources.
+4. Apply best practices for extending Kubernetes with CRDs.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Custom Resource Definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)
+- [Developing Kubernetes Controllers](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+- [Kubernetes Sample Controller](https://github.com/kubernetes/sample-controller)
+
+---
