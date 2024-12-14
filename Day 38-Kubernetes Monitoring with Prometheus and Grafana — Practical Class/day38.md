@@ -38,3 +38,164 @@ This practical session focuses on setting up Prometheus and Grafana to monitor K
 
 ---
 
+
+### Practical Exercises
+
+---
+
+### 1. Deploying Prometheus
+
+#### Step 1: Create a Namespace
+```bash
+kubectl create namespace monitoring
+```
+
+#### Step 2: Deploy Prometheus
+Use the Prometheus Operator for easier management. Apply the following YAML to deploy Prometheus and related components:
+
+```bash
+kubectl apply -f https://github.com/prometheus-operator/prometheus-operator/releases/latest/download/bundle.yaml
+```
+
+Verify the deployment:
+```bash
+kubectl get pods -n monitoring
+```
+
+---
+
+### 2. Deploying Grafana
+
+#### Step 1: Deploy Grafana
+Save the following YAML as `grafana-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  selector:
+    app: grafana
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: NodePort
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f grafana-deployment.yaml
+```
+
+Retrieve the NodePort to access Grafana:
+```bash
+kubectl get svc grafana -n monitoring
+```
+
+---
+
+### 3. Configuring Prometheus
+
+#### Step 1: Configure Prometheus to Scrape Kubernetes Metrics
+Edit the Prometheus configuration to add Kubernetes scrape jobs. Save the following YAML as `prometheus-config.yaml`:
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+  namespace: monitoring
+spec:
+  serviceMonitorSelector:
+    matchLabels:
+      team: frontend
+  replicas: 1
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f prometheus-config.yaml
+```
+
+---
+
+### 4. Adding Dashboards in Grafana
+
+#### Step 1: Access Grafana
+Open your browser and navigate to `http://<NodeIP>:<NodePort>`. Log in using the default credentials:
+- Username: `admin`
+- Password: `admin` (you will be prompted to change it).
+
+#### Step 2: Add Prometheus as a Data Source
+1. Navigate to **Configuration > Data Sources**.
+2. Click **Add data source** and select **Prometheus**.
+3. Enter the Prometheus service URL (e.g., `http://prometheus:9090`) and save.
+
+#### Step 3: Import a Kubernetes Dashboard
+1. Navigate to **Dashboard > Import**.
+2. Use a community dashboard ID (e.g., `6417` for Kubernetes cluster monitoring).
+3. Select the Prometheus data source and click **Import**.
+
+---
+
+### 5. Testing and Monitoring
+
+#### View Metrics in Prometheus
+Access the Prometheus UI:
+```bash
+kubectl port-forward svc/prometheus-operated -n monitoring 9090:9090
+```
+Open your browser at `http://localhost:9090`.
+
+Run queries like:
+```promql
+kube_pod_info
+node_memory_MemAvailable_bytes
+```
+
+#### View Dashboards in Grafana
+Navigate through the imported Kubernetes dashboard in Grafana to observe metrics like:
+- Node CPU and memory usage.
+- Pod status and resource consumption.
+- Cluster-wide resource utilization.
+
+---
+
+### 6. Cleanup
+
+Remove all monitoring resources:
+```bash
+kubectl delete namespace monitoring
+```
+
+---
+
+
