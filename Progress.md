@@ -37,6 +37,7 @@
 - Day 35: Kubernetes Ingress — Managing External Access to Services (Practical Class)
 - Day 36: Kubernetes Role-Based Access Control (RBAC) — Practical Class
 - Day 37: Kubernetes Custom Resource Definitions (CRDs) — Practical Class
+- Day 38: Kubernetes Monitoring with Prometheus and Grafana — Practical Class
 
 
 
