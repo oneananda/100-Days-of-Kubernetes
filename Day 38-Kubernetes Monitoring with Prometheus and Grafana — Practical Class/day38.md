@@ -198,7 +198,6 @@ kubectl delete namespace monitoring
 
 ---
 
-
 ### Best Practices for Kubernetes Monitoring
 
 1. **Set Alerts**:
@@ -215,5 +214,35 @@ kubectl delete namespace monitoring
 
 5. **Security**:
    - Secure access to Grafana and Prometheus with authentication and authorization.
+
+---
+
+
+### 📝 Document Your Progress
+
+In your `day38.md` file, record:
+- Steps for deploying Prometheus and Grafana.
+- Queries run in Prometheus and observations.
+- Screenshots or notes on Grafana dashboards.
+- Challenges faced and resolutions.
+
+---
+
+### 🎯 Outcome for Day 38
+
+By the end of Day 38, you should:
+1. Understand the purpose of Prometheus and Grafana in Kubernetes monitoring.
+2. Deploy and configure Prometheus and Grafana.
+3. Query metrics in Prometheus and visualize them in Grafana.
+4. Apply best practices for monitoring Kubernetes clusters.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Monitoring](https://kubernetes.io/docs/tasks/debug/debug-cluster/resource-metrics-pipeline/)
+- [Prometheus Documentation](https://prometheus.io/docs/)
+- [Grafana Documentation](https://grafana.com/docs/)
+- [Kube-State-Metrics](https://github.com/kubernetes/kube-state-metrics)
 
 ---
