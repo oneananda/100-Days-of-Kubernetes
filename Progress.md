@@ -38,6 +38,7 @@
 - Day 36: Kubernetes Role-Based Access Control (RBAC) — Practical Class
 - Day 37: Kubernetes Custom Resource Definitions (CRDs) — Practical Class
 - Day 38: Kubernetes Monitoring with Prometheus and Grafana — Practical Class
+- Day 39: Kubernetes Horizontal Pod Autoscaling (HPA) — Practical Class
 
 
 
