@@ -39,6 +39,7 @@
 - Day 37: Kubernetes Custom Resource Definitions (CRDs) — Practical Class
 - Day 38: Kubernetes Monitoring with Prometheus and Grafana — Practical Class
 - Day 39: Kubernetes Horizontal Pod Autoscaling (HPA) — Practical Class
+- Day 40: Kubernetes Ingress Controller — Practical Class
 
 
 
