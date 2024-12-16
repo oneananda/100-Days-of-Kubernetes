@@ -254,3 +254,23 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/mai
 ```
 
 ---
+
+
+### Best Practices for Ingress
+
+1. **SSL Termination**:
+   - Always use TLS for secure communication, especially for production environments.
+
+2. **Annotations**:
+   - Use annotations to customize NGINX behavior, such as timeouts, rate limits, or logging.
+
+3. **Ingress Class**:
+   - Specify the Ingress class to support multiple controllers in a cluster.
+
+4. **DNS Configuration**:
+   - Use a proper DNS setup for production environments instead of modifying the hosts file.
+
+5. **Monitoring**:
+   - Use monitoring tools like Prometheus and Grafana to track Ingress traffic and performance.
+
+---
