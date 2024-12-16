@@ -274,3 +274,32 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/mai
    - Use monitoring tools like Prometheus and Grafana to track Ingress traffic and performance.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day40.md` file, record:
+- Steps for deploying and configuring the Ingress Controller.
+- Observations during testing with HTTP and HTTPS traffic.
+- Challenges faced and resolutions.
+- Screenshots of successful traffic routing and TLS configurations.
+
+---
+
+### 🎯 Outcome for Day 40
+
+By the end of Day 40, you should:
+1. Understand the role of the Ingress Controller in Kubernetes.
+2. Deploy and configure an NGINX Ingress Controller.
+3. Set up Ingress rules for routing and TLS termination.
+4. Apply best practices for managing external access to Kubernetes services.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [NGINX Ingress Controller Documentation](https://kubernetes.github.io/ingress-nginx/)
+- [TLS in Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls)
+
+---
