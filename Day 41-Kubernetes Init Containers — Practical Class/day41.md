@@ -142,3 +142,12 @@ kubectl delete -f pod-init-container.yaml
 ```
 
 ---
+
+### Best Practices for Init Containers
+
+1. Use **Init Containers** for lightweight and deterministic tasks that must complete before the main container starts.
+2. Share data between Init Containers and main containers using `emptyDir` volumes.
+3. Log outputs from Init Containers for debugging and validation.
+4. Keep Init Containers simple to ensure they complete quickly and reliably.
+
+---
