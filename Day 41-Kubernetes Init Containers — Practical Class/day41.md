@@ -151,3 +151,30 @@ kubectl delete -f pod-init-container.yaml
 4. Keep Init Containers simple to ensure they complete quickly and reliably.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day41.md` file, record:
+- Steps for creating and testing Init Containers.
+- Observations from pod execution flow and logs.
+- Challenges faced and resolutions.
+- Examples of how Init Containers can solve real-world problems.
+
+---
+
+### 🎯 Outcome for Day 41
+
+By the end of Day 41, you should:
+1. Understand the purpose and functionality of Init Containers.
+2. Create Init Containers to prepare data or validate dependencies.
+3. Observe the execution flow and ensure the main container starts only after Init Containers succeed.
+4. Apply Init Containers to solve setup and initialization challenges in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
+- [Kubernetes Init Container Use Cases](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/)
+
+---
