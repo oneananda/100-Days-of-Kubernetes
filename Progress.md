@@ -40,6 +40,7 @@
 - Day 38: Kubernetes Monitoring with Prometheus and Grafana — Practical Class
 - Day 39: Kubernetes Horizontal Pod Autoscaling (HPA) — Practical Class
 - Day 40: Kubernetes Ingress Controller — Practical Class
+- Day 41: Kubernetes Init Containers — Practical Class
 
 
 
