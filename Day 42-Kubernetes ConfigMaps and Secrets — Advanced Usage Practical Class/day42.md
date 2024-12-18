@@ -193,3 +193,25 @@ kubectl delete secret app-secret binary-secret
 
 ---
 
+
+### Best Practices for ConfigMaps and Secrets
+
+1. **Versioning**:
+   - Use versioned ConfigMaps or Secrets for managing updates without disrupting pods.
+
+2. **Encryption**:
+   - Use encryption at rest for Secrets by enabling encryption in Kubernetes.
+
+3. **Dynamic Updates**:
+   - Use `kubectl rollout restart` to apply updates dynamically.
+
+4. **RBAC**:
+   - Restrict access to ConfigMaps and Secrets using RBAC policies.
+
+5. **Environment Variables**:
+   - Use ConfigMaps and Secrets as environment variables for simplicity.
+
+---
+
+
+
