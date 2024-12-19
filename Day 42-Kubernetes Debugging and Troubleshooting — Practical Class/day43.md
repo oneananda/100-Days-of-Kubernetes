@@ -204,7 +204,6 @@ kubectl delete -f network-debug.yaml
 
 ---
 
-
 ### Best Practices for Debugging
 
 1. **Use Namespaces**:
@@ -221,5 +220,35 @@ kubectl delete -f network-debug.yaml
 
 5. **Ephemeral Containers**:
    - Use ephemeral containers for safe and efficient debugging of live pods.
+
+---
+
+
+### 📝 Document Your Progress
+
+In your `day42.md` file, record:
+- Steps taken to debug different issues.
+- Observations from pod events and logs.
+- Challenges faced and how they were resolved.
+- Tools and commands used for troubleshooting.
+
+---
+
+### 🎯 Outcome for Day 42
+
+By the end of Day 42, you should:
+1. Identify and resolve common issues with Kubernetes resources.
+2. Debug pods using events, logs, and ephemeral containers.
+3. Troubleshoot networking and configuration errors.
+4. Apply best practices to improve debugging efficiency.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Troubleshooting](https://kubernetes.io/docs/tasks/debug/debug-application/)
+- [Debugging with Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
+- [Kubernetes Networking Troubleshooting](https://kubernetes.io/docs/tasks/debug/debug-cluster/network/)
+- [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ---
