@@ -203,3 +203,23 @@ kubectl delete -f network-debug.yaml
 ```
 
 ---
+
+
+### Best Practices for Debugging
+
+1. **Use Namespaces**:
+   - Isolate resources in namespaces for better clarity during troubleshooting.
+
+2. **Monitor Events**:
+   - Regularly monitor cluster events for early detection of issues.
+
+3. **Leverage Logs**:
+   - Use centralized logging tools like Elasticsearch and Kibana for application logs.
+
+4. **Automate Monitoring**:
+   - Integrate monitoring tools like Prometheus and Grafana to observe resource health.
+
+5. **Ephemeral Containers**:
+   - Use ephemeral containers for safe and efficient debugging of live pods.
+
+---
