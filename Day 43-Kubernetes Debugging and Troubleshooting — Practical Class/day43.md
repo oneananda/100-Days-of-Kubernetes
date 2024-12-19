@@ -1,6 +1,6 @@
 ﻿---
 
-## Day 42: Kubernetes Debugging and Troubleshooting — Practical Class
+## Day 43: Kubernetes Debugging and Troubleshooting — Practical Class
 
 ### 📘 Overview
 
@@ -226,7 +226,7 @@ kubectl delete -f network-debug.yaml
 
 ### 📝 Document Your Progress
 
-In your `day42.md` file, record:
+In your `day43.md` file, record:
 - Steps taken to debug different issues.
 - Observations from pod events and logs.
 - Challenges faced and how they were resolved.
@@ -234,9 +234,9 @@ In your `day42.md` file, record:
 
 ---
 
-### 🎯 Outcome for Day 42
+### 🎯 Outcome for Day 43
 
-By the end of Day 42, you should:
+By the end of Day 43, you should:
 1. Identify and resolve common issues with Kubernetes resources.
 2. Debug pods using events, logs, and ephemeral containers.
 3. Troubleshoot networking and configuration errors.

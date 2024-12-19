@@ -42,6 +42,7 @@
 - Day 40: Kubernetes Ingress Controller — Practical Class
 - Day 41: Kubernetes Init Containers — Practical Class
 - Day 42: Kubernetes ConfigMaps and Secrets — Advanced Usage Practical Class
+- Day 43: Kubernetes Debugging and Troubleshooting — Practical Class
 
 
 
