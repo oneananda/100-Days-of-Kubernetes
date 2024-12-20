@@ -195,3 +195,32 @@ kubectl delete -f storage-class.yaml
    - Use monitoring tools to track storage usage and performance.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day44.md` file, record:
+- Steps for creating and using a Storage Class.
+- Observations on dynamic provisioning behavior.
+- Challenges faced and their resolutions.
+- Examples of how Storage Classes simplify storage management in Kubernetes.
+
+---
+
+### 🎯 Outcome for Day 44
+
+By the end of Day 44, you should:
+1. Understand the role and functionality of Storage Classes in Kubernetes.
+2. Create and use Storage Classes for dynamic volume provisioning.
+3. Attach dynamically provisioned volumes to pods.
+4. Apply best practices for managing storage in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+- [Dynamic Volume Provisioning in Kubernetes](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)
+- [Provisioner Parameters](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner-parameters)
+
+---
