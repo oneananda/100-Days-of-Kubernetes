@@ -210,3 +210,31 @@ kubectl delete svc myapp-service
    - Use tools like Argo Rollouts or Flagger for automated canary deployments.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day45.md` file, record:
+- Steps for creating and testing the Canary Deployment.
+- Observations on traffic splitting and behavior.
+- Challenges faced and resolutions.
+- Examples of real-world use cases for Canary Deployments.
+
+---
+
+### 🎯 Outcome for Day 45
+
+By the end of Day 45, you should:
+1. Understand the purpose and benefits of Canary Deployments.
+2. Deploy and test a Canary release in Kubernetes.
+3. Monitor traffic and performance during a gradual rollout.
+4. Implement best practices to ensure a safe and efficient deployment process.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Canary Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployments)
+- [Argo Rollouts for Advanced Deployment Strategies](https://argoproj.github.io/argo-rollouts/)
+- [Progressive Delivery Patterns](https://progressive.delivery/)
+
+---
