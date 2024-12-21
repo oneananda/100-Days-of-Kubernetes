@@ -194,3 +194,19 @@ kubectl delete svc myapp-service
 ```
 
 ---
+
+### Best Practices for Canary Deployments
+
+1. **Gradual Rollout**:
+   - Start with minimal traffic to the canary version and increase gradually.
+
+2. **Monitoring**:
+   - Continuously monitor logs, metrics, and user feedback.
+
+3. **Rollback Strategy**:
+   - Prepare for quick rollback in case of failures.
+
+4. **Automate**:
+   - Use tools like Argo Rollouts or Flagger for automated canary deployments.
+
+---
