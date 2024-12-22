@@ -242,3 +242,21 @@ In your `day46.md` file, record:
 - Examples of how Blue-Green Deployments improve reliability.
 
 ---
+
+### 🎯 Outcome for Day 46
+
+By the end of Day 46, you should:
+1. Understand the concept and benefits of Blue-Green Deployments.
+2. Implement and test a Blue-Green Deployment in Kubernetes.
+3. Switch traffic between environments without downtime.
+4. Apply best practices for reliable and safe rollouts.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Blue-Green Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#blue-green-deployments)
+- [Automating Blue-Green Deployments with ArgoCD](https://argoproj.github.io/cd/)
+- [Progressive Delivery with Blue-Green and Canary](https://progressive.delivery/)
+
+---
