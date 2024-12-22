@@ -33,3 +33,183 @@ This session focuses on implementing Blue-Green Deployments in Kubernetes using 
    - Separate namespaces can be used to keep blue and green environments distinct.
 
 ---
+
+### Practical Exercises
+
+---
+
+### 1. Setting Up the Blue Environment
+
+#### Step 1: Create the Blue Deployment
+Define `blue-deployment.yaml` for the current version:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-blue
+  labels:
+    app: myapp
+    version: blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: myapp
+        version: blue
+    spec:
+      containers:
+      - name: myapp
+        image: nginx:1.19
+        ports:
+        - containerPort: 80
+```
+
+Apply the Blue Deployment:
+```bash
+kubectl apply -f blue-deployment.yaml
+```
+
+#### Step 2: Expose the Blue Deployment
+Create a service for the Blue environment:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    app: myapp
+    version: blue
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+```
+
+Apply the service:
+```bash
+kubectl apply -f service.yaml
+```
+
+Verify the Blue environment:
+```bash
+kubectl get deployments
+kubectl get svc myapp-service
+```
+
+---
+
+### 2. Setting Up the Green Environment
+
+#### Step 1: Create the Green Deployment
+Define `green-deployment.yaml` for the new version:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-green
+  labels:
+    app: myapp
+    version: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      version: green
+  template:
+    metadata:
+      labels:
+        app: myapp
+        version: green
+    spec:
+      containers:
+      - name: myapp
+        image: nginx:1.21
+        ports:
+        - containerPort: 80
+```
+
+Apply the Green Deployment:
+```bash
+kubectl apply -f green-deployment.yaml
+```
+
+Verify both Blue and Green deployments:
+```bash
+kubectl get deployments
+kubectl get pods -l app=myapp
+```
+
+---
+
+### 3. Switching Traffic
+
+#### Step 1: Update the Service Selector
+Switch the service to route traffic to the Green environment:
+```yaml
+spec:
+  selector:
+    app: myapp
+    version: green
+```
+
+Apply the updated service:
+```bash
+kubectl apply -f service.yaml
+```
+
+Verify that the service is now routing traffic to Green:
+```bash
+kubectl describe svc myapp-service
+kubectl get pods -l version=green
+```
+
+---
+
+### 4. Testing and Rollback
+
+#### Step 1: Test the Green Environment
+Access the service using its external IP and verify the application version:
+```bash
+curl http://<SERVICE_EXTERNAL_IP>
+```
+
+#### Step 2: Rollback to the Blue Environment
+If issues are detected, update the service selector to route traffic back to Blue:
+```yaml
+spec:
+  selector:
+    app: myapp
+    version: blue
+```
+
+Apply the rollback:
+```bash
+kubectl apply -f service.yaml
+```
+
+Verify that the service is now routing traffic to Blue:
+```bash
+kubectl describe svc myapp-service
+kubectl get pods -l version=blue
+```
+
+---
+
+### 5. Cleanup
+
+Remove all resources:
+```bash
+kubectl delete -f blue-deployment.yaml
+kubectl delete -f green-deployment.yaml
+kubectl delete svc myapp-service
+```
+
+---
