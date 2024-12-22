@@ -213,3 +213,32 @@ kubectl delete svc myapp-service
 ```
 
 ---
+
+### Best Practices for Blue-Green Deployments
+
+1. **Pre-Deployment Testing**:
+   - Test the Green environment thoroughly before switching traffic.
+
+2. **Traffic Monitoring**:
+   - Use monitoring tools like Prometheus or Grafana to observe application performance.
+
+3. **Automation**:
+   - Automate Blue-Green Deployments using CI/CD tools like ArgoCD or Jenkins.
+
+4. **Namespace Isolation**:
+   - Use namespaces to separate Blue and Green environments for better resource isolation.
+
+5. **Rollback Strategy**:
+   - Ensure quick and reliable rollback procedures.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day46.md` file, record:
+- Steps for creating and switching Blue-Green environments.
+- Observations during traffic switching and rollback.
+- Challenges faced and their resolutions.
+- Examples of how Blue-Green Deployments improve reliability.
+
+---
