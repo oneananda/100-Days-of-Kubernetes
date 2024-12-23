@@ -46,6 +46,7 @@
 - Day 44: Kubernetes Storage Classes and Dynamic Volume Provisioning — Practical Class
 - Day 45: Kubernetes Canary Deployments — Practical Class
 - Day 46: Kubernetes Blue-Green Deployments — Practical Class
+- Day 47: Kubernetes Rolling Updates with Zero Downtime — Practical Class
 
 
 
