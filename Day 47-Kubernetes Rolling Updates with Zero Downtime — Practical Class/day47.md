@@ -214,3 +214,30 @@ kubectl delete svc rolling-demo-service
 
 ---
 
+### 📝 Document Your Progress
+
+In your `day47.md` file, record:
+- Steps for creating and updating deployments with Rolling Updates.
+- Observations during the update process and rollback.
+- Challenges faced and their resolutions.
+- Examples of how Rolling Updates improve deployment safety.
+
+---
+
+### 🎯 Outcome for Day 47
+
+By the end of Day 47, you should:
+1. Understand the purpose and process of Rolling Updates in Kubernetes.
+2. Configure deployments for safe and progressive updates.
+3. Monitor the update process to ensure zero downtime.
+4. Implement rollback strategies for quick recovery.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Rolling Updates](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment)
+- [Kubernetes Deployment Strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#deployment-strategies)
+- [Rollback in Kubernetes](https://kubernetes.io/docs/tasks/run-application/rollback-update/)
+
+---
