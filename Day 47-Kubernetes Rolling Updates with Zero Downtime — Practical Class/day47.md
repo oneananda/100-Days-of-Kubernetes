@@ -33,3 +33,164 @@ This session focuses on implementing Rolling Updates in Kubernetes, configuring 
    - Reverts to a previous version if issues occur during the update.
 
 ---
+
+### Practical Exercises
+
+---
+
+### 1. Deploying the Initial Version
+
+#### Step 1: Create a Deployment
+Define `deployment-v1.yaml` for the initial version:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rolling-demo
+  template:
+    metadata:
+      labels:
+        app: rolling-demo
+    spec:
+      containers:
+      - name: demo-container
+        image: nginx:1.19
+        ports:
+        - containerPort: 80
+```
+
+Apply the deployment:
+```bash
+kubectl apply -f deployment-v1.yaml
+```
+
+Verify the deployment:
+```bash
+kubectl get deployments
+kubectl get pods -l app=rolling-demo
+```
+
+Expose the deployment with a service:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: rolling-demo-service
+spec:
+  selector:
+    app: rolling-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+```
+
+Apply the service:
+```bash
+kubectl apply -f service.yaml
+```
+
+Check the service:
+```bash
+kubectl get svc rolling-demo-service
+```
+
+---
+
+### 2. Updating the Deployment
+
+#### Step 1: Modify the Deployment for a New Version
+Update `deployment-v1.yaml` to create `deployment-v2.yaml` with a new image version:
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+      - name: demo-container
+        image: nginx:1.21
+```
+
+Apply the updated deployment:
+```bash
+kubectl apply -f deployment-v2.yaml
+```
+
+Monitor the Rolling Update process:
+```bash
+kubectl rollout status deployment rolling-demo
+```
+
+---
+
+### 3. Configuring Rolling Update Parameters
+
+#### Step 1: Customize the Update Strategy
+Modify the deployment to include Rolling Update parameters:
+```yaml
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+```
+
+Apply the updated configuration:
+```bash
+kubectl apply -f deployment-v2.yaml
+```
+
+Verify the strategy:
+```bash
+kubectl describe deployment rolling-demo
+```
+
+---
+
+### 4. Testing Rollback
+
+#### Step 1: Trigger a Faulty Update
+Update the deployment to use an invalid image:
+```yaml
+        image: invalid-image:latest
+```
+
+Apply the faulty update:
+```bash
+kubectl apply -f deployment-v2.yaml
+```
+
+Monitor the deployment for failures:
+```bash
+kubectl rollout status deployment rolling-demo
+```
+
+#### Step 2: Rollback to the Previous Version
+Rollback the deployment:
+```bash
+kubectl rollout undo deployment rolling-demo
+```
+
+Verify the rollback:
+```bash
+kubectl get pods -l app=rolling-demo
+kubectl describe deployment rolling-demo
+```
+
+---
+
+### 5. Cleanup
+
+Remove all resources:
+```bash
+kubectl delete -f deployment-v2.yaml
+kubectl delete svc rolling-demo-service
+```
+
+---
