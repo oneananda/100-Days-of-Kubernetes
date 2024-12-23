@@ -194,3 +194,23 @@ kubectl delete svc rolling-demo-service
 ```
 
 ---
+
+### Best Practices for Rolling Updates
+
+1. **Monitor Readiness**:
+   - Ensure readiness probes are configured to verify pod health during updates.
+
+2. **Progressive Updates**:
+   - Use small batch sizes (maxSurge and maxUnavailable) for safer rollouts.
+
+3. **Monitoring**:
+   - Use tools like Prometheus and Grafana to monitor application performance during updates.
+
+4. **Rollback Strategy**:
+   - Be prepared to rollback quickly in case of issues.
+
+5. **Automated Rollouts**:
+   - Use CI/CD tools to automate deployment updates with validation checks.
+
+---
+
