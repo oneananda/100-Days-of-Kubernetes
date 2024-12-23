@@ -9,3 +9,27 @@
 This session focuses on implementing Rolling Updates in Kubernetes, configuring strategies, and ensuring application availability during the process.
 
 ---
+
+### Objectives
+
+1. Understand the concept of Rolling Updates in Kubernetes.
+2. Configure a Deployment for Rolling Updates.
+3. Monitor the update process to ensure zero downtime.
+4. Test rollback in case of issues during updates.
+
+---
+
+### Key Concepts
+
+1. **Rolling Update**:
+   - Updates a deployment incrementally while maintaining application availability.
+   - Ensures old pods are terminated only after new pods are ready.
+
+2. **Update Strategies**:
+   - **MaxUnavailable**: Maximum number of pods that can be unavailable during the update.
+   - **MaxSurge**: Maximum number of extra pods created during the update.
+
+3. **Rollback**:
+   - Reverts to a previous version if issues occur during the update.
+
+---
