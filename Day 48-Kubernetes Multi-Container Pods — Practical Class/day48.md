@@ -33,3 +33,102 @@ This session focuses on creating multi-container pods, understanding container c
    - **Ambassador Pattern**: Manages connections to external systems.
 
 ---
+
+### Practical Exercises
+
+---
+
+### 1. Creating a Multi-Container Pod
+
+#### Step 1: Define a Multi-Container Pod
+Create a `multi-container-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-demo
+spec:
+  containers:
+  - name: main-app
+    image: nginx:1.19
+    ports:
+    - containerPort: 80
+  - name: sidecar-container
+    image: busybox
+    command: ["sh", "-c", "while true; do echo 'Sidecar: $(date)' >> /var/log/app.log; sleep 5; done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+  volumes:
+  - name: shared-logs
+    emptyDir: {}
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f multi-container-pod.yaml
+```
+
+Verify the pod:
+```bash
+kubectl get pods
+```
+
+---
+
+### 2. Testing Container Communication
+
+#### Step 1: Access the Main Container
+Execute into the main container:
+```bash
+kubectl exec -it multi-container-demo -c main-app -- sh
+```
+
+Check the shared log file:
+```bash
+cat /var/log/app.log
+```
+
+#### Step 2: Access the Sidecar Container
+Execute into the sidecar container:
+```bash
+kubectl exec -it multi-container-demo -c sidecar-container -- sh
+```
+
+View the logs being written:
+```bash
+tail -f /var/log/app.log
+```
+
+---
+
+### 3. Implementing the Sidecar Pattern
+
+#### Step 1: Enhance the Sidecar Container
+Update the pod to include a sidecar container for log rotation:
+```yaml
+  - name: log-rotator
+    image: busybox
+    command: ["sh", "-c", "while true; do mv /var/log/app.log /var/log/app-$(date +%s).log; sleep 60; done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+```
+
+Apply the updated configuration:
+```bash
+kubectl apply -f multi-container-pod.yaml
+```
+
+Verify log rotation by checking `/var/log` in the main or sidecar container.
+
+---
+
+### 4. Cleanup
+
+Remove the pod:
+```bash
+kubectl delete pod multi-container-demo
+```
+
+---
