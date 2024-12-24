@@ -148,3 +148,31 @@ kubectl delete pod multi-container-demo
    - Common sidecar use cases include logging, monitoring, data preprocessing, and API management.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day48.md` file, record:
+- Steps for creating and testing multi-container pods.
+- Observations on container communication and shared resources.
+- Challenges faced and their resolutions.
+- Examples of how multi-container pods enhance application design.
+
+---
+
+### 🎯 Outcome for Day 48
+
+By the end of Day 48, you should:
+1. Understand the purpose and functionality of multi-container pods.
+2. Create multi-container pods with shared resources.
+3. Enable seamless communication between containers within a pod.
+4. Implement the sidecar pattern to augment container functionality.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Pods](https://kubernetes.io/docs/concepts/workloads/pods/)
+- [Sidecar Pattern in Kubernetes](https://kubernetes.io/docs/concepts/architecture/patterns/#sidecar-pattern)
+- [Multi-Container Pod Design Patterns](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod/)
+
+---
