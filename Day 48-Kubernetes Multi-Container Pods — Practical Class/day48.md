@@ -132,3 +132,19 @@ kubectl delete pod multi-container-demo
 ```
 
 ---
+
+### Best Practices for Multi-Container Pods
+
+1. **Shared Resources**:
+   - Use `emptyDir` or shared volumes for collaboration between containers.
+
+2. **Design Principles**:
+   - Each container should have a focused responsibility to avoid overloading individual containers.
+
+3. **Monitoring and Debugging**:
+   - Use centralized logging and monitoring tools to observe all containers within the pod.
+
+4. **Sidecar Responsibilities**:
+   - Common sidecar use cases include logging, monitoring, data preprocessing, and API management.
+
+---
