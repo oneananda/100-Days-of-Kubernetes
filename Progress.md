@@ -47,6 +47,8 @@
 - Day 45: Kubernetes Canary Deployments — Practical Class
 - Day 46: Kubernetes Blue-Green Deployments — Practical Class
 - Day 47: Kubernetes Rolling Updates with Zero Downtime — Practical Class
+- Day 48: Kubernetes Multi-Container Pods — Practical Class
+
 
 
 
