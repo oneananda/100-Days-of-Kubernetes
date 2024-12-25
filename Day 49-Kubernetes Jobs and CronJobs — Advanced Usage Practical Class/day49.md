@@ -207,3 +207,31 @@ kubectl delete -f cronjob-example.yaml
    - Centralize logs for better debugging and analysis of Job executions.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day49.md` file, record:
+- Steps for creating and testing Jobs and CronJobs.
+- Observations on parallelism, retries, and concurrency policies.
+- Challenges faced and their resolutions.
+- Examples of real-world use cases for Jobs and CronJobs.
+
+---
+
+### 🎯 Outcome for Day 49
+
+By the end of Day 49, you should:
+1. Configure advanced Job settings like parallelism and retries.
+2. Schedule periodic tasks using CronJobs.
+3. Handle failure scenarios effectively with retries and backoff limits.
+4. Apply concurrency policies to manage task execution.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+- [Kubernetes Documentation: CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+- [Best Practices for Kubernetes Jobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)
+
+---
