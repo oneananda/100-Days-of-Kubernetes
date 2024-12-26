@@ -209,3 +209,31 @@ kubectl delete -f crd-example.yaml
    - Use frameworks like Operator SDK or Helm to simplify the development process.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day50.md` file, record:
+- Steps for creating and testing the Operator.
+- Observations on the CRD and Controller behavior.
+- Challenges faced and their resolutions.
+- Examples of how Operators simplify managing complex applications.
+
+---
+
+### 🎯 Outcome for Day 50
+
+By the end of Day 50, you should:
+1. Understand the purpose and structure of Kubernetes Operators.
+2. Create and deploy a simple Operator using CRDs and a Controller.
+3. Automate application management tasks with the Operator.
+4. Apply best practices for Operator design and deployment.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+- [Operator SDK](https://sdk.operatorframework.io/)
+- [Developing Kubernetes Operators](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
+
+---
