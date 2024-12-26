@@ -49,6 +49,7 @@
 - Day 47: Kubernetes Rolling Updates with Zero Downtime — Practical Class
 - Day 48: Kubernetes Multi-Container Pods — Practical Class
 - Day 49: Kubernetes Jobs and CronJobs — Advanced Usage Practical Class
+- Day 50: Kubernetes Operators — Practical Class
 
 
 
