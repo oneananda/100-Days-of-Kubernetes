@@ -217,3 +217,32 @@ kubectl delete -f psp-restrictive.yaml
    - Regularly audit security policies and monitor cluster activity.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day52.md` file, record:
+- Steps for creating and testing PSPs and Security Contexts.
+- Observations on workload behavior under restrictive policies.
+- Challenges faced and their resolutions.
+- Examples of how these security features improve Kubernetes security.
+
+---
+
+### 🎯 Outcome for Day 52
+
+By the end of Day 52, you should:
+1. Understand how Pod Security Policies and Security Contexts enhance Kubernetes security.
+2. Create and enforce security guidelines using PSPs.
+3. Configure Security Contexts for container-level security.
+4. Apply best practices for securing Kubernetes workloads.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)
+- [Security Contexts in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+- [Pod Security Admission (PSA)](https://kubernetes.io/docs/concepts/security/pod-security-admission/)
+- [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/overview/)
+
+---
