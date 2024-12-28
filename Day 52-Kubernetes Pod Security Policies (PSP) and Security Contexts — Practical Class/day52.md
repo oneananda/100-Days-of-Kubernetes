@@ -198,3 +198,22 @@ kubectl delete -f psp-restrictive.yaml
 ```
 
 ---
+
+### Best Practices for Pod Security
+
+1. **Use Security Contexts**:
+   - Apply least privilege principles for all containers.
+
+2. **Restrict Privileges**:
+   - Disable privilege escalation and use non-root users.
+
+3. **Read-Only File Systems**:
+   - Use read-only root filesystems wherever possible.
+
+4. **Adopt Pod Security Admission (PSA)**:
+   - Transition to PSA as PSPs are deprecated.
+
+5. **Audit and Monitor**:
+   - Regularly audit security policies and monitor cluster activity.
+
+---
