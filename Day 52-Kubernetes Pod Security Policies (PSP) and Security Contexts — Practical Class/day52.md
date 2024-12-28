@@ -37,3 +37,164 @@ This session focuses on creating and applying Pod Security Policies and configur
    - PSPs are deprecated in Kubernetes 1.21 and replaced by the Pod Security Admission (PSA) framework.
 
 ---
+
+### Practical Exercises
+
+---
+
+### 1. Configuring Pod Security Policies
+
+#### Step 1: Create a Pod Security Policy
+Define a `psp-restrictive.yaml` file:
+```yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restrictive-psp
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  requiredDropCapabilities:
+  - ALL
+  volumes:
+  - "configMap"
+  - "emptyDir"
+  - "secret"
+  - "persistentVolumeClaim"
+  runAsUser:
+    rule: MustRunAsNonRoot
+  seLinux:
+    rule: RunAsAny
+  fsGroup:
+    rule: MustRunAs
+    ranges:
+    - min: 1
+      max: 65535
+  supplementalGroups:
+    rule: MustRunAs
+    ranges:
+    - min: 1
+      max: 65535
+```
+
+Apply the PSP:
+```bash
+kubectl apply -f psp-restrictive.yaml
+```
+
+---
+
+#### Step 2: Create a Role and RoleBinding for the PSP
+Define a `psp-role.yaml` file:
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: psp-user
+rules:
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicies
+  resourceNames:
+  - restrictive-psp
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: psp-user-binding
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: psp-user
+subjects:
+- kind: User
+  name: default
+  apiGroup: rbac.authorization.k8s.io
+```
+
+Apply the Role and RoleBinding:
+```bash
+kubectl apply -f psp-role.yaml
+```
+
+---
+
+### 2. Testing Pod Security Policies
+
+#### Step 1: Create a Pod that Violates the PSP
+Define a `privileged-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privileged-pod
+spec:
+  containers:
+  - name: test-container
+    image: nginx
+    securityContext:
+      privileged: true
+```
+
+Attempt to apply the pod:
+```bash
+kubectl apply -f privileged-pod.yaml
+```
+
+Verify that the pod is denied due to the restrictive PSP:
+```bash
+kubectl describe pod privileged-pod
+```
+
+---
+
+### 3. Configuring Security Contexts
+
+#### Step 1: Create a Pod with Security Context
+Define a `secure-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    fsGroup: 1000
+  containers:
+  - name: test-container
+    image: nginx
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      runAsUser: 1000
+```
+
+Apply the secure pod:
+```bash
+kubectl apply -f secure-pod.yaml
+```
+
+Verify the pod:
+```bash
+kubectl describe pod secure-pod
+```
+
+---
+
+### 4. Cleanup
+
+Remove all resources:
+```bash
+kubectl delete -f secure-pod.yaml
+kubectl delete -f privileged-pod.yaml
+kubectl delete -f psp-role.yaml
+kubectl delete -f psp-restrictive.yaml
+```
+
+---
