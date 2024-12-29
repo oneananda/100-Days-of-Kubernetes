@@ -189,3 +189,22 @@ kubectl delete -f "https://cloud.weave.works/k8s/scope.yaml"
 ```
 
 ---
+
+### Best Practices for Network Observability
+
+1. **Visualize Dependencies**:
+   - Use tools like Weave Scope to understand service dependencies.
+
+2. **Analyze Traffic**:
+   - Regularly capture and analyze packets to identify network issues.
+
+3. **Monitor Performance**:
+   - Track metrics like latency, throughput, and error rates using observability tools.
+
+4. **Use Network Policies**:
+   - Implement and monitor network policies to restrict traffic flows and improve security.
+
+5. **Centralized Monitoring**:
+   - Integrate monitoring with centralized tools like Prometheus and Grafana.
+
+---
