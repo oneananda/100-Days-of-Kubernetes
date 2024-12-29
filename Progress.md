@@ -52,6 +52,7 @@
 - Day 50: Kubernetes Operators — Practical Class
 - Day 51: Kubernetes Stateful Applications with Operators — Practical Class
 - Day 52: Kubernetes Pod Security Policies (PSP) and Security Contexts — Practical Class
+- Day 53: Kubernetes Network Observability with Tools — Practical Class
 
 
 
