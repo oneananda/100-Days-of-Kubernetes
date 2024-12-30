@@ -168,3 +168,33 @@ kubectl delete deployment cluster-autoscaler -n kube-system
    - Ensure that resource requests and limits are accurately set for workloads to trigger scaling effectively.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day54.md` file, record:
+- Steps for configuring and testing the Cluster Autoscaler.
+- Observations on scaling up and down behavior.
+- Challenges faced and their resolutions.
+- Examples of how the Cluster Autoscaler optimizes resource utilization.
+
+---
+
+### 🎯 Outcome for Day 54
+
+By the end of Day 54, you should:
+1. Understand the purpose and functionality of the Cluster Autoscaler.
+2. Configure the Cluster Autoscaler to dynamically adjust cluster size.
+3. Simulate workloads to trigger scaling events.
+4. Apply best practices for managing autoscaling in Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
+- [AWS EKS Autoscaler Guide](https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html)
+- [GKE Autoscaler Guide](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler)
+- [Azure AKS Autoscaler Guide](https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler)
+
+---
+
