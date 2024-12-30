@@ -149,3 +149,22 @@ kubectl delete deployment cluster-autoscaler -n kube-system
 ```
 
 ---
+
+### Best Practices for Cluster Autoscaler
+
+1. **Set Node Group Limits**:
+   - Configure `--nodes` to define the minimum and maximum nodes for each node group.
+
+2. **Node Balancing**:
+   - Use the `--balance-similar-node-groups` flag to evenly distribute pods across node groups.
+
+3. **Avoid Local Storage Issues**:
+   - Avoid using nodes with local storage unless absolutely necessary (`--skip-nodes-with-local-storage`).
+
+4. **Monitoring**:
+   - Use logs and monitoring tools to track autoscaling behavior and resource usage.
+
+5. **Right-Sizing Workloads**:
+   - Ensure that resource requests and limits are accurately set for workloads to trigger scaling effectively.
+
+---
