@@ -39,3 +39,43 @@ This session focuses on setting up Prometheus and Grafana, integrating them with
    - Simplifies the deployment and management of Prometheus in Kubernetes.
 
 ---
+
+### Practical Exercises
+
+---
+
+#### 1. Installing Prometheus and Grafana
+
+##### Step 1: Deploy Prometheus
+Use Helm to install the Prometheus Operator:
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack
+```
+
+Verify the installation:
+```bash
+kubectl get pods -n default
+```
+
+##### Step 2: Deploy Grafana
+Grafana is included with the Prometheus Operator. Check the pod status:
+```bash
+kubectl get pods -l app.kubernetes.io/name=grafana
+```
+
+Retrieve the Grafana admin password:
+```bash
+kubectl get secret prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+```
+
+Access the Grafana dashboard:
+1. Forward the Grafana port:
+   ```bash
+   kubectl port-forward svc/prometheus-grafana 3000:80
+   ```
+2. Open your browser and navigate to `http://localhost:3000`.
+3. Log in with the username `admin` and the retrieved password.
+
+---
