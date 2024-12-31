@@ -113,3 +113,44 @@ Use the imported dashboards to monitor:
 - Application performance
 
 ---
+
+#### 4. Setting Alerts
+
+##### Step 1: Create Alerts in Grafana
+1. Navigate to a dashboard panel and select **Edit**.
+2. Go to the **Alerts** tab and configure alert rules.
+3. Set thresholds for metrics like CPU or memory usage.
+
+##### Step 2: Test Alerts
+Simulate a high-resource usage workload:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: resource-test
+  template:
+    metadata:
+      labels:
+        app: resource-test
+    spec:
+      containers:
+      - name: stress
+        image: polinux/stress
+        args:
+        - "--cpu"
+        - "2"
+        - "--timeout"
+        - "600s"
+```
+
+Apply the deployment:
+```bash
+kubectl apply -f resource-test.yaml
+```
+
+---
