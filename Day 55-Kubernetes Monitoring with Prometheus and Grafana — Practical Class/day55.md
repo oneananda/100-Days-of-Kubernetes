@@ -154,3 +154,32 @@ kubectl apply -f resource-test.yaml
 ```
 
 ---
+
+#### 5. Cleanup
+
+Remove the test workload and the monitoring stack:
+```bash
+kubectl delete -f resource-test.yaml
+helm uninstall prometheus
+```
+
+---
+
+### Best Practices for Kubernetes Monitoring
+
+1. **Use Predefined Dashboards**:
+   - Start with community dashboards to save setup time.
+
+2. **Optimize Scrape Intervals**:
+   - Set appropriate scrape intervals to balance performance and granularity.
+
+3. **Set Alerts Wisely**:
+   - Avoid alert fatigue by configuring meaningful thresholds.
+
+4. **Secure Access**:
+   - Use authentication and encryption for Prometheus and Grafana.
+
+5. **Monitor Long-Term Trends**:
+   - Use Grafana to analyze historical data for capacity planning.
+
+---
