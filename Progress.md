@@ -54,6 +54,7 @@
 - Day 52: Kubernetes Pod Security Policies (PSP) and Security Contexts — Practical Class
 - Day 53: Kubernetes Network Observability with Tools — Practical Class
 - Day 54: Kubernetes Cluster Autoscaler — Practical Class
+- Day 55: Kubernetes Monitoring with Prometheus and Grafana — Practical Class
 
 
 
