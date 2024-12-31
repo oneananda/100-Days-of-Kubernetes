@@ -92,3 +92,24 @@ kubectl get pods -l app.kubernetes.io/name=node-exporter
 Edit the `prometheus.yaml` configuration to add Kubernetes components like kube-scheduler and kube-controller-manager as scrape targets.
 
 ---
+
+#### 3. Visualizing Metrics with Grafana
+
+##### Step 1: Add Prometheus as a Data Source
+1. In Grafana, navigate to **Configuration** > **Data Sources**.
+2. Click **Add Data Source** and select **Prometheus**.
+3. Enter the Prometheus service URL (`http://prometheus-server`) and save.
+
+##### Step 2: Import Predefined Dashboards
+Grafana includes predefined dashboards for Kubernetes monitoring:
+1. Go to **Dashboards** > **Import**.
+2. Use the dashboard ID for Kubernetes monitoring (e.g., `6417`).
+3. Link the dashboard to the Prometheus data source.
+
+##### Step 3: Explore Metrics
+Use the imported dashboards to monitor:
+- Cluster resource usage
+- Pod and node health
+- Application performance
+
+---
