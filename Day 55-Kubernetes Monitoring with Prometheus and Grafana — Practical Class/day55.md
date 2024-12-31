@@ -183,3 +183,31 @@ helm uninstall prometheus
    - Use Grafana to analyze historical data for capacity planning.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day55.md` file, include:
+- Steps for setting up Prometheus and Grafana.
+- Observations on the dashboards and metrics.
+- Any issues faced and how you resolved them.
+- Examples of useful alerts you configured.
+
+---
+
+### 🎯 Outcome for Day 55
+
+By the end of this session, you will:
+1. Set up Prometheus and Grafana for Kubernetes monitoring.
+2. Visualize key metrics using Grafana dashboards.
+3. Configure meaningful alerts to detect potential issues.
+
+---
+
+### 🔗 Additional Resources
+
+- [Prometheus Documentation](https://prometheus.io/docs/)
+- [Grafana Documentation](https://grafana.com/docs/)
+- [Helm Charts for Prometheus Stack](https://github.com/prometheus-community/helm-charts)
+- [Kubernetes Monitoring with Prometheus and Grafana](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
+
+---
