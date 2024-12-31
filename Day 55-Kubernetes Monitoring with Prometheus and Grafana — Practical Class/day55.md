@@ -79,3 +79,16 @@ Access the Grafana dashboard:
 3. Log in with the username `admin` and the retrieved password.
 
 ---
+
+#### 2. Configuring Prometheus to Collect Metrics
+
+##### Step 1: Enable Node Exporter
+Node Exporter is included with the Prometheus stack. Verify its pods:
+```bash
+kubectl get pods -l app.kubernetes.io/name=node-exporter
+```
+
+##### Step 2: Add Kubernetes Metrics
+Edit the `prometheus.yaml` configuration to add Kubernetes components like kube-scheduler and kube-controller-manager as scrape targets.
+
+---
