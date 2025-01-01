@@ -143,3 +143,14 @@ Reload Prometheus to apply the rules.
 3. Assign the notification channel to alerts.
 
 ---
+
+#### 5. Using Prometheus with Long-Term Storage
+
+Prometheus metrics are ephemeral. Integrate with a long-term storage system like Thanos or Cortex for historical analysis:
+- Install Thanos for Prometheus:
+  ```bash
+  helm install thanos prometheus-community/prometheus-thanos
+  ```
+- Configure Thanos to store metrics in an object storage backend (e.g., AWS S3, GCS).
+
+---
