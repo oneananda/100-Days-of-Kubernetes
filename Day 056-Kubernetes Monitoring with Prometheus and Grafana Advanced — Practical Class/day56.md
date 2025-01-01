@@ -154,3 +154,33 @@ Prometheus metrics are ephemeral. Integrate with a long-term storage system like
 - Configure Thanos to store metrics in an object storage backend (e.g., AWS S3, GCS).
 
 ---
+
+#### 6. Cleanup
+
+Remove the deployed resources:
+```bash
+helm uninstall prometheus
+helm uninstall mysql-exporter
+helm uninstall thanos
+```
+
+---
+
+### Best Practices for Advanced Monitoring
+
+1. **Optimize Query Performance**:
+   - Use efficient PromQL queries to minimize Prometheus load.
+
+2. **Use Templated Dashboards**:
+   - Create reusable templates for similar environments.
+
+3. **Combine Alerts Across Tools**:
+   - Use both Prometheus and Grafana alerts for comprehensive coverage.
+
+4. **Automate Exporter Configuration**:
+   - Use Helm or Kubernetes Operators to manage exporters.
+
+5. **Store Metrics Long-Term**:
+   - Leverage tools like Thanos or Cortex for historical metrics and large-scale monitoring.
+
+---
