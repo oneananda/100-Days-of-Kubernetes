@@ -89,3 +89,28 @@ Combine multiple panels for a comprehensive view:
 - Custom application metrics (e.g., request latency).
 
 ---
+
+#### 3. Adding External Exporters
+
+##### Step 1: Install an Exporter (e.g., MySQL Exporter)
+Deploy the MySQL exporter:
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install mysql-exporter prometheus-community/prometheus-mysql-exporter --set mysql.host=<db-host> --set mysql.user=<user> --set mysql.pass=<password>
+```
+
+Verify that the exporter is running:
+```bash
+kubectl get pods -l app=mysql-exporter
+```
+
+##### Step 2: Configure Prometheus to Scrape Metrics
+Edit the Prometheus configuration to add the exporter as a target:
+```yaml
+- job_name: 'mysql-exporter'
+  static_configs:
+  - targets: ['<mysql-exporter-service>:9104']
+```
+Reload Prometheus to apply the changes.
+
+---
