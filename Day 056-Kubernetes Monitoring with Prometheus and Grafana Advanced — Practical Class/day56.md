@@ -68,3 +68,24 @@ Use PromQL to create advanced queries:
   ```
 
 ---
+
+#### 2. Building Advanced Grafana Dashboards
+
+##### Step 1: Create a Custom Dashboard
+1. Open Grafana (`http://localhost:3000`) and navigate to **Create** > **Dashboard**.
+2. Add a new panel and use a PromQL query for metrics visualization.
+3. Customize the panel display options (e.g., graph type, thresholds).
+
+##### Step 2: Add Variables for Flexibility
+1. Go to the **Dashboard Settings** > **Variables**.
+2. Add a variable for namespaces:
+   - Query: `label_values(kube_pod_info, namespace)`
+   - Use the variable in panels to filter data by namespace.
+
+##### Step 3: Create a Dynamic Dashboard
+Combine multiple panels for a comprehensive view:
+- Node resource usage.
+- Pod health and availability.
+- Custom application metrics (e.g., request latency).
+
+---
