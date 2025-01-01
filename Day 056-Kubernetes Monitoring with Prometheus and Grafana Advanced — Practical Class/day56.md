@@ -184,3 +184,33 @@ helm uninstall thanos
    - Leverage tools like Thanos or Cortex for historical metrics and large-scale monitoring.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day56.md` file, include:
+- Custom PromQL queries you created.
+- Screenshots of advanced Grafana dashboards.
+- Notes on using external exporters.
+- Challenges encountered and solutions applied.
+- Details on alerting configuration and integrations.
+
+---
+
+### 🎯 Outcome for Day 56
+
+By the end of this session, you will:
+1. Write custom PromQL queries for detailed monitoring.
+2. Build advanced Grafana dashboards with variables and templates.
+3. Extend monitoring with external exporters.
+4. Configure and test advanced alerts integrated with notification systems.
+
+---
+
+### 🔗 Additional Resources
+
+- [Prometheus Documentation: PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+- [Grafana Documentation: Dashboard Variables](https://grafana.com/docs/grafana/latest/variables/)
+- [Kubernetes Monitoring with External Exporters](https://prometheus.io/docs/instrumenting/exporters/)
+- [Thanos Documentation](https://thanos.io/)
+
+---
