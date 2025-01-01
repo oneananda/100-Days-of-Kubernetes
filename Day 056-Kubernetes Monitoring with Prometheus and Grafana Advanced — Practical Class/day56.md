@@ -114,3 +114,32 @@ Edit the Prometheus configuration to add the exporter as a target:
 Reload Prometheus to apply the changes.
 
 ---
+
+#### 4. Advanced Alerting with Notifications
+
+##### Step 1: Configure Prometheus Alerting Rules
+Add alerting rules in the Prometheus configuration:
+```yaml
+groups:
+- name: advanced-alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: avg(rate(node_cpu_seconds_total{mode!="idle"}[5m])) > 0.8
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU usage detected"
+      description: "CPU usage is above 80% for more than 1 minute."
+```
+Reload Prometheus to apply the rules.
+
+##### Step 2: Integrate Notification Channels in Grafana
+1. Go to Grafana **Alerting** > **Notification Channels**.
+2. Add a channel for Slack:
+   - Name: `Slack Alerts`
+   - Type: `Slack`
+   - URL: `<Slack Webhook URL>`
+3. Assign the notification channel to alerts.
+
+---
