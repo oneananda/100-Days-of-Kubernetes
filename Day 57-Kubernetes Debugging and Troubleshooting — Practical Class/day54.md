@@ -199,3 +199,31 @@ kubectl delete pod debug-pod
    - Use tools like Helm linting or CI/CD pipelines for configuration validation.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day57.md` file, include:
+- Issues you identified and resolved.
+- Tools and techniques used for debugging.
+- Examples of custom debugging commands.
+- Lessons learned and preventive measures applied.
+
+---
+
+### 🎯 Outcome for Day 57
+
+By the end of this session, you will:
+1. Debug and troubleshoot pods, nodes, and networking in Kubernetes.
+2. Resolve common cluster issues systematically.
+3. Use advanced tools to enhance debugging efficiency.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Debugging with kubectl](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/)
+- [Kubernetes Troubleshooting Guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)
+- [Lens: Kubernetes IDE](https://k8slens.dev/)
+- [K9s: Kubernetes CLI Debugging Tool](https://k9scli.io/)
+
+---
