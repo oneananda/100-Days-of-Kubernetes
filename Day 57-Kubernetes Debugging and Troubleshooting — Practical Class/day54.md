@@ -180,3 +180,22 @@ kubectl delete pod debug-pod
 ```
 
 ---
+
+### Best Practices for Debugging Kubernetes
+
+1. **Use Namespace Isolation**:
+   - Debug resources in their namespaces to avoid cross-contamination.
+
+2. **Leverage Events and Logs**:
+   - Analyze Kubernetes events and container logs for quick issue resolution.
+
+3. **Enable Resource Monitoring**:
+   - Use tools like Prometheus and Grafana for proactive monitoring.
+
+4. **Automate Health Checks**:
+   - Implement liveness and readiness probes for early issue detection.
+
+5. **Test Before Deployment**:
+   - Use tools like Helm linting or CI/CD pipelines for configuration validation.
+
+---
