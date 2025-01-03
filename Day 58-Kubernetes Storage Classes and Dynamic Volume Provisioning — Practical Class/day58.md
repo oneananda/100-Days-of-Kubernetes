@@ -223,3 +223,31 @@ kubectl delete pv custom-pv
    - Regularly back up data from persistent volumes.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day58.md` file, include:
+- Examples of dynamic and static provisioning.
+- Observations on reclaim policies and binding modes.
+- Challenges faced and how you resolved them.
+- Testing results for storage persistence.
+
+---
+
+### 🎯 Outcome for Day 58
+
+By the end of this session, you will:
+1. Understand storage classes and dynamic volume provisioning.
+2. Use PVCs and PVs effectively in Kubernetes.
+3. Explore and configure advanced storage features.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+- [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)
+- [Persistent Volumes and Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+- [Storage Best Practices](https://kubernetes.io/docs/tasks/administer-cluster/storage-management/)
+
+---
