@@ -1,6 +1,6 @@
 ﻿---
 
-## Day 59: Kubernetes Advanced Networking Part 1 — Understanding DNS and CoreDNS
+## Day 59: Kubernetes Advanced Networking — Understanding DNS and CoreDNS
 
 ### 📘 Overview
 
