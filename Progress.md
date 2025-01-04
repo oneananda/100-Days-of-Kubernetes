@@ -58,3 +58,4 @@
 - Day 56: Kubernetes Monitoring with Prometheus and Grafana Advanced — Practical Class
 - Day 57: Kubernetes Debugging and Troubleshooting — Practical Class
 - Day 58: Kubernetes Storage Classes and Dynamic Volume Provisioning — Practical Class
+- Day 59: Kubernetes Advanced Networking — Understanding DNS and CoreDNS
