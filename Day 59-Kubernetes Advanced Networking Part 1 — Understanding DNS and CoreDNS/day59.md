@@ -165,3 +165,21 @@ kubectl delete -f nginx-service.yaml
    - Periodically validate internal and external DNS queries.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day59.md` file, include:
+- Insights on how DNS works in Kubernetes.
+- CoreDNS configurations and troubleshooting steps.
+- Observations on service discovery via DNS.
+
+---
+
+### 🎯 Outcome for Day 59 
+
+By the end of this session, you will:
+1. Understand the role of DNS in Kubernetes clusters.
+2. Configure and troubleshoot CoreDNS.
+3. Use DNS for service discovery effectively.
+
+---
