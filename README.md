@@ -47,7 +47,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 
 | Day | Topic / Task | Notes |
 | --- | ------------ | ----- |
-| 1   | Getting Started with Kubernetes | [Link to Day 1](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20001-Getting%20Started%20with%20Kubernetes/day01.md) |
+| 1   | Getting Started with Kubernetes | [Link to Day 1](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2001-Getting%20Started%20with%20Kubernetes/day01.md) |
 | 2   | Kubernetes Architecture | [Link to Day 2](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20002-Kubernetes%20Architecture/day02.md) |
 | 3   | Kubectl Commands | [Link to Day 3](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20003-Kubectl%20Commands/day03.md) |
 | 4   | Exploring Pods | [Link to Day 4](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20004-Exploring%20Pods/day04.md) |
