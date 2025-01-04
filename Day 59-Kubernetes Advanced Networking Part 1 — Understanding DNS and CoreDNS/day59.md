@@ -149,3 +149,19 @@ kubectl delete -f nginx-service.yaml
 ```
 
 ---
+
+### Best Practices for DNS Management in Kubernetes
+
+1. **Monitor CoreDNS Logs**:
+   - Regularly check logs for errors or high latency.
+
+2. **Leverage Service Discovery**:
+   - Use DNS names instead of hardcoding IPs.
+
+3. **Optimize CoreDNS Configuration**:
+   - Configure cache and upstream resolvers for better performance.
+
+4. **Test DNS Resolution**:
+   - Periodically validate internal and external DNS queries.
+
+---
