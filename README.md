@@ -51,7 +51,7 @@ Each day, I will document my progress here. Follow along to see what I'm learnin
 | 2   | Kubernetes Architecture | [Link to Day 2](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2002-Kubernetes%20Architecture/day02.md) |
 | 3   | Kubectl Commands | [Link to Day 3](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2003-Kubectl%20Commands/day03.md) |
 | 4   | Exploring Pods | [Link to Day 4](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2004-Exploring%20Pods/day04.md) |
-| 5   | Working with ReplicaSets | [Link to Day 5](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20005-Working%20with%20ReplicaSets/day05.md) |
+| 5   | Working with ReplicaSets | [Link to Day 5](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%2005-Working%20with%20ReplicaSets/day05.md) |
 | 6   | Deployments and Rolling Updates | [Link to Day 6](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20006-Deployments%20and%20Rolling%20Updates/day06.md) |
 | 7   | Services — Exposing Applications Within and Outside the Cluster | [Link to Day 7](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20007-Services%20in%20Kubernetes/day07.md) |
 | 8   | Understanding ConfigMaps for External Configuration | [Link to Day 8](https://github.com/oneananda/100-Days-of-Kubernetes/blob/main/Day%20008-Understanding%20ConfigMaps/day08.md) |
