@@ -144,3 +144,19 @@ kubectl delete namespace netpol-demo
 ```
 
 ---
+
+### Best Practices for Network Policies
+
+1. **Apply Default Deny Policies**:
+   - Block all traffic by default and allow only necessary communication.
+
+2. **Use Labels Effectively**:
+   - Clearly label pods to simplify network policy definitions.
+
+3. **Test Policies Regularly**:
+   - Verify that policies work as expected using test pods and tools.
+
+4. **Monitor Network Behavior**:
+   - Use tools like `kubectl logs` or network plugins to debug connectivity issues.
+
+---
