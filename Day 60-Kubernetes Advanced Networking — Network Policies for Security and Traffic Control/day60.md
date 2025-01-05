@@ -29,3 +29,118 @@ Network Policies in Kubernetes allow you to control traffic flow at the pod leve
    - Block all traffic by default and explicitly allow required connections.
 
 ---
+
+### Practical Exercises: Network Policies
+
+---
+
+#### 1. Default Deny Policy
+
+##### Step 1: Create a Namespace
+Create a new namespace:
+```bash
+kubectl create namespace netpol-demo
+```
+
+##### Step 2: Deploy Pods
+Deploy two pods:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-a
+  namespace: netpol-demo
+  labels:
+    app: pod-a
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-b
+  namespace: netpol-demo
+  labels:
+    app: pod-b
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f pod-a.yaml
+kubectl apply -f pod-b.yaml
+```
+
+##### Step 3: Apply a Default Deny Policy
+Create a `default-deny.yaml` file:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: netpol-demo
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+```
+
+Apply the policy:
+```bash
+kubectl apply -f default-deny.yaml
+```
+
+Verify that traffic is blocked:
+```bash
+kubectl exec pod-a -n netpol-demo -- curl pod-b.netpol-demo.svc.cluster.local
+```
+
+---
+
+#### 2. Allow Specific Traffic
+
+##### Step 1: Define an Allow Policy
+Create an `allow-policy.yaml` file:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-pod-a-to-pod-b
+  namespace: netpol-demo
+spec:
+  podSelector:
+    matchLabels:
+      app: pod-b
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: pod-a
+```
+
+Apply the policy:
+```bash
+kubectl apply -f allow-policy.yaml
+```
+
+Verify that traffic from `pod-a` to `pod-b` is allowed:
+```bash
+kubectl exec pod-a -n netpol-demo -- curl pod-b.netpol-demo.svc.cluster.local
+```
+
+---
+
+#### Cleanup
+
+Delete the resources:
+```bash
+kubectl delete namespace netpol-demo
+```
+
+---
