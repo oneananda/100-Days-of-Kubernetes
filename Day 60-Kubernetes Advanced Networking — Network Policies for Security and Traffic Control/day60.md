@@ -160,3 +160,21 @@ kubectl delete namespace netpol-demo
    - Use tools like `kubectl logs` or network plugins to debug connectivity issues.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day60.md` file, include:
+- Examples of network policies you implemented.
+- Observations on traffic control using policies.
+- Challenges faced during testing and their solutions.
+
+---
+
+### 🎯 Outcome for Day 60
+
+By the end of this session, you will:
+1. Understand how network policies secure workloads.
+2. Implement and test traffic control rules.
+3. Debug and refine network policies for robust communication control.
+
+---
