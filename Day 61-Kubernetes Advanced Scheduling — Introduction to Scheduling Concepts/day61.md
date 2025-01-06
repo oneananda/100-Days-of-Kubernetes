@@ -152,3 +152,16 @@ kubectl label nodes <node-name> environment-
 ```
 
 ---
+
+### Best Practices for Basic Scheduling
+
+1. **Label Nodes Strategically**:
+   - Use meaningful labels to group nodes for specific workloads.
+
+2. **Combine Features**:
+   - Use nodeSelector with tolerations to create robust scheduling rules.
+
+3. **Avoid Over-Tainting**:
+   - Minimize unnecessary taints to reduce scheduling complexity.
+
+---
