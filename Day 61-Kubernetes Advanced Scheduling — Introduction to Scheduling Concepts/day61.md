@@ -165,3 +165,29 @@ kubectl label nodes <node-name> environment-
    - Minimize unnecessary taints to reduce scheduling complexity.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day61.md` file, include:
+- Examples of nodeSelector and taints/tolerations.
+- Observations on how pods are scheduled.
+- Challenges faced and how you resolved them.
+
+---
+
+### 🎯 Outcome for Day 61
+
+By the end of this session, you will:
+1. Understand how Kubernetes scheduling works.
+2. Use nodeSelector and tolerations to control pod placement.
+3. Begin exploring the advanced scheduling capabilities of Kubernetes.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Scheduler Overview](https://kubernetes.io/docs/concepts/scheduling-eviction/)
+- [nodeSelector Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
+- [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+
+---
