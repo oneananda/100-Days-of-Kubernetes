@@ -168,3 +168,16 @@ kubectl label nodes <node-name-2> zone-
 ```
 
 ---
+
+### Best Practices for Node Affinity and Anti-Affinity
+
+1. **Combine Required and Preferred Rules**:
+   - Use required rules for critical constraints and preferred rules for optimization.
+
+2. **Balance Workloads**:
+   - Distribute pods across zones or nodes to avoid resource bottlenecks.
+
+3. **Test Rules Thoroughly**:
+   - Verify that affinity and anti-affinity rules achieve the desired pod placement.
+
+---
