@@ -181,3 +181,29 @@ kubectl label nodes <node-name-2> zone-
    - Verify that affinity and anti-affinity rules achieve the desired pod placement.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day62.md` file, include:
+- Examples of node affinity and anti-affinity configurations.
+- Observations on pod placement based on the rules.
+- Any challenges encountered and their solutions.
+
+---
+
+### 🎯 Outcome for Day 62
+
+By the end of this session, you will:
+1. Use node affinity and anti-affinity for refined pod scheduling.
+2. Understand how to balance required and preferred scheduling rules.
+3. Apply these techniques to optimize resource utilization and workload distribution.
+
+---
+
+### 🔗 Additional Resources
+
+- [Node Affinity Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity)
+- [Advanced Scheduling Features](https://kubernetes.io/docs/concepts/scheduling-eviction/)
+- [Kubernetes Best Practices for Scheduling](https://kubernetes.io/docs/setup/best-practices/cluster-scheduling/)
+
+---
