@@ -31,3 +31,140 @@ While **node affinity** controls where pods are scheduled based on node labels, 
    - **PreferredDuringSchedulingIgnoredDuringExecution**: Best-effort rules for placement.
 
 ---
+
+### Practical Exercises: Pod Affinity and Anti-Affinity
+
+---
+
+#### 1. Configuring Pod Affinity
+
+##### Step 1: Deploy a Base Pod
+Create a base pod to which other pods will apply affinity rules:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: base-pod
+  labels:
+    app: base
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f base-pod.yaml
+```
+
+##### Step 2: Create a Pod with Pod Affinity
+Create a `pod-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-affinity-pod
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: base
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f pod-affinity-pod.yaml
+```
+
+Verify that the pod is scheduled on the same node as `base-pod`:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### 2. Configuring Pod Anti-Affinity
+
+##### Step 1: Create a Pod with Anti-Affinity
+Create a `pod-anti-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-anti-affinity-pod
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: base
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f pod-anti-affinity-pod.yaml
+```
+
+Verify that the pod is scheduled on a different node than `base-pod`:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### 3. Using Preferred Rules
+
+##### Step 1: Create a Pod with Preferred Affinity Rules
+Create a `preferred-pod-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: preferred-pod-affinity-pod
+spec:
+  affinity:
+    podAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: base
+          topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f preferred-pod-affinity-pod.yaml
+```
+
+Check the pod placement and note if the preference was followed:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### Cleanup
+
+Remove all created resources:
+```bash
+kubectl delete pod base-pod pod-affinity-pod pod-anti-affinity-pod preferred-pod-affinity-pod
+```
+
+---
