@@ -31,3 +31,182 @@ While **node affinity** controls where pods are scheduled based on node labels, 
    - **PreferredDuringSchedulingIgnoredDuringExecution**: Best-effort rules for placement.
 
 ---
+
+### Practical Exercises: Pod Affinity and Anti-Affinity
+
+---
+
+#### 1. Configuring Pod Affinity
+
+##### Step 1: Deploy a Base Pod
+Create a base pod to which other pods will apply affinity rules:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: base-pod
+  labels:
+    app: base
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f base-pod.yaml
+```
+
+##### Step 2: Create a Pod with Pod Affinity
+Create a `pod-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-affinity-pod
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: base
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f pod-affinity-pod.yaml
+```
+
+Verify that the pod is scheduled on the same node as `base-pod`:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### 2. Configuring Pod Anti-Affinity
+
+##### Step 1: Create a Pod with Anti-Affinity
+Create a `pod-anti-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-anti-affinity-pod
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: base
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f pod-anti-affinity-pod.yaml
+```
+
+Verify that the pod is scheduled on a different node than `base-pod`:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### 3. Using Preferred Rules
+
+##### Step 1: Create a Pod with Preferred Affinity Rules
+Create a `preferred-pod-affinity-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: preferred-pod-affinity-pod
+spec:
+  affinity:
+    podAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: base
+          topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f preferred-pod-affinity-pod.yaml
+```
+
+Check the pod placement and note if the preference was followed:
+```bash
+kubectl get pod -o wide
+```
+
+---
+
+#### Cleanup
+
+Remove all created resources:
+```bash
+kubectl delete pod base-pod pod-affinity-pod pod-anti-affinity-pod preferred-pod-affinity-pod
+```
+
+---
+
+### Best Practices for Pod Affinity and Anti-Affinity
+
+1. **Balance Rules**:
+   - Use affinity for improved communication and anti-affinity for reliability.
+
+2. **Understand Topology**:
+   - Use appropriate topology keys, such as `kubernetes.io/hostname` or `failure-domain.beta.kubernetes.io/zone`.
+
+3. **Test Rules**:
+   - Ensure that affinity and anti-affinity rules achieve desired behavior without over-constraining scheduling.
+
+4. **Combine Affinity Types**:
+   - Mix node affinity and pod affinity to optimize both resource utilization and application placement.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day63.md` file, include:
+- Examples of pod affinity and anti-affinity configurations.
+- Observations on pod placement with required and preferred rules.
+- Challenges faced and their resolutions.
+
+---
+
+### 🎯 Outcome for Day 63
+
+By the end of this session, you will:
+1. Configure pod affinity and anti-affinity for advanced scheduling.
+2. Optimize application placement for communication, reliability, or resource usage.
+3. Apply these techniques in real-world scenarios.
+
+---
+
+### 🔗 Additional Resources
+
+- [Pod Affinity/Anti-Affinity Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+- [Kubernetes Topology Keys](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#topology)
+- [Scheduling Best Practices](https://kubernetes.io/docs/setup/best-practices/cluster-scheduling/)
+
+---
