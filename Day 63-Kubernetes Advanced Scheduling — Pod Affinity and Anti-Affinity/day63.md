@@ -182,3 +182,31 @@ kubectl delete pod base-pod pod-affinity-pod pod-anti-affinity-pod preferred-pod
 
 4. **Combine Affinity Types**:
    - Mix node affinity and pod affinity to optimize both resource utilization and application placement.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day63.md` file, include:
+- Examples of pod affinity and anti-affinity configurations.
+- Observations on pod placement with required and preferred rules.
+- Challenges faced and their resolutions.
+
+---
+
+### 🎯 Outcome for Day 63
+
+By the end of this session, you will:
+1. Configure pod affinity and anti-affinity for advanced scheduling.
+2. Optimize application placement for communication, reliability, or resource usage.
+3. Apply these techniques in real-world scenarios.
+
+---
+
+### 🔗 Additional Resources
+
+- [Pod Affinity/Anti-Affinity Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+- [Kubernetes Topology Keys](https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/#topology)
+- [Scheduling Best Practices](https://kubernetes.io/docs/setup/best-practices/cluster-scheduling/)
+
+---
