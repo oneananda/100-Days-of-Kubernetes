@@ -168,3 +168,17 @@ kubectl delete pod base-pod pod-affinity-pod pod-anti-affinity-pod preferred-pod
 ```
 
 ---
+
+### Best Practices for Pod Affinity and Anti-Affinity
+
+1. **Balance Rules**:
+   - Use affinity for improved communication and anti-affinity for reliability.
+
+2. **Understand Topology**:
+   - Use appropriate topology keys, such as `kubernetes.io/hostname` or `failure-domain.beta.kubernetes.io/zone`.
+
+3. **Test Rules**:
+   - Ensure that affinity and anti-affinity rules achieve desired behavior without over-constraining scheduling.
+
+4. **Combine Affinity Types**:
+   - Mix node affinity and pod affinity to optimize both resource utilization and application placement.
