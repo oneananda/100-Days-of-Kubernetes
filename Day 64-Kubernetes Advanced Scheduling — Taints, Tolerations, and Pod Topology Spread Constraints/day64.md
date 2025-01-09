@@ -207,3 +207,29 @@ kubectl taint nodes <node-name> workload-
    - Verify configurations in a non-production environment before applying to critical workloads.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day64.md` file, include:
+- Examples of taints, tolerations, and spread constraints.
+- Observations on pod placement and workload distribution.
+- Challenges encountered and how you resolved them.
+
+---
+
+### 🎯 Outcome for Day 64
+
+By the end of this session, you will:
+1. Use taints and tolerations to control resource isolation.
+2. Apply topology spread constraints for workload distribution.
+3. Combine these techniques for advanced scheduling scenarios.
+
+---
+
+### 🔗 Additional Resources
+
+- [Taints and Tolerations Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+- [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/)
+- [Scheduling Best Practices](https://kubernetes.io/docs/setup/best-practices/cluster-scheduling/)
+
+---
