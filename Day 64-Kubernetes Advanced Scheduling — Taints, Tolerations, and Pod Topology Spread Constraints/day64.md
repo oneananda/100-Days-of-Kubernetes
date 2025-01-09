@@ -191,3 +191,19 @@ kubectl taint nodes <node-name> workload-
 ```
 
 ---
+
+### Best Practices for Taints, Tolerations, and Topology Spread Constraints
+
+1. **Minimize Over-Tainting**:
+   - Use taints sparingly to avoid scheduling complexities.
+
+2. **Combine Features**:
+   - Leverage tolerations with topology spread constraints for advanced scenarios.
+
+3. **Align with Failure Domains**:
+   - Use topology keys like `zone` or `region` for high availability.
+
+4. **Test in a Staging Environment**:
+   - Verify configurations in a non-production environment before applying to critical workloads.
+
+---
