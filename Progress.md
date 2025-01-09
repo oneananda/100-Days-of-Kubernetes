@@ -61,3 +61,6 @@
 - Day 59: Kubernetes Advanced Networking — Understanding DNS and CoreDNS
 - Day 60: Kubernetes Advanced Networking — Network Policies for Security and Traffic Control
 - Day 61: Kubernetes Advanced Scheduling — Introduction to Scheduling Concepts
+- Day 62: Kubernetes Advanced Scheduling — Node Affinity and Anti-Affinity
+- Day 63: Kubernetes Advanced Scheduling — Pod Affinity and Anti-Affinity
+- Day 64: Kubernetes Advanced Scheduling — Taints, Tolerations, and Pod Topology Spread Constraints
