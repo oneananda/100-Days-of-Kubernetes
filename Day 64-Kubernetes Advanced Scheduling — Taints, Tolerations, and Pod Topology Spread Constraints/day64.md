@@ -31,3 +31,163 @@ This session combines **taints and tolerations** with **pod topology spread cons
    - High availability through pod distribution across failure zones.
 
 ---
+
+### Practical Exercises: Taints, Tolerations, and Pod Topology Spread Constraints
+
+---
+
+#### 1. Configuring Taints and Tolerations
+
+##### Step 1: Add a Taint to a Node
+Add a taint to a node:
+```bash
+kubectl taint nodes <node-name> workload=high-priority:NoSchedule
+```
+
+Verify the taint:
+```bash
+kubectl describe node <node-name>
+```
+
+##### Step 2: Create a Pod with a Matching Toleration
+Create a `toleration-pod.yaml` file:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toleration-pod
+spec:
+  tolerations:
+  - key: "workload"
+    operator: "Equal"
+    value: "high-priority"
+    effect: "NoSchedule"
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f toleration-pod.yaml
+```
+
+Verify the pod placement:
+```bash
+kubectl get pod toleration-pod -o wide
+```
+
+---
+
+#### 2. Implementing Pod Topology Spread Constraints
+
+##### Step 1: Create Pods with Topology Spread Constraints
+Define a `topology-spread-pod.yaml` file:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spread-demo
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: spread-demo
+  template:
+    metadata:
+      labels:
+        app: spread-demo
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: spread-demo
+      containers:
+      - name: nginx
+        image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f topology-spread-pod.yaml
+```
+
+##### Step 2: Verify Pod Distribution
+Check the pod placement across nodes:
+```bash
+kubectl get pods -o wide
+```
+
+---
+
+#### 3. Combining Taints, Tolerations, and Spread Constraints
+
+##### Step 1: Add Taints to Nodes
+Add taints to a group of nodes:
+```bash
+kubectl taint nodes <node-name-1> tier=frontend:NoSchedule
+kubectl taint nodes <node-name-2> tier=frontend:NoSchedule
+```
+
+##### Step 2: Create Pods with Both Tolerations and Spread Constraints
+Define a `combined-scheduling.yaml` file:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: combined-scheduling-demo
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: combined-demo
+  template:
+    metadata:
+      labels:
+        app: combined-demo
+    spec:
+      tolerations:
+      - key: "tier"
+        operator: "Equal"
+        value: "frontend"
+        effect: "NoSchedule"
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: combined-demo
+      containers:
+      - name: nginx
+        image: nginx
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f combined-scheduling.yaml
+```
+
+##### Step 3: Verify Combined Behavior
+Check pod placement and ensure they are evenly distributed across tainted nodes:
+```bash
+kubectl get pods -o wide
+```
+
+---
+
+#### Cleanup
+
+Remove all created resources:
+```bash
+kubectl delete deployment spread-demo combined-scheduling-demo
+kubectl delete pod toleration-pod
+kubectl taint nodes <node-name-1> tier-
+kubectl taint nodes <node-name-2> tier-
+kubectl taint nodes <node-name> workload-
+```
+
+---
