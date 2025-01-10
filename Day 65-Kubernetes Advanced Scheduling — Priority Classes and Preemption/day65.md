@@ -176,3 +176,19 @@ kubectl delete deployment resource-intensive
 ```
 
 ---
+
+### Best Practices for Priority Classes and Preemption
+
+1. **Avoid Overusing Preemption**:
+   - Use high-priority classes sparingly to prevent frequent evictions of low-priority pods.
+
+2. **Plan Resource Allocation**:
+   - Ensure critical workloads are assigned appropriate priority levels.
+
+3. **Monitor Pod Behavior**:
+   - Use monitoring tools to track preemption events and resource usage.
+
+4. **Use Global Defaults Carefully**:
+   - Avoid setting a global default unless absolutely necessary.
+
+---
