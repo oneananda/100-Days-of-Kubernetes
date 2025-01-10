@@ -192,3 +192,29 @@ kubectl delete deployment resource-intensive
    - Avoid setting a global default unless absolutely necessary.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day65.md` file, include:
+- Examples of custom priority classes.
+- Observations on scheduling and preemption behavior.
+- Challenges faced and how you resolved them.
+
+---
+
+### 🎯 Outcome for Day 65
+
+By the end of this session, you will:
+1. Configure and apply priority classes to workloads.
+2. Understand and test Kubernetes preemption in resource contention scenarios.
+3. Optimize scheduling for critical and non-critical workloads.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Priority Classes](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/)
+- [Best Practices for Pod Priority and Preemption](https://kubernetes.io/docs/setup/best-practices/cluster-scheduling/)
+- [Scheduling Debugging with Events](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-scheduler/)
+
+---
