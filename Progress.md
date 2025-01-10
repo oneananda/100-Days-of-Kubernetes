@@ -64,3 +64,4 @@
 - Day 62: Kubernetes Advanced Scheduling — Node Affinity and Anti-Affinity
 - Day 63: Kubernetes Advanced Scheduling — Pod Affinity and Anti-Affinity
 - Day 64: Kubernetes Advanced Scheduling — Taints, Tolerations, and Pod Topology Spread Constraints
+- Day 65: Kubernetes Advanced Scheduling — Priority Classes and Preemption
