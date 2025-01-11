@@ -176,3 +176,19 @@ kubectl delete pod custom-scheduler-pod
 ```
 
 ---
+
+### Best Practices for Custom Schedulers
+
+1. **Use Default Scheduler for General Workloads**:
+   - Reserve custom schedulers for workloads with unique requirements.
+
+2. **Test Extensively**:
+   - Test custom schedulers and plugins in a staging environment before deploying to production.
+
+3. **Monitor Scheduler Performance**:
+   - Use logs and metrics to ensure the custom scheduler performs as expected.
+
+4. **Keep Configurations Modular**:
+   - Use ConfigMaps for easy updates to scheduling logic or configurations.
+
+---
