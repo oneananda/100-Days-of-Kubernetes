@@ -192,3 +192,29 @@ kubectl delete pod custom-scheduler-pod
    - Use ConfigMaps for easy updates to scheduling logic or configurations.
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day66.md` file, include:
+- Steps to create and deploy the custom scheduler.
+- Examples of workloads scheduled by the custom scheduler.
+- Observations on the performance and behavior of the custom scheduler.
+
+---
+
+### 🎯 Outcome for Day 66
+
+By the end of this session, you will:
+1. Understand the use cases for custom schedulers.
+2. Deploy and configure a custom scheduler in Kubernetes.
+3. Extend scheduling logic with the Kubernetes Scheduling Framework.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Scheduling Framework](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/)
+- [Custom Scheduler Development Guide](https://kubernetes.io/docs/tasks/extend-kubernetes/configure-multiple-schedulers/)
+- [Kubernetes Scheduler Plugins](https://github.com/kubernetes-sigs/scheduler-plugins)
+
+---
