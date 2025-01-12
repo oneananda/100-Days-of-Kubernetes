@@ -240,3 +240,45 @@ kubectl delete namespace quota-demo
 ```
 
 ---
+
+### Best Practices for Resource Quotas and Limit Ranges
+
+1. **Set Quotas Per Namespace**:
+   - Assign quotas based on team or project requirements.
+
+2. **Define Realistic Limits**:
+   - Avoid overly restrictive or overly generous limits to ensure optimal resource utilization.
+
+3. **Monitor Resource Usage**:
+   - Use tools like Prometheus and Grafana to track quota consumption and trends.
+
+4. **Educate Teams**:
+   - Ensure developers understand quota and limit policies to avoid unexpected deployment failures.
+
+---
+
+### 📝 Document Your Progress
+
+In your `day67.md` file, include:
+- Examples of resource quota and limit range configurations.
+- Observations on how quotas and limits affect pod behavior.
+- Challenges faced during testing and their resolutions.
+
+---
+
+### 🎯 Outcome for Day 67
+
+By the end of this session, you will:
+1. Configure and enforce resource quotas for namespaces.
+2. Use limit ranges to control pod and container resource requests and limits.
+3. Optimize resource usage across workloads and namespaces.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+- [Kubernetes Documentation: Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/)
+- [Best Practices for Resource Management](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/)
+
+---
