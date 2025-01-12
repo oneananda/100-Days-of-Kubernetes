@@ -66,3 +66,4 @@
 - Day 64: Kubernetes Advanced Scheduling — Taints, Tolerations, and Pod Topology Spread Constraints
 - Day 65: Kubernetes Advanced Scheduling — Priority Classes and Preemption
 - Day 66: Kubernetes Advanced Scheduling — Custom Schedulers and Extensibility
+- Day 67: Kubernetes Advanced Scheduling — Resource Quotas and Limit Ranges
