@@ -2,7 +2,7 @@
 
 ## Day 68: Kubernetes Advanced Scheduling — Combining Techniques for Optimized Workloads
 
-📘 Overview
+### 📘 Overview
 
 To fully leverage Kubernetes' scheduling capabilities, it’s essential to combine multiple advanced scheduling techniques. This session focuses on integrating Node Affinity, Pod Affinity/Anti-Affinity, Taints and Tolerations, Priority Classes, Preemption, and Topology Spread Constraints to build efficient, resilient, and optimized workloads.
 
@@ -261,7 +261,7 @@ kubectl taint nodes <node-db> db-
 
 ---
 
-# Best Practices for Combining Scheduling Techniques
+### Best Practices for Combining Scheduling Techniques
 
 1. **Balance Resource Isolation and Distribution:**
    - Use taints/tolerations for isolation and topology spread constraints for distribution.
@@ -277,7 +277,7 @@ kubectl taint nodes <node-db> db-
 
 ---
 
-# 📝 Document Your Progress
+### 📝 Document Your Progress
 
 In your `day68.md` file, include:
 
@@ -287,7 +287,7 @@ In your `day68.md` file, include:
 
 ---
 
-# 🎯 Outcome for Day 68
+### 🎯 Outcome for Day 68
 
 By the end of this session, you will:
 
@@ -297,7 +297,7 @@ By the end of this session, you will:
 
 ---
 
-# 🔗 Additional Resources
+### 🔗 Additional Resources
 
 - [Kubernetes Scheduler Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/)
 - [Affinity and Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/affinity/)
