@@ -276,3 +276,32 @@ kubectl taint nodes <node-db> db-
    - Use monitoring tools to validate the effectiveness of scheduling strategies.
 
 ---
+
+# 📝 Document Your Progress
+
+In your `day68.md` file, include:
+
+- Combined scheduling configurations.
+- Observations on pod distribution and behavior.
+- Lessons learned and improvements for workload optimization.
+
+---
+
+# 🎯 Outcome for Day 68
+
+By the end of this session, you will:
+
+1. Apply multiple advanced scheduling techniques together.
+2. Optimize resource utilization and workload reliability.
+3. Design resilient deployment strategies in Kubernetes.
+
+---
+
+# 🔗 Additional Resources
+
+- [Kubernetes Scheduler Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/)
+- [Affinity and Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/affinity/)
+- [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+- [Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
+
+---
