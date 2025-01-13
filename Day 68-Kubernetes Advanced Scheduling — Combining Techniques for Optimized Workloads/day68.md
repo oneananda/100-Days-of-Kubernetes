@@ -1,6 +1,6 @@
 ﻿---
 
-Day 68: Kubernetes Advanced Scheduling — Combining Techniques for Optimized Workloads
+## Day 68: Kubernetes Advanced Scheduling — Combining Techniques for Optimized Workloads
 
 📘 Overview
 
