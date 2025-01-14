@@ -182,3 +182,19 @@ kubectl delete pod non-root-pod restricted-capabilities-pod baseline-secured-pod
 ```
 
 ---
+
+### Best Practices for PSS and Security Contexts
+
+1. **Use the Restricted PSS for Production:**  
+   - Enforce the **Restricted** policy for sensitive workloads.  
+
+2. **Run Containers as Non-Root:**  
+   - Always configure containers to run as non-root users.  
+
+3. **Drop Unnecessary Linux Capabilities:**  
+   - Minimize the attack surface by dropping unneeded Linux capabilities.  
+
+4. **Audit Before Enforcing Policies:**  
+   - Use the **Audit** mode to detect violations without affecting deployments.  
+
+---
