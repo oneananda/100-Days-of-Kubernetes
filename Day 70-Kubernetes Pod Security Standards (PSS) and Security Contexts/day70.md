@@ -198,3 +198,29 @@ kubectl delete pod non-root-pod restricted-capabilities-pod baseline-secured-pod
    - Use the **Audit** mode to detect violations without affecting deployments.  
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day70.md` file, include:  
+- Configurations for PSS and Security Contexts.  
+- Observations on policy enforcement and security behaviors.  
+- Challenges faced and solutions implemented.  
+
+---
+
+### 🎯 Outcome for Day 70
+
+By the end of this session, you will:  
+1. Configure and enforce Pod Security Standards (PSS).  
+2. Secure pods and containers using Security Contexts.  
+3. Improve the security posture of your Kubernetes workloads.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/)  
+- [Security Contexts in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)  
+- [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/)  
+
+---
