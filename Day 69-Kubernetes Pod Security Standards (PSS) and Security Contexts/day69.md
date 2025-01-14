@@ -1,6 +1,6 @@
 ﻿---
 
-## Day 70: Kubernetes Pod Security Standards (PSS) and Security Contexts
+## Day 69: Kubernetes Pod Security Standards (PSS) and Security Contexts
 
 ### 📘 Overview
 
@@ -201,14 +201,14 @@ kubectl delete pod non-root-pod restricted-capabilities-pod baseline-secured-pod
 
 ### 📝 Document Your Progress
 
-In your `day70.md` file, include:  
+In your `day69.md` file, include:  
 - Configurations for PSS and Security Contexts.  
 - Observations on policy enforcement and security behaviors.  
 - Challenges faced and solutions implemented.  
 
 ---
 
-### 🎯 Outcome for Day 70
+### 🎯 Outcome for Day 69
 
 By the end of this session, you will:  
 1. Configure and enforce Pod Security Standards (PSS).  

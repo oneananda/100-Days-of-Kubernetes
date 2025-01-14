@@ -68,3 +68,4 @@
 - Day 66: Kubernetes Advanced Scheduling — Custom Schedulers and Extensibility
 - Day 67: Kubernetes Advanced Scheduling — Resource Quotas and Limit Ranges
 - Day 68: Kubernetes Advanced Scheduling — Combining Techniques for Optimized Workloads
+- Day 69: Kubernetes Pod Security Standards (PSS) and Security Contexts
