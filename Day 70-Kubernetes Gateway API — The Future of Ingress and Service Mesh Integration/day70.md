@@ -35,3 +35,197 @@ The **Kubernetes Gateway API** is the next evolution of networking APIs, offerin
    - Gateway API provides more advanced routing, cross-namespace support, and better extensibility than Ingress.  
 
 ---
+
+### Practical Exercises: Deploying and Using the Gateway API
+
+---
+
+#### 1. Installing Gateway API CRDs
+
+##### Step 1: Install Gateway API CRDs
+Install the latest version of Gateway API:
+```bash
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.0.0/standard-install.yaml
+```
+
+Verify the CRDs:
+```bash
+kubectl get crds | grep gateway
+```
+
+**Expected Output:** CRDs like `gatewayclasses.gateway.networking.k8s.io` and `httproutes.gateway.networking.k8s.io`.
+
+---
+
+#### 2. Deploying a GatewayClass and Gateway
+
+##### Step 1: Define a GatewayClass
+Create a `gateway-class.yaml`:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: example-gateway-class
+spec:
+  controllerName: example.net/gateway-controller
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f gateway-class.yaml
+```
+
+##### Step 2: Create a Gateway
+Create a `gateway.yaml`:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: example-gateway
+  namespace: default
+spec:
+  gatewayClassName: example-gateway-class
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+    allowedRoutes:
+      namespaces:
+        from: All
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f gateway.yaml
+```
+
+Verify the Gateway:
+```bash
+kubectl get gateways
+```
+
+---
+
+#### 3. Configuring Routes
+
+##### Step 1: Define an HTTPRoute
+Create a `httproute.yaml`:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: example-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: example-gateway
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /app
+    backendRefs:
+    - name: example-service
+      port: 80
+```
+
+Apply the route:
+```bash
+kubectl apply -f httproute.yaml
+```
+
+##### Step 2: Deploy the Backend Service
+Create a simple backend service:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+spec:
+  selector:
+    app: example
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example
+        image: hashicorp/http-echo
+        args:
+        - "-text=Hello from Gateway API!"
+        ports:
+        - containerPort: 8080
+```
+
+Apply the deployment:
+```bash
+kubectl apply -f example-backend.yaml
+```
+
+Test the route:
+```bash
+curl http://<gateway-ip>/app
+```
+
+**Expected Output:** `Hello from Gateway API!`
+
+---
+
+#### 4. Integrating Gateway API with Istio
+
+##### Step 1: Install Istio with Gateway API Support
+Install Istio with Gateway API support:
+```bash
+istioctl install --set profile=demo
+```
+
+Enable Gateway API controllers:
+```bash
+kubectl apply -f https://github.com/istio/istio/releases/download/1.16.0/samples/gateway-api/istio-gateway.yaml
+```
+
+##### Step 2: Create an Istio GatewayClass
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: istio-gateway-class
+spec:
+  controllerName: istio.io/gateway-controller
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f istio-gateway-class.yaml
+```
+
+**Result:** Istio now handles the Gateway API configuration for ingress traffic.
+
+---
+
+#### Cleanup
+
+Remove the created resources:
+```bash
+kubectl delete -f example-backend.yaml
+kubectl delete -f httproute.yaml
+kubectl delete -f gateway.yaml
+kubectl delete -f gateway-class.yaml
+```
+
+---
