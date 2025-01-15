@@ -245,3 +245,29 @@ kubectl delete -f gateway-class.yaml
    - Define granular routing rules using `HTTPRoute`, `TCPRoute`, and `TLSRoute`.  
 
 ---
+
+### 📝 Document Your Progress
+
+In your `day70.md` file, include:  
+- GatewayClass, Gateway, and Route configurations.  
+- Observations on routing behavior and integration with Istio.  
+- Challenges faced and solutions implemented.  
+
+---
+
+### 🎯 Outcome for Day 70
+
+By the end of this session, you will:  
+1. Understand the Gateway API and how it improves Kubernetes networking.  
+2. Deploy and configure Gateways and Routes.  
+3. Integrate Gateway API with service meshes like Istio.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Gateway API Documentation](https://gateway-api.sigs.k8s.io/)  
+- [Comparing Ingress and Gateway API](https://gateway-api.sigs.k8s.io/concepts/why-gateway/)  
+- [Istio and Gateway API Integration](https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api/)  
+
+---
