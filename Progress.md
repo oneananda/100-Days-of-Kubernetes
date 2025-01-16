@@ -69,3 +69,4 @@
 - Day 67: Kubernetes Advanced Scheduling — Resource Quotas and Limit Ranges
 - Day 68: Kubernetes Advanced Scheduling — Combining Techniques for Optimized Workloads
 - Day 69: Kubernetes Pod Security Standards (PSS) and Security Contexts
+- Day 70: Kubernetes Gateway API — The Future of Ingress and Service Mesh Integration
