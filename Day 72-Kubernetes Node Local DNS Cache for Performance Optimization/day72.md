@@ -142,3 +142,20 @@ kubectl delete -f https://k8s.io/examples/admin/nodelocaldns/nodelocaldns.yaml
 ```
 
 ---
+
+
+### Best Practices for NodeLocal DNSCache
+
+1. **Deploy NodeLocal DNSCache in Large Clusters:**  
+   - Use NodeLocal DNSCache in clusters with high DNS query rates.  
+
+2. **Regularly Monitor DNS Performance:**  
+   - Use monitoring tools like Prometheus and Grafana to track DNS metrics.  
+
+3. **Tune Cache Settings:**  
+   - Adjust TTL and caching settings for optimized performance.  
+
+4. **Fallback Configurations:**  
+   - Ensure CoreDNS can fall back to upstream DNS servers in case of cache failure.  
+
+---
