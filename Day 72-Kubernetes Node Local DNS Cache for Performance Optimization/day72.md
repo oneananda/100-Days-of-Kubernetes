@@ -159,3 +159,30 @@ kubectl delete -f https://k8s.io/examples/admin/nodelocaldns/nodelocaldns.yaml
    - Ensure CoreDNS can fall back to upstream DNS servers in case of cache failure.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day72.md` file, include:  
+- Steps for installing and configuring NodeLocal DNSCache.  
+- Performance test results comparing DNS latency before and after deployment.  
+- Troubleshooting methods used to resolve DNS issues.  
+
+---
+
+### 🎯 Outcome for Day 72
+
+By the end of this session, you will:  
+1. Understand the benefits of NodeLocal DNSCache for DNS performance optimization.  
+2. Successfully deploy and configure NodeLocal DNSCache in Kubernetes.  
+3. Identify and resolve DNS latency issues in large-scale Kubernetes clusters.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Documentation: NodeLocal DNSCache](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns-cache/)  
+- [CoreDNS Configuration](https://coredns.io/manual/toc/)  
+- [Troubleshooting DNS in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)  
+
+---
