@@ -71,3 +71,4 @@
 - Day 69: Kubernetes Pod Security Standards (PSS) and Security Contexts
 - Day 70: Kubernetes Gateway API — The Future of Ingress and Service Mesh Integration
 - Day 71: Kubernetes Multi-Cluster Management and Federation
+- Day 72: Kubernetes Node Local DNS Cache for Performance Optimization
