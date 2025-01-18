@@ -30,3 +30,147 @@
    - Techniques for managing and monitoring edge nodes, especially in environments with unreliable network connections.  
 
 ---
+
+
+### Practical Exercises: Deploying K3s and KubeEdge
+
+---
+
+#### 1. Deploying Lightweight Kubernetes with K3s
+
+##### Step 1: Install K3s on the Edge Node
+Run the following command on the edge device (Raspberry Pi, VM, or server):
+```bash
+curl -sfL https://get.k3s.io | sh -
+```
+
+Verify the installation:
+```bash
+sudo k3s kubectl get nodes
+```
+
+##### Step 2: Access K3s from a Remote System
+Copy the K3s kubeconfig file to your local machine:
+```bash
+sudo cat /etc/rancher/k3s/k3s.yaml
+```
+
+Set the `KUBECONFIG` environment variable on the local system:
+```bash
+export KUBECONFIG=/path/to/k3s.yaml
+kubectl get nodes
+```
+
+---
+
+#### 2. Introduction to KubeEdge for IoT Workloads
+
+##### Step 1: Install KubeEdge on the Cloud Master Node
+Download and install KubeEdge:
+```bash
+curl -LO https://github.com/kubeedge/kubeedge/releases/download/v1.13.0/keadm-v1.13.0-linux-amd64.tar.gz
+tar -xvf keadm-v1.13.0-linux-amd64.tar.gz
+sudo mv keadm-v1.13.0-linux-amd64/keadm /usr/local/bin/
+```
+
+Initialize the cloud component:
+```bash
+sudo keadm init --kube-config=/etc/rancher/k3s/k3s.yaml
+```
+
+##### Step 2: Install KubeEdge on the Edge Node
+Generate a join token on the cloud master:
+```bash
+sudo keadm gettoken
+```
+
+On the edge node, join the cluster:
+```bash
+sudo keadm join --cloudcore-ipport=<cloud-master-ip>:10000 --token=<token>
+```
+
+Verify the connection:
+```bash
+kubectl get nodes
+```
+
+---
+
+#### 3. Deploying Workloads to Edge Nodes
+
+##### Step 1: Deploy an IoT Application
+Create a `sensor-app.yaml` file:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-app
+  labels:
+    app: sensor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sensor
+  template:
+    metadata:
+      labels:
+        app: sensor
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/edge: ""
+      containers:
+      - name: sensor
+        image: eclipse-mosquitto
+        ports:
+        - containerPort: 1883
+```
+
+Apply the deployment:
+```bash
+kubectl apply -f sensor-app.yaml
+```
+
+##### Step 2: Verify Deployment on Edge Node
+Check if the pod is running on the edge node:
+```bash
+kubectl get pods -o wide
+```
+
+**Expected Result:** The `sensor-app` should be running on the edge node.
+
+---
+
+#### 4. Handling Intermittent Connectivity
+
+##### Step 1: Simulate Network Disruption
+Disconnect the edge node network (disable network interface or unplug cable).
+
+##### Step 2: Observe Offline Operation
+Check pod status on the cloud master:
+```bash
+kubectl get pods
+```
+
+**Expected Behavior:** The edge node continues running workloads without interruption.
+
+##### Step 3: Reconnect the Edge Node
+Reconnect the network and verify the node status:
+```bash
+kubectl get nodes
+```
+
+**Expected Result:** The edge node should automatically reconnect to the cloud master.
+
+---
+
+#### Cleanup
+
+Remove K3s and KubeEdge:
+```bash
+sudo /usr/local/bin/k3s-uninstall.sh
+sudo keadm reset
+kubectl delete -f sensor-app.yaml
+```
+
+---
