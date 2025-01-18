@@ -174,3 +174,20 @@ kubectl delete -f sensor-app.yaml
 ```
 
 ---
+
+
+### Best Practices for Edge Computing with Kubernetes
+
+1. **Use Lightweight Distributions for Edge Devices:**  
+   - Deploy K3s to minimize resource usage on edge nodes.  
+
+2. **Ensure Resiliency with KubeEdge:**  
+   - Configure KubeEdge to handle offline workloads during connectivity loss.  
+
+3. **Implement Node Health Monitoring:**  
+   - Monitor edge node health and availability using built-in Kubernetes probes.  
+
+4. **Optimize Network Usage:**  
+   - Use local caching and data processing to minimize cloud dependency.  
+
+---
