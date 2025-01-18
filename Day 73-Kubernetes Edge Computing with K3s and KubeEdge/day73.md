@@ -191,3 +191,30 @@ kubectl delete -f sensor-app.yaml
    - Use local caching and data processing to minimize cloud dependency.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day73.md` file, include:  
+- Steps for installing and configuring K3s and KubeEdge.  
+- Deployment results of IoT workloads.  
+- Observations on handling intermittent connectivity.  
+
+---
+
+### 🎯 Outcome for Day 73
+
+By the end of this session, you will:  
+1. Deploy K3s on edge devices for lightweight Kubernetes management.  
+2. Set up KubeEdge for managing IoT workloads.  
+3. Manage edge nodes effectively and handle network disruptions.  
+
+---
+
+### 🔗 Additional Resources
+
+- [K3s Official Documentation](https://k3s.io/)  
+- [KubeEdge Documentation](https://kubeedge.io/en/docs/)  
+- [Edge Computing with Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)  
+
+---
