@@ -237,3 +237,31 @@ kubectl delete -f validation-policy.yaml
    - Track changes to policies with version control for better traceability.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day74.md` file, include:  
+- Steps for deploying and testing OPA and Kyverno.  
+- Examples of custom policies and their enforcement.  
+- Observations on automating policy checks in CI/CD pipelines.  
+
+---
+
+### 🎯 Outcome for Day 74
+
+By the end of this session, you will:  
+1. Understand the differences between OPA and Kyverno.  
+2. Write and enforce custom policies for Kubernetes workloads.  
+3. Automate policy compliance checks in CI/CD pipelines.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Open Policy Agent Documentation](https://www.openpolicyagent.org/docs/latest/)  
+- [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/)  
+- [Kyverno Documentation](https://kyverno.io/docs/)  
+- [Conftest for Policy Testing](https://www.conftest.dev/)  
+
+---
