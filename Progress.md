@@ -74,3 +74,4 @@
 - Day 72: Kubernetes Node Local DNS Cache for Performance Optimization
 - Day 73: Kubernetes Edge Computing with K3s and KubeEdge
 - Day 74: Kubernetes Policy Management with OPA and Kyverno
+- Day 75: Kubernetes Virtual Clusters with vCluster for Isolation and Multi-Tenancy
