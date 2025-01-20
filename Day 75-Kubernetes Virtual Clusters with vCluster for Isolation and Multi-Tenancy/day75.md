@@ -168,3 +168,30 @@ vcluster delete my-vcluster -n vcluster
    - Customize virtual cluster configurations to match tenant or workload requirements.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day75.md` file, include:  
+- Steps for creating and managing virtual clusters with vCluster.  
+- Deployment results of sample applications in the virtual cluster.  
+- Observations on scaling and resource usage of virtual clusters.  
+
+---
+
+### 🎯 Outcome for Day 75
+
+By the end of this session, you will:  
+1. Understand the concept and benefits of virtual clusters.  
+2. Deploy and manage virtual clusters using vCluster.  
+3. Use virtual clusters for development, testing, and multi-tenancy.  
+
+---
+
+### 🔗 Additional Resources
+
+- [vCluster Official Documentation](https://www.vcluster.com/docs/)  
+- [Virtual Clusters vs. Namespaces](https://www.vcluster.com/docs/architecture/overview)  
+- [Kubernetes Multi-Tenancy Best Practices](https://kubernetes.io/docs/concepts/architecture/namespaces/)  
+
+---
