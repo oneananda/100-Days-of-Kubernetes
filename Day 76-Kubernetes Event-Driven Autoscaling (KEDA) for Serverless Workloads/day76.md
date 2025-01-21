@@ -210,3 +210,31 @@ kubectl delete namespace keda
    - Automate KEDA configuration updates as part of your deployment pipeline.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day76.md` file, include:  
+- Steps for setting up KEDA and event-driven scaling.  
+- Test results of scaling based on external event sources.  
+- Observations on serverless use cases and scaling performance.  
+
+---
+
+### 🎯 Outcome for Day 76
+
+By the end of this session, you will:  
+1. Understand event-driven autoscaling and its benefits.  
+2. Deploy and configure KEDA in a Kubernetes cluster.  
+3. Scale workloads dynamically based on external event sources.  
+
+---
+
+### 🔗 Additional Resources
+
+- [KEDA Official Documentation](https://keda.sh/docs/)  
+- [Supported Event Sources](https://keda.sh/docs/latest/scalers/)  
+- [Kubernetes Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)  
+- [Strimzi Kafka Operator](https://strimzi.io/docs/)  
+
+---
