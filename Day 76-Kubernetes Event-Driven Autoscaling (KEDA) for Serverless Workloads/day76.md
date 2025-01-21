@@ -193,3 +193,20 @@ kubectl delete namespace keda
 ```
 
 ---
+
+
+### Best Practices for Using KEDA
+
+1. **Choose the Right Event Source:**  
+   - Select supported event sources that align with your application architecture.  
+
+2. **Set Sensible Scaling Parameters:**  
+   - Define appropriate thresholds and replica limits to prevent over-scaling.  
+
+3. **Monitor Autoscaling Behavior:**  
+   - Use tools like Prometheus and Grafana to monitor metrics and scaling events.  
+
+4. **Integrate with CI/CD:**  
+   - Automate KEDA configuration updates as part of your deployment pipeline.  
+
+---
