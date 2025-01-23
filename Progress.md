@@ -76,3 +76,5 @@
 - Day 74: Kubernetes Policy Management with OPA and Kyverno
 - Day 75: Kubernetes Virtual Clusters with vCluster for Isolation and Multi-Tenancy
 - Day 76: Kubernetes Event-Driven Autoscaling (KEDA) for Serverless Workloads
+- Day 77: Kubernetes CSI Drivers — Extending Storage Capabilities
+- Day 78: Kubernetes Application Performance Management (APM)
