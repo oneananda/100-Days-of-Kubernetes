@@ -197,3 +197,31 @@ kubectl delete namespace observability
    - Automate instrumentation testing and performance validation.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day78.md` file, include:  
+- Steps for setting up Jaeger, OpenTelemetry, and Elastic APM.  
+- Observations on distributed tracing and performance metrics.  
+- Debugging insights for bottlenecks and slowdowns.  
+
+---
+
+### 🎯 Outcome for Day 78
+
+By the end of this session, you will:  
+1. Set up and configure APM tools like Jaeger, OpenTelemetry, and Elastic APM.  
+2. Monitor application performance using distributed tracing and metrics.  
+3. Debug performance slowdowns and identify bottlenecks in your application.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Jaeger Documentation](https://www.jaegertracing.io/docs/)  
+- [OpenTelemetry Documentation](https://opentelemetry.io/docs/)  
+- [Elastic APM Documentation](https://www.elastic.co/apm)  
+- [Kubernetes Monitoring and Tracing](https://kubernetes.io/docs/concepts/cluster-administration/monitoring/)  
+
+---
