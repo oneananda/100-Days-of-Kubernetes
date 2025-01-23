@@ -180,3 +180,20 @@ kubectl delete namespace observability
 ```
 
 ---
+
+
+### Best Practices for APM in Kubernetes
+
+1. **Instrument All Critical Services:**  
+   - Ensure every service in your application is instrumented for tracing.  
+
+2. **Leverage Distributed Tracing:**  
+   - Use distributed tracing to monitor and optimize request flows across services.  
+
+3. **Monitor Key Metrics:**  
+   - Track latency, throughput, error rates, and resource utilization.  
+
+4. **Integrate with CI/CD Pipelines:**  
+   - Automate instrumentation testing and performance validation.  
+
+---
