@@ -78,3 +78,4 @@
 - Day 76: Kubernetes Event-Driven Autoscaling (KEDA) for Serverless Workloads
 - Day 77: Kubernetes CSI Drivers — Extending Storage Capabilities
 - Day 78: Kubernetes Application Performance Management (APM)
+- Day 79: Kubernetes Cluster Upgrade Strategies
