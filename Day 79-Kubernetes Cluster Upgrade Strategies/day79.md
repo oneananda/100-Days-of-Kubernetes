@@ -130,3 +130,54 @@ ansible-playbook -i inventory upgrade-playbook.yml
 Use tools like Jenkins or GitHub Actions to trigger upgrades automatically on new version releases.
 
 ---
+
+
+### Best Practices for Cluster Upgrades
+
+1. **Backup Before Upgrading:**  
+   - Backup etcd data and cluster state. Example:
+     ```bash
+     ETCDCTL_API=3 etcdctl snapshot save snapshot.db
+     ```
+
+2. **Use Staged Rollouts:**  
+   - Upgrade control plane nodes first, followed by worker nodes.
+
+3. **Monitor During Upgrades:**  
+   - Use monitoring tools like Prometheus and Grafana to track cluster health.
+
+4. **Test in Staging First:**  
+   - Always test upgrades in a staging environment before applying them to production.
+
+5. **Review Application Readiness:**  
+   - Ensure applications have proper readiness and liveness probes.
+
+---
+
+
+### 📝 Document Your Progress
+
+In your `day79.md` file, include:  
+- Steps for planning and executing zero-downtime upgrades.  
+- Commands and tools used for the upgrade process.  
+- Challenges faced and solutions applied.  
+
+---
+
+### 🎯 Outcome for Day 79
+
+By the end of this session, you will:  
+1. Plan and execute zero-downtime upgrades for Kubernetes clusters.  
+2. Upgrade a cluster using kubeadm and automation tools like Ansible.  
+3. Follow best practices to ensure high availability during upgrades.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes Upgrading a Cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-upgrade/)  
+- [kubeadm Documentation](https://kubernetes.io/docs/reference/setup-tools/kubeadm/)  
+- [Kubernetes Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/)  
+- [Ansible Playbooks for Kubernetes](https://docs.ansible.com/)  
+
+--- 
