@@ -176,3 +176,31 @@ kubectl apply -f restore-session.yaml
    - Maintain a step-by-step disaster recovery guide for your team.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day80.md` file, include:  
+- Steps for installing and using Velero and Stash.  
+- Configuration details for backup and restoration processes.  
+- Insights from automating backups and testing disaster recovery scenarios.  
+
+---
+
+### 🎯 Outcome for Day 80
+
+By the end of this session, you will:  
+1. Set up Velero and Stash for Kubernetes backup and disaster recovery.  
+2. Automate backups for critical workloads in your cluster.  
+3. Perform application and data restoration to recover from failures.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Velero Documentation](https://velero.io/docs/)  
+- [Stash Documentation](https://stash.appscode.com/)  
+- [Kubernetes Backup and Restore](https://kubernetes.io/docs/tasks/administer-cluster/safeguard-cluster/)  
+- [Cloud Backup Best Practices](https://aws.amazon.com/backup/)  
+
+---
