@@ -32,3 +32,127 @@ Backup and disaster recovery are crucial components of Kubernetes cluster manage
    - Full, incremental, and differential backups for cluster data and application workloads.
 
 ---
+
+
+### Practical Exercises: Kubernetes Backup and Disaster Recovery
+
+---
+
+#### 1. Setting Up Velero for Backups
+
+##### Step 1: Install Velero
+Install Velero CLI and configure a cloud storage provider (e.g., AWS S3):
+```bash
+velero install \
+    --provider aws \
+    --plugins velero/velero-plugin-for-aws:v1.6.0 \
+    --bucket <your-bucket-name> \
+    --secret-file ./credentials-velero \
+    --backup-location-config region=<region>
+```
+
+Verify Velero installation:
+```bash
+kubectl get pods -n velero
+```
+
+##### Step 2: Create a Backup
+Create a backup for all namespaces:
+```bash
+velero backup create cluster-backup --include-namespaces *
+```
+
+List backups to ensure it was created:
+```bash
+velero backup get
+```
+
+##### Step 3: Schedule Automated Backups
+Schedule periodic backups:
+```bash
+velero create schedule daily-backup --schedule="@every 24h" --include-namespaces *
+```
+
+---
+
+#### 2. Setting Up Stash for Application Backups
+
+##### Step 1: Deploy Stash
+Install Stash using Helm:
+```bash
+helm repo add appscode https://charts.appscode.com/stable/
+helm repo update
+helm install stash appscode/stash --namespace kube-system
+```
+
+Verify installation:
+```bash
+kubectl get pods -n kube-system -l app=stash
+```
+
+##### Step 2: Backup Application Data
+Annotate a Deployment to enable backups:
+```bash
+kubectl annotate deployment <deployment-name> stash.appscode.com/backup-template=demo-backup
+```
+
+Create a `Repository` resource for storing backups:
+```yaml
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: demo-repo
+  namespace: default
+spec:
+  backend:
+    s3:
+      endpoint: s3.amazonaws.com
+      bucket: <your-bucket-name>
+      prefix: stash-backups
+    storageSecretName: s3-secret
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f repository.yaml
+```
+
+---
+
+#### 3. Restoring Applications and Data
+
+##### Step 1: Restore with Velero
+Restore from a backup:
+```bash
+velero restore create --from-backup cluster-backup
+```
+
+Verify the restoration:
+```bash
+kubectl get pods --all-namespaces
+```
+
+##### Step 2: Restore with Stash
+Create a `RestoreSession` resource:
+```yaml
+apiVersion: stash.appscode.com/v1alpha1
+kind: RestoreSession
+metadata:
+  name: demo-restore
+  namespace: default
+spec:
+  repository:
+    name: demo-repo
+  target:
+    ref:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: <deployment-name>
+```
+
+Apply the configuration:
+```bash
+kubectl apply -f restore-session.yaml
+```
+
+---
