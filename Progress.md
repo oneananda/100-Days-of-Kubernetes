@@ -79,3 +79,4 @@
 - Day 77: Kubernetes CSI Drivers — Extending Storage Capabilities
 - Day 78: Kubernetes Application Performance Management (APM)
 - Day 79: Kubernetes Cluster Upgrade Strategies
+- Day 80: Kubernetes Backup and Disaster Recovery
