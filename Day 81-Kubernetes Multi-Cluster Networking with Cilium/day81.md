@@ -32,3 +32,116 @@ Cilium is a powerful networking and security tool for Kubernetes based on **eBPF
    - Fine-grained security policies for workload isolation and traffic filtering.  
 
 ---
+
+
+### Practical Exercises: Setting Up Cilium for Multi-Cluster Networking
+
+---
+
+#### 1. Installing Cilium
+
+##### Step 1: Install Cilium CLI
+Download and install the Cilium CLI:
+```bash
+curl -L --remote-name https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64
+chmod +x cilium-linux-amd64
+sudo mv cilium-linux-amd64 /usr/local/bin/cilium
+```
+
+##### Step 2: Deploy Cilium in Each Cluster
+Install Cilium in Cluster 1:
+```bash
+cilium install
+cilium status
+```
+
+Repeat the installation for Cluster 2 and other clusters.
+
+---
+
+#### 2. Enabling Multi-Cluster Connectivity
+
+##### Step 1: Configure Cluster IDs
+Assign unique cluster IDs in each cluster:
+```bash
+cilium config set cluster-id <cluster-id>
+```
+
+##### Step 2: Enable Cluster Mesh
+Install the Cilium Cluster Mesh add-on in each cluster:
+```bash
+helm repo add cilium https://helm.cilium.io/
+helm repo update
+helm install cilium cilium/cilium --namespace kube-system --set cluster.name=<cluster-name> --set cluster.id=<cluster-id> --set clusterMesh.enabled=true
+```
+
+##### Step 3: Establish Connectivity
+Generate the cluster-mesh configuration:
+```bash
+cilium clustermesh enable
+```
+
+Export the configuration and share it between clusters:
+```bash
+cilium clustermesh status
+```
+
+---
+
+#### 3. Advanced Network Observability
+
+##### Step 1: Monitor Network Flows
+Enable Hubble for network observability:
+```bash
+cilium hubble enable
+```
+
+Access Hubble UI:
+```bash
+cilium hubble ui
+```
+
+##### Step 2: Analyze Flows
+View real-time network flows:
+```bash
+cilium hubble observe
+```
+
+Filter specific flows by namespace or workload:
+```bash
+cilium hubble observe --namespace <namespace-name>
+```
+
+---
+
+#### 4. Implementing Network Security Policies
+
+##### Step 1: Create a Network Policy
+Define a Cilium NetworkPolicy to restrict traffic:
+```yaml
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-frontend-to-backend
+spec:
+  endpointSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: frontend
+```
+
+Apply the policy:
+```bash
+kubectl apply -f network-policy.yaml
+```
+
+##### Step 2: Validate the Policy
+Test the connectivity:
+```bash
+kubectl exec -n <frontend-pod> -- curl <backend-service>
+```
+
+---
