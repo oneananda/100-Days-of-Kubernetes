@@ -164,3 +164,31 @@ kubectl exec -n <frontend-pod> -- curl <backend-service>
    - Validate multi-cluster connectivity after changes to the network or workloads.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day81.md` file, include:  
+- Steps for setting up Cilium and enabling multi-cluster connectivity.  
+- Observations from using Hubble for network observability.  
+- Configuration and results of implementing network security policies.  
+
+---
+
+### 🎯 Outcome for Day 81
+
+By the end of this session, you will:  
+1. Deploy Cilium in Kubernetes clusters and enable multi-cluster networking.  
+2. Use Hubble for advanced observability of network flows.  
+3. Implement and validate security policies for improved workload isolation.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Cilium Documentation](https://docs.cilium.io/)  
+- [Hubble Observability](https://docs.cilium.io/en/stable/gettingstarted/hubble/)  
+- [Multi-Cluster Networking](https://docs.cilium.io/en/stable/gettingstarted/clustermesh/)  
+- [eBPF Documentation](https://ebpf.io/)  
+
+---
