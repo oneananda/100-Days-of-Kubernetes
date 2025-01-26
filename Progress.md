@@ -80,3 +80,4 @@
 - Day 78: Kubernetes Application Performance Management (APM)
 - Day 79: Kubernetes Cluster Upgrade Strategies
 - Day 80: Kubernetes Backup and Disaster Recovery
+- Day 81: Kubernetes Multi-Cluster Networking with Cilium
