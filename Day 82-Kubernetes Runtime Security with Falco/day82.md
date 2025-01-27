@@ -159,3 +159,31 @@ Sensitive file accessed (user=root file=/etc/shadow command=cat /etc/shadow)
    - Implement security checks at every stage of the software lifecycle.  
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day82.md` file, include:  
+- Steps for installing and configuring Falco.  
+- Examples of default and custom rules applied.  
+- Observations from testing runtime security using Falco.  
+
+---
+
+### 🎯 Outcome for Day 82
+
+By the end of this session, you will:  
+1. Understand common Kubernetes runtime threats and their implications.  
+2. Install and configure Falco for runtime threat detection.  
+3. Create and apply custom rules to enhance container security.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Falco Documentation](https://falco.org/docs/)  
+- [Falco Rules Repository](https://github.com/falcosecurity/falco/tree/master/rules)  
+- [Kubernetes Audit Logs](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)  
+- [Runtime Security Best Practices](https://kubernetes.io/docs/concepts/security/)  
+
+--- 
