@@ -81,3 +81,4 @@
 - Day 79: Kubernetes Cluster Upgrade Strategies
 - Day 80: Kubernetes Backup and Disaster Recovery
 - Day 81: Kubernetes Multi-Cluster Networking with Cilium
+- Day 82: Kubernetes Runtime Security with Falco
