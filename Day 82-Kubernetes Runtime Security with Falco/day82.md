@@ -29,3 +29,113 @@ Kubernetes runtime security ensures that your cluster and workloads are protecte
    - User-defined rules in Falco to monitor specific security policies and detect anomalies.  
 
 ---
+
+
+### Practical Exercises: Kubernetes Runtime Security with Falco
+
+---
+
+#### 1. Understanding Kubernetes Runtime Threats
+
+##### Common Runtime Threats:
+- Privilege escalations in containers.  
+- Unexpected file modifications or access.  
+- Unauthorized network connections.  
+- Execution of suspicious commands like shell access (`bash`, `sh`).  
+- Access to sensitive host system resources.  
+
+---
+
+#### 2. Installing and Configuring Falco
+
+##### Step 1: Install Falco
+Install Falco using Helm:
+```bash
+helm repo add falcosecurity https://falcosecurity.github.io/charts
+helm repo update
+helm install falco falcosecurity/falco --namespace falco --create-namespace
+```
+
+Verify the installation:
+```bash
+kubectl get pods -n falco
+```
+
+##### Step 2: Enable Kubernetes Audit Logging
+Falco can monitor Kubernetes audit logs for API server events. Enable audit logging by updating your API server configuration to include:
+```yaml
+--audit-log-path=/var/log/kubernetes/audit.log
+--audit-policy-file=/etc/kubernetes/audit-policy.yaml
+```
+
+Create an audit policy file:
+```yaml
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  - level: Metadata
+```
+
+---
+
+#### 3. Writing Custom Falco Rules
+
+##### Step 1: Understand Default Rules
+Falco comes with default rules to detect common threats. View them:
+```bash
+cat /etc/falco/falco_rules.yaml
+```
+
+##### Step 2: Write a Custom Rule
+Create a rule to detect sensitive file access:
+```yaml
+- rule: Access to Sensitive Files
+  desc: Detect access to critical files like /etc/shadow or /etc/passwd
+  condition: open_read and (fd.name = "/etc/shadow" or fd.name = "/etc/passwd")
+  output: "Sensitive file accessed (user=%user.name file=%fd.name command=%proc.cmdline)"
+  priority: WARNING
+  tags: [filesystem, sensitive]
+```
+
+Save this rule in a new file, e.g., `custom_rules.yaml`.
+
+##### Step 3: Apply the Custom Rule
+Mount the custom rules file into the Falco container by editing the Helm deployment:
+```yaml
+extraVolumes:
+  - name: custom-rules
+    configMap:
+      name: custom-rules
+extraVolumeMounts:
+  - mountPath: /etc/falco/rules.d/custom_rules.yaml
+    name: custom-rules
+```
+
+Reload Falco to apply the rules:
+```bash
+kubectl rollout restart deployment falco -n falco
+```
+
+---
+
+#### 4. Testing Falco
+
+##### Step 1: Trigger a Threat
+Run a container and access a sensitive file:
+```bash
+kubectl run test-container --image=alpine --restart=Never -- sleep 1000
+kubectl exec -it test-container -- cat /etc/shadow
+```
+
+##### Step 2: View Falco Alerts
+Check the Falco logs for alerts:
+```bash
+kubectl logs -l app=falco -n falco
+```
+
+Example output:
+```
+Sensitive file accessed (user=root file=/etc/shadow command=cat /etc/shadow)
+```
+
+---
