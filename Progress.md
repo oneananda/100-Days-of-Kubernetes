@@ -82,3 +82,4 @@
 - Day 80: Kubernetes Backup and Disaster Recovery
 - Day 81: Kubernetes Multi-Cluster Networking with Cilium
 - Day 82: Kubernetes Runtime Security with Falco
+- Day 83: Kubernetes Platform Engineering with Backstage
