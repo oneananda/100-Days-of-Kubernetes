@@ -184,3 +184,31 @@ Install additional plugins for monitoring, CI/CD, or API documentation:
    - Secure sensitive operations with RBAC policies in Backstage.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day83.md` file, include:  
+- Steps for installing and deploying Backstage.  
+- Configuration details for integrating Backstage with Kubernetes.  
+- Examples of self-service deployments and catalog entries.  
+
+---
+
+### 🎯 Outcome for Day 83
+
+By the end of this session, you will:  
+1. Install and configure Backstage as a developer portal.  
+2. Integrate Backstage with Kubernetes for self-service deployments.  
+3. Manage internal tools and services efficiently using Backstage plugins.  
+
+---
+
+### 🔗 Additional Resources
+
+- [Backstage Documentation](https://backstage.io/docs/)  
+- [Backstage Kubernetes Plugin](https://backstage.io/docs/features/kubernetes/)  
+- [Spotify Engineering: Backstage](https://backstage.spotify.com/)  
+- [Kubernetes Deployment Guide](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)  
+
+---
