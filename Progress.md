@@ -83,3 +83,4 @@
 - Day 81: Kubernetes Multi-Cluster Networking with Cilium
 - Day 82: Kubernetes Runtime Security with Falco
 - Day 83: Kubernetes Platform Engineering with Backstage
+- Day 84: Kubernetes Cost Optimization with Karpenter
