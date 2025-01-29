@@ -183,3 +183,31 @@ kubectl logs -n karpenter -l app.kubernetes.io/name=karpenter
    - Use cost monitoring tools like Kubecost or AWS Cost Explorer to analyze savings.  
 
 ---
+
+
+### 📝 Document Your Progress  
+
+In your `day84.md` file, include:  
+- Steps for installing and configuring Karpenter.  
+- Observations on dynamic autoscaling and node provisioning.  
+- Insights from leveraging spot instances for cost savings.  
+
+---
+
+### 🎯 Outcome for Day 84  
+
+By the end of this session, you will:  
+1. Install and configure Karpenter for Kubernetes autoscaling.  
+2. Implement dynamic scaling to optimize resource allocation.  
+3. Use spot instances and autoscaling policies for cost savings.  
+
+---
+
+### 🔗 Additional Resources  
+
+- [Karpenter Documentation](https://karpenter.sh/docs/)  
+- [AWS Spot Instances](https://aws.amazon.com/ec2/spot/)  
+- [Kubernetes Autoscaling Best Practices](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/)  
+- [Kubecost for Cost Optimization](https://kubecost.com/)  
+
+---
