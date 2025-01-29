@@ -33,3 +33,133 @@ Optimizing costs in Kubernetes clusters is crucial for efficient resource utiliz
 
 ---
 
+
+### Practical Exercises: Cost Optimization with Karpenter  
+
+---
+
+#### 1. Installing Karpenter  
+
+##### Step 1: Create IAM Role for Karpenter  
+For AWS-based clusters, create an IAM role with necessary permissions:  
+```bash
+aws iam create-role --role-name KarpenterControllerRole --assume-role-policy-document file://karpenter-trust-policy.json
+```
+
+Attach necessary policies:  
+```bash
+aws iam attach-role-policy --role-name KarpenterControllerRole --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+```
+
+##### Step 2: Deploy Karpenter in Kubernetes  
+Add the Karpenter Helm repository:  
+```bash
+helm repo add karpenter https://charts.karpenter.sh/
+helm repo update
+```
+
+Install Karpenter using Helm:  
+```bash
+helm install karpenter karpenter/karpenter --namespace karpenter --create-namespace
+```
+
+Verify installation:  
+```bash
+kubectl get pods -n karpenter
+```
+
+---
+
+#### 2. Configuring Karpenter for Dynamic Autoscaling  
+
+##### Step 1: Define a Karpenter Provisioner  
+Create a `provisioner.yaml` file:  
+```yaml
+apiVersion: karpenter.k8s.aws/v1alpha5
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  requirements:
+    - key: "node.kubernetes.io/instance-type"
+      operator: In
+      values: ["t3.medium", "t3.large"]
+  limits:
+    resources:
+      cpu: "1000"
+  provider:
+    subnetSelector:
+      karpenter.sh/discovery: "my-cluster"
+    securityGroupSelector:
+      karpenter.sh/discovery: "my-cluster"
+  ttlSecondsAfterEmpty: 30
+```
+
+Apply the provisioner:  
+```bash
+kubectl apply -f provisioner.yaml
+```
+
+##### Step 2: Configure Workloads for Autoscaling  
+Ensure pods have appropriate resource requests:  
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoscale-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autoscale-app
+  template:
+    metadata:
+      labels:
+        app: autoscale-app
+    spec:
+      containers:
+        - name: app
+          image: nginx
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+```
+
+Deploy the workload:  
+```bash
+kubectl apply -f autoscale-app.yaml
+```
+
+Karpenter will automatically provision nodes as needed.
+
+---
+
+#### 3. Leveraging Spot Instances for Cost Savings  
+
+##### Step 1: Modify the Provisioner to Use Spot Instances  
+Update the provisioner configuration to allow spot instances:  
+```yaml
+spec:
+  provider:
+    instanceType: ["t3.medium", "t3.large"]
+    spot: true
+```
+
+Apply the updated configuration:  
+```bash
+kubectl apply -f provisioner.yaml
+```
+
+##### Step 2: Monitor Autoscaling  
+Check if new nodes are being provisioned:  
+```bash
+kubectl get nodes
+```
+
+Check Karpenter logs:  
+```bash
+kubectl logs -n karpenter -l app.kubernetes.io/name=karpenter
+```
+
+---
