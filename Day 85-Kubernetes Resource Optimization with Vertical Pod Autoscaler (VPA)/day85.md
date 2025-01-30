@@ -144,3 +144,23 @@ kubectl describe pod <pod-name>
 ```
 
 ---
+
+
+### Best Practices for Balancing Cost and Performance  
+
+1. **Use VPA in Combination with HPA:**  
+   - VPA optimizes individual pod resources, while HPA scales replicas dynamically.  
+
+2. **Set Reasonable Limits:**  
+   - Avoid excessive resource allocation to prevent waste and unnecessary costs.  
+
+3. **Enable Only Recommendation Mode in Production:**  
+   - Instead of auto-updating pods, use `updateMode: "Off"` to get suggestions without disruptions.  
+
+4. **Monitor Trends with Prometheus/Grafana:**  
+   - Track resource usage trends to fine-tune VPA settings.  
+
+5. **Test Before Deploying in Production:**  
+   - Observe VPA behavior in staging environments before enabling it for critical workloads.  
+
+---
