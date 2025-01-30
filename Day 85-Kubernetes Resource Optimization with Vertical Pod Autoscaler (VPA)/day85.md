@@ -164,3 +164,30 @@ kubectl describe pod <pod-name>
    - Observe VPA behavior in staging environments before enabling it for critical workloads.  
 
 ---
+
+
+### 📝 Document Your Progress  
+
+In your `day85.md` file, include:  
+- Steps for installing and configuring VPA.  
+- Observations on resource optimizations and pod restarts.  
+- Insights on balancing cost vs. performance in Kubernetes.  
+
+---
+
+### 🎯 Outcome for Day 85  
+
+By the end of this session, you will:  
+1. Install and configure Vertical Pod Autoscaler in a Kubernetes cluster.  
+2. Automatically optimize CPU and memory allocation for workloads.  
+3. Apply best practices to balance cost efficiency and performance.  
+
+---
+
+### 🔗 Additional Resources  
+
+- [VPA Documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler)  
+- [Kubernetes Autoscaling Overview](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)  
+- [Monitoring Resource Usage](https://grafana.com/docs/grafana/latest/getting-started/monitor-kubernetes/)  
+
+---
