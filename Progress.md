@@ -85,3 +85,4 @@
 - Day 83: Kubernetes Platform Engineering with Backstage
 - Day 84: Kubernetes Cost Optimization with Karpenter
 - Day 85: Kubernetes Resource Optimization with Vertical Pod Autoscaler (VPA)
+- Day 86: Kubernetes Observability with Thanos 
