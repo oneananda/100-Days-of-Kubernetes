@@ -192,3 +192,31 @@ Access Thanos Query at `http://<NODE_IP>:<NODE_PORT>` and explore metrics from m
    - Use **Grafana dashboards** to visualize Thanos metrics and detect issues early.  
 
 ---
+
+
+### 📝 Document Your Progress  
+
+In your `day86.md` file, include:  
+- Steps for installing Thanos and configuring long-term storage.  
+- Observations on multi-cluster observability using Thanos Querier.  
+- Insights into how Thanos improves Prometheus scalability.  
+
+---
+
+### 🎯 Outcome for Day 86  
+
+By the end of this session, you will:  
+1. Deploy Thanos to extend Prometheus with long-term storage.  
+2. Configure Thanos Querier for **multi-cluster observability**.  
+3. Implement best practices for **scalable monitoring in Kubernetes**.  
+
+---
+
+### 🔗 Additional Resources  
+
+- [Thanos Documentation](https://thanos.io/tip/thanos/getting-started.md/)  
+- [Prometheus + Thanos Setup](https://prometheus.io/docs/prometheus/latest/storage/)  
+- [Kubernetes Monitoring with Thanos](https://kubernetes.io/docs/tasks/debug/debug-cluster/resource-metrics-pipeline/)  
+- [Grafana Thanos Integration](https://grafana.com/docs/grafana/latest/datasources/thanos/)  
+
+---
