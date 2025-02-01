@@ -33,3 +33,116 @@ Kubernetes event management is a critical component for building reactive system
    - Building automated processes that execute tasks based on events, improving efficiency and reducing manual intervention.
 
 ---
+
+
+
+### Practical Exercises: Implementing Argo Events
+
+---
+
+#### 1. Installing Argo Events
+
+##### Step 1: Deploy Argo Events Controller and Sensor
+Install Argo Events components using the provided manifests:
+```bash
+kubectl create namespace argo-events
+kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
+```
+
+Verify the installation:
+```bash
+kubectl get pods -n argo-events
+```
+
+---
+
+#### 2. Configuring an Event Source
+
+##### Step 1: Create an Event Source Definition
+Define a simple event source (e.g., a webhook) that listens for HTTP POST requests:
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: webhook-event-source
+  namespace: argo-events
+spec:
+  webhook:
+    example:
+      endpoint: /payload
+      port: "12000"
+```
+
+Apply the event source:
+```bash
+kubectl apply -f webhook-event-source.yaml
+```
+
+---
+
+#### 3. Setting Up a Sensor and Trigger
+
+##### Step 1: Define a Sensor to Listen for Events
+Create a sensor that triggers a workflow when an event is received:
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: webhook-sensor
+  namespace: argo-events
+spec:
+  dependencies:
+    - name: webhook-dep
+      eventSourceName: webhook-event-source
+      eventName: example
+  triggers:
+    - template:
+        name: argo-trigger
+        argoWorkflow:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: triggered-workflow-
+              spec:
+                entrypoint: whalesay
+                templates:
+                  - name: whalesay
+                    container:
+                      image: docker/whalesay:latest
+                      command: ["cowsay"]
+                      args: ["Hello from Argo Events!"]
+```
+
+Apply the sensor:
+```bash
+kubectl apply -f webhook-sensor.yaml
+```
+
+---
+
+#### 4. Testing the Event Workflow
+
+##### Step 1: Send a Test Event
+Trigger the webhook by sending an HTTP POST request:
+```bash
+curl -X POST http://<NODE_IP>:12000/payload -d '{}'
+```
+
+##### Step 2: Verify Workflow Execution
+Check if the Argo workflow was triggered:
+```bash
+kubectl get wf -n argo-events
+```
+
+Inspect the logs of the workflow to ensure the correct execution:
+```bash
+argo logs <workflow-name> -n argo-events
+```
+
+---
