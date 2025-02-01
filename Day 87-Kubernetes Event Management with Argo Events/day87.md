@@ -146,3 +146,23 @@ argo logs <workflow-name> -n argo-events
 ```
 
 ---
+
+
+### Best Practices for Event-Driven Workflows
+
+1. **Define Clear Event Schemas:**  
+   - Standardize event formats to ensure sensors and triggers process events correctly.
+
+2. **Monitor Event Pipelines:**  
+   - Integrate logging and monitoring (using tools like Prometheus and Grafana) to keep track of event flow and workflow executions.
+
+3. **Secure Event Sources:**  
+   - Implement authentication and authorization for event sources to prevent unauthorized triggering of workflows.
+
+4. **Test and Validate Workflows:**  
+   - Regularly simulate events in a staging environment to validate the sensor-trigger pipeline and workflow responses.
+
+5. **Design for Scalability:**  
+   - Build sensors and workflows that can scale with increasing event volumes and diverse event types.
+
+---
