@@ -166,3 +166,31 @@ argo logs <workflow-name> -n argo-events
    - Build sensors and workflows that can scale with increasing event volumes and diverse event types.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day87.md` file, include:  
+- Detailed steps for installing Argo Events components.  
+- Configuration files for event sources, sensors, and triggers.  
+- Observations from testing the event-driven workflow and any troubleshooting steps.
+
+---
+
+### 🎯 Outcome for Day 87
+
+By the end of this session, you will:  
+1. Understand the fundamentals of event-driven architecture with Argo Events.  
+2. Successfully configure sensors, triggers, and event sources in Kubernetes.  
+3. Build automated workflows that respond to real-time events.
+
+---
+
+### 🔗 Additional Resources
+
+- [Argo Events Documentation](https://argoproj.github.io/argo-events/)
+- [Argo Events GitHub Repository](https://github.com/argoproj/argo-events)
+- [Event-Driven Architecture in Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+- [Argo Workflows Documentation](https://argoproj.github.io/argo-workflows/)
+
+---
