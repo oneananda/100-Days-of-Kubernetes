@@ -87,3 +87,4 @@
 - Day 85: Kubernetes Resource Optimization with Vertical Pod Autoscaler (VPA)
 - Day 86: Kubernetes Observability with Thanos
 - Day 87: Kubernetes Event Management with Argo Events
+- Day 88: Kubernetes Debugging with epinio and DevSpace
