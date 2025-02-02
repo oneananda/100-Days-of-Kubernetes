@@ -96,3 +96,20 @@ devspace logs
 This helps in quickly identifying and diagnosing issues as they occur in your live environment.
 
 ---
+
+
+### Best Practices
+
+1. **Iterative Development:**  
+   - Regularly push small code changes using epinio and test them immediately with DevSpace to reduce the feedback loop.
+   
+2. **Effective Debugging:**  
+   - Utilize DevSpace’s debugging tools to set breakpoints, inspect logs, and debug in real time, minimizing downtime during troubleshooting.
+   
+3. **Configuration Management:**  
+   - Keep your `devspace.yaml` and other configuration files under version control to ensure consistency across your development team.
+   
+4. **Resource Optimization:**  
+   - Monitor resource usage and optimize your deployments to avoid unnecessary costs, especially when running multiple development sessions.
+
+---
