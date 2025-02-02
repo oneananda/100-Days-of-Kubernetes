@@ -113,3 +113,32 @@ This helps in quickly identifying and diagnosing issues as they occur in your li
    - Monitor resource usage and optimize your deployments to avoid unnecessary costs, especially when running multiple development sessions.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day88.md` file, include:
+- Detailed steps for installing and configuring both epinio and DevSpace.
+- Command outputs and screenshots demonstrating successful deployment and debugging.
+- Observations on how these tools have improved your local development workflow and reduced turnaround times.
+
+---
+
+### 🎯 Outcome for Day 88
+
+By the end of this session, you will:
+1. Rapidly deploy applications to Kubernetes using epinio.
+2. Debug live applications in Kubernetes seamlessly with DevSpace.
+3. Simplify your local development workflow, resulting in faster iteration and higher productivity.
+
+---
+
+### 🔗 Additional Resources
+
+- [Epinio Documentation](https://epinio.io/docs/)
+- [DevSpace Documentation](https://devspace.sh/cli/docs/)
+- [Kubernetes Debugging Guide](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/)
+- [Epinio GitHub Repository](https://github.com/epinio/epinio)
+- [DevSpace GitHub Repository](https://github.com/loft-sh/devspace)
+
+---
