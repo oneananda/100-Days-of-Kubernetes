@@ -88,3 +88,4 @@
 - Day 86: Kubernetes Observability with Thanos
 - Day 87: Kubernetes Event Management with Argo Events
 - Day 88: Kubernetes Debugging with epinio and DevSpace
+- Day 89: Kubernetes Chaos Engineering with LitmusChaos
