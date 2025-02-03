@@ -124,3 +124,32 @@ Based on your analysis:
    - Maintain detailed records of experiment configurations, outcomes, and remediation steps.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day89.md` file, include:
+- Detailed steps for installing and configuring LitmusChaos.
+- YAML configurations and descriptions of the chaos experiments executed.
+- Observations and metrics collected during the experiments.
+- Actions taken to improve system resilience based on the findings.
+
+---
+
+### 🎯 Outcome for Day 89
+
+By the end of this session, you will:
+1. Successfully install and configure LitmusChaos in your Kubernetes cluster.
+2. Execute chaos experiments to simulate failure scenarios and test application resilience.
+3. Analyze system behavior under stress and implement improvements to enhance overall resilience.
+
+---
+
+### 🔗 Additional Resources
+
+- [LitmusChaos Documentation](https://litmuschaos.io/docs/)
+- [LitmusChaos GitHub Repository](https://github.com/litmuschaos/litmus)
+- [Chaos Engineering Principles](https://principlesofchaos.org/)
+- [Kubernetes Monitoring with Prometheus and Grafana](https://prometheus.io/docs/introduction/overview/)
+
+---
