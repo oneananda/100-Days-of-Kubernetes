@@ -188,3 +188,32 @@ kubectl apply -f kustomization.yaml -n flux-system
 
 ---
 
+
+### 📝 Document Your Progress
+
+In your `day90.md` file, include:
+- Steps for installing and configuring ArgoCD and Flux.
+- Repository structure and sample configuration manifests.
+- CI/CD pipeline configurations and screenshots demonstrating automated deployments.
+- Observations on how GitOps improves infrastructure consistency and reliability.
+
+---
+
+### 🎯 Outcome for Day 90
+
+By the end of this session, you will:
+1. Implement GitOps workflows using ArgoCD and Flux to manage Kubernetes infrastructure.
+2. Manage Kubernetes configurations as immutable code stored in Git.
+3. Integrate best practices into your CI/CD pipelines for reliable, automated deployments.
+
+---
+
+### 🔗 Additional Resources
+
+- [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
+- [Flux Documentation](https://fluxcd.io/docs/)
+- [GitOps Principles](https://www.weave.works/technologies/gitops/)
+- [Kubernetes Best Practices](https://kubernetes.io/docs/setup/best-practices/)
+- [CI/CD with GitOps](https://docs.microsoft.com/en-us/azure/devops/learn/gitops/)
+
+---
