@@ -89,3 +89,4 @@
 - Day 87: Kubernetes Event Management with Argo Events
 - Day 88: Kubernetes Debugging with epinio and DevSpace
 - Day 89: Kubernetes Chaos Engineering with LitmusChaos
+- Day 90: Kubernetes Immutable Infrastructure with GitOps
