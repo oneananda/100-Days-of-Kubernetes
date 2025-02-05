@@ -167,3 +167,31 @@ You should see the JSON output from your custom API server.
    - Rigorously test the aggregated API in staging environments before deploying to production to ensure stability and reliability.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day91.md` file, include:
+- Detailed steps and code samples used to develop, deploy, and register your custom API server.
+- Screenshots or terminal outputs verifying that the aggregated API is accessible via `kubectl`.
+- Observations on the benefits and challenges encountered while extending Kubernetes functionality using aggregated APIs.
+
+---
+
+### 🎯 Outcome for Day 91
+
+By the end of this session, you will:
+1. Understand the concept and benefits of API aggregation in Kubernetes.
+2. Develop, deploy, and register an aggregated API server.
+3. Explore practical use cases for extending Kubernetes functionality with custom APIs.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes API Aggregation Documentation](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/apiserver-aggregation/)
+- [APIService Resource Definition](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#apiservice-v1-apiregistration-k8s-io)
+- [Building Custom API Servers](https://github.com/kubernetes/sample-apiserver)
+- [Kubernetes Extensibility Patterns](https://kubernetes.io/docs/concepts/extend-kubernetes/)
+
+---
