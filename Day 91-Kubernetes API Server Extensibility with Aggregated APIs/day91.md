@@ -38,3 +38,112 @@ Kubernetes is designed to be highly extensible, allowing you to add new function
    - **Multi-Tenancy & Security:** Integrate admission controllers or authentication layers tailored to specific organizational needs.
 
 ---
+
+
+### Practical Exercises: Creating an Aggregated API Server
+
+#### 1. Develop Your Custom API Server
+
+##### Step 1: Create a Simple API Server
+Develop a lightweight API server that exposes a custom endpoint. For example, create a simple HTTP server in Go or your preferred language that returns a JSON payload:
+```go
+package main
+
+import (
+    "encoding/json"
+    "net/http"
+)
+
+type Message struct {
+    Text string `json:"text"`
+}
+
+func main() {
+    http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+        msg := Message{Text: "Custom API Server is healthy!"}
+        json.NewEncoder(w).Encode(msg)
+    })
+    http.ListenAndServe(":8080", nil)
+}
+```
+Compile and containerize this application to create an image that can be deployed in Kubernetes.
+
+---
+
+#### 2. Deploy Your Custom API Server
+
+##### Step 1: Create a Kubernetes Service for Your API Server
+Deploy the API server as a Kubernetes service. Create a deployment and service manifest:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-api-server
+  namespace: custom-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-api-server
+  template:
+    metadata:
+      labels:
+        app: custom-api-server
+    spec:
+      containers:
+      - name: custom-api-server
+        image: your-dockerhub-username/custom-api-server:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: custom-api
+  namespace: custom-api
+spec:
+  ports:
+  - port: 443
+    targetPort: 8080
+  selector:
+    app: custom-api-server
+```
+Apply the manifest:
+```bash
+kubectl apply -f custom-api-deployment.yaml
+```
+
+---
+
+#### 3. Register the Aggregated API with Kubernetes
+
+##### Step 1: Create an APIService Resource
+Register your custom API server with the Kubernetes API aggregator by creating an APIService manifest:
+```yaml
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  name: v1.custom.example.com
+spec:
+  service:
+    name: custom-api
+    namespace: custom-api
+  group: custom.example.com
+  version: v1
+  insecureSkipTLSVerify: true
+  groupPriorityMinimum: 1000
+  versionPriority: 15
+```
+Apply the APIService resource:
+```bash
+kubectl apply -f apiservice.yaml
+```
+
+##### Step 2: Verify Aggregation
+Test the aggregated API by querying it through the Kubernetes API server:
+```bash
+kubectl get --raw /apis/custom.example.com/v1/healthz
+```
+You should see the JSON output from your custom API server.
+
+---
