@@ -147,3 +147,23 @@ kubectl get --raw /apis/custom.example.com/v1/healthz
 You should see the JSON output from your custom API server.
 
 ---
+
+
+### Best Practices for Aggregated APIs
+
+1. **Security:**  
+   - Secure communication between the Kubernetes API aggregator and your custom API server, preferably using TLS certificates instead of `insecureSkipTLSVerify`.
+
+2. **Scalability and Monitoring:**  
+   - Ensure your custom API server is horizontally scalable and integrated with logging and monitoring solutions.
+
+3. **Versioning and Compatibility:**  
+   - Maintain clear versioning for your custom API and follow semantic versioning practices to manage backward compatibility.
+
+4. **Documentation:**  
+   - Document the API endpoints and their use cases thoroughly to facilitate adoption and maintenance.
+
+5. **Testing:**  
+   - Rigorously test the aggregated API in staging environments before deploying to production to ensure stability and reliability.
+
+---
