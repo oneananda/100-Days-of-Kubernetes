@@ -91,3 +91,4 @@
 - Day 89: Kubernetes Chaos Engineering with LitmusChaos
 - Day 90: Kubernetes Immutable Infrastructure with GitOps
 - Day 91: Kubernetes API Server Extensibility with Aggregated APIs
+- Day 92: Kubernetes Multi-Cluster Federation with Submariner
