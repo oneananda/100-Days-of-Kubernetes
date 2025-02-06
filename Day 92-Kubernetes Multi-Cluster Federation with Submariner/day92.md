@@ -135,3 +135,31 @@ spec:
 
 ---
 
+
+### 📝 Document Your Progress
+
+In your `day92.md` file, include:
+- Detailed steps and commands for installing and configuring Submariner.
+- Screenshots or logs demonstrating successful connection and communication between clusters.
+- Observations on the performance and security of cross-cluster traffic.
+- Any challenges encountered and how they were resolved.
+
+---
+
+### 🎯 Outcome for Day 92
+
+By the end of this session, you will:
+1. Successfully connect isolated Kubernetes clusters using Submariner.
+2. Manage cross-cluster communication, enabling service discovery and network routing between clusters.
+3. Implement and verify security measures to protect multi-cluster networks.
+
+---
+
+### 🔗 Additional Resources
+
+- [Submariner Documentation](https://submariner.io/documentation/)
+- [Submariner GitHub Repository](https://github.com/submariner-io/submariner)
+- [Multi-Cluster Networking Best Practices](https://kubernetes.io/docs/concepts/cluster-administration/multi-cluster/)
+- [Kubernetes Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+
+---
