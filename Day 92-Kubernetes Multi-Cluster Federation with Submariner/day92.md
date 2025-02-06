@@ -36,3 +36,81 @@ In today's session, you'll learn how to connect isolated Kubernetes clusters usi
    - Utilizing encryption, robust authentication, and network policies to protect data and communications across clusters.
 
 ---
+
+
+### Practical Exercises: Implementing Multi-Cluster Federation with Submariner
+
+#### 1. Installing Submariner
+
+##### Step 1: Prepare Your Clusters  
+Ensure that you have at least two Kubernetes clusters running in isolated networks. Verify connectivity and that each cluster has external access to allow tunnel establishment.
+
+##### Step 2: Install the Submariner Operator  
+Deploy the Submariner operator using your preferred method (Helm, OperatorHub, or manifests):
+```bash
+kubectl create namespace submariner-operator
+kubectl apply -f https://github.com/submariner-io/submariner-operator/releases/download/v0.11.0/submariner-operator.yaml -n submariner-operator
+```
+
+##### Step 3: Install the Submariner CLI  
+Download and install the `subctl` CLI tool to manage the federation process:
+```bash
+curl -Ls https://get.submariner.io | sh
+sudo install subctl /usr/local/bin/
+```
+
+---
+
+#### 2. Connecting Clusters with Submariner
+
+##### Step 1: Broker Setup  
+Designate one cluster as the broker for your multi-cluster environment and deploy the broker components:
+```bash
+subctl deploy-broker --kubeconfig <broker-kubeconfig>
+```
+
+##### Step 2: Join Clusters to the Broker  
+Join each cluster to the broker by running the following command from each cluster:
+```bash
+subctl join --kubeconfig <cluster-kubeconfig> --clusterid <cluster-id> --natt=true <broker-info-file>
+```
+*Replace `<cluster-kubeconfig>`, `<cluster-id>`, and `<broker-info-file>` with appropriate values for your environment.*
+
+##### Step 3: Validate Connectivity  
+Test cross-cluster communication by deploying sample applications in different clusters and verifying connectivity:
+```bash
+kubectl run test-pod --image=busybox --restart=Never --command -- sleep 3600
+kubectl exec test-pod -- ping -c 4 <service-ip-from-other-cluster>
+```
+
+---
+
+#### 3. Securing Multi-Cluster Networks
+
+##### Step 1: Enable Encrypted Tunnels  
+Ensure that Submariner is configured to use encrypted tunnels (this is typically enabled by default with the `--natt` flag). Verify by checking the Submariner logs:
+```bash
+kubectl logs -n submariner-operator -l app=submariner-operator
+```
+
+##### Step 2: Apply Network Policies  
+Implement network policies in each cluster to restrict and monitor cross-cluster traffic:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-submariner-traffic
+  namespace: default
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: <submariner-network-cidr>
+      ports:
+        - protocol: TCP
+          port: 443
+```
+*Replace `<submariner-network-cidr>` with the appropriate CIDR block used by Submariner.*
+
+---
