@@ -153,3 +153,33 @@ spec:
    - Maintain version-controlled configurations for all service mesh policies and routing rules to facilitate rollbacks and audits.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day93.md` file, include:
+- Detailed steps and configuration files used for setting up traffic routing, mTLS, and fault injection.
+- Screenshots or logs from your observability tools showing the effects of routing changes and fault injection.
+- A comparison summary of Istio, Linkerd, and Consul based on your evaluation.
+- Reflections on the challenges and benefits experienced during the session.
+
+---
+
+### 🎯 Outcome for Day 93
+
+By the end of this session, you will:
+1. Understand the differences between leading service mesh solutions (Istio, Linkerd, Consul).
+2. Configure advanced traffic routing and load balancing to optimize service performance.
+3. Secure service-to-service communication with mTLS and test application resilience through fault injection.
+
+---
+
+### 🔗 Additional Resources
+
+- [Istio Documentation](https://istio.io/latest/docs/)
+- [Linkerd Documentation](https://linkerd.io/2.11/)
+- [Consul Connect Documentation](https://www.consul.io/docs/connect)
+- [Service Mesh Patterns](https://service-mesh-patterns.io/)
+- [Fault Injection with Istio](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/)
+
+---
