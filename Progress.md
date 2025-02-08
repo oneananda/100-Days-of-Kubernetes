@@ -93,3 +93,4 @@
 - Day 91: Kubernetes API Server Extensibility with Aggregated APIs
 - Day 92: Kubernetes Multi-Cluster Federation with Submariner
 - Day 93: Kubernetes Advanced Traffic Management with Service Mesh
+- Day 94: Kubernetes Cost Management and Optimization
