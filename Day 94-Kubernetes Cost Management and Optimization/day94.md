@@ -39,3 +39,75 @@ Optimizing costs in Kubernetes is essential to ensure that resource usage aligns
    - Conduct regular audits and establish cost alerts to manage expenditures proactively.
 
 ---
+
+
+### Practical Exercises: Cost Management and Optimization
+
+#### 1. Tracking Costs with Kubecost and OpenCost
+
+##### Step 1: Install Kubecost
+Deploy Kubecost using Helm to monitor cost metrics in your cluster:
+```bash
+helm repo add kubecost https://kubecost.github.io/cost-analyzer/
+helm repo update
+helm install kubecost kubecost/cost-analyzer --namespace kubecost --create-namespace
+```
+Forward the service to access the dashboard:
+```bash
+kubectl port-forward -n kubecost svc/kubecost-cost-analyzer 9090:9090
+```
+Access the Kubecost dashboard at [http://localhost:9090](http://localhost:9090) to review cost insights.
+
+##### Step 2: Deploy OpenCost
+Set up OpenCost to gain additional cost visibility:
+```bash
+kubectl apply -f https://github.com/opencost/opencost/releases/latest/download/opencost.yaml
+```
+Verify that the OpenCost pods are running:
+```bash
+kubectl get pods -n opencost
+```
+
+---
+
+#### 2. Identifying Resource Wastage and Right-Sizing Workloads
+
+##### Step 1: Analyze Cost Data
+- Use the Kubecost and OpenCost dashboards to identify high-cost areas, such as overprovisioned namespaces or services.
+- Look for trends in CPU and memory utilization that suggest underused resources.
+
+##### Step 2: Implement Right-Sizing Changes
+Adjust resource requests and limits based on observed usage. For example, update a deployment manifest:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: optimized-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: optimized-app
+  template:
+    metadata:
+      labels:
+        app: optimized-app
+    spec:
+      containers:
+      - name: app-container
+        image: your-image:latest
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "400m"
+            memory: "512Mi"
+```
+Apply the changes:
+```bash
+kubectl apply -f optimized-app-deployment.yaml
+```
+Monitor the updated resource utilization to ensure improvements.
+
+---
