@@ -131,3 +131,33 @@ Monitor the updated resource utilization to ensure improvements.
   - Periodically reassess resource allocations and cost reports to adjust workloads and infrastructure as needed.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day94.md` file, include:
+- Installation steps and command outputs for Kubecost and OpenCost.
+- Screenshots or summaries of cost dashboards showing resource usage and cost metrics.
+- Descriptions of identified inefficiencies and the modifications made for right-sizing workloads.
+- Reflections on cost savings achieved and lessons learned from implementing best practices.
+
+---
+
+### 🎯 Outcome for Day 94
+
+By the end of this session, you will:
+1. Monitor Kubernetes costs effectively using Kubecost and OpenCost.
+2. Identify and eliminate resource wastage through right-sizing and optimization.
+3. Implement best practices that promote cost-efficient operations and reduce overall cloud expenditure.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubecost Documentation](https://docs.kubecost.com/)
+- [OpenCost GitHub Repository](https://github.com/opencost/opencost)
+- [Kubernetes Cost Management Best Practices](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#cost-management)
+- [Prometheus & Grafana for Monitoring](https://prometheus.io/docs/introduction/overview/)
+- [Kubernetes Auto-Scaling Guide](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+
+---
