@@ -157,3 +157,33 @@ High availability (HA) and resilience are critical for ensuring that your Kubern
    - Periodically simulate failure scenarios to validate your HA configuration and refine recovery procedures.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day95.md` file, include:
+- Detailed steps and commands used for setting up a highly available Kubernetes cluster.
+- Configuration files and manifests for deploying HA control plane and etcd clusters.
+- Logs and observations from simulated failure tests.
+- Lessons learned and adjustments made to improve resilience.
+
+---
+
+### 🎯 Outcome for Day 95
+
+By the end of this session, you will:
+1. Design and deploy a highly available Kubernetes cluster with redundant control plane and etcd nodes.
+2. Configure and test HA setups to ensure continuous operation during component failures.
+3. Validate resilience strategies through simulated failure scenarios and refine your disaster recovery plans.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kubernetes High Availability Documentation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/)
+- [etcd Clustering Best Practices](https://etcd.io/docs/v3.4/op-guide/clustering/)
+- [Prometheus Monitoring for Kubernetes](https://prometheus.io/docs/introduction/overview/)
+- [LitmusChaos for Chaos Engineering](https://litmuschaos.io/docs/)
+- [Kubernetes Disaster Recovery](https://kubernetes.io/docs/tasks/administer-cluster/disaster-recovery/)
+
+---
