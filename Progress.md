@@ -95,3 +95,4 @@
 - Day 93: Kubernetes Advanced Traffic Management with Service Mesh
 - Day 94: Kubernetes Cost Management and Optimization
 - Day 95: Kubernetes High Availability and Resilience
+- Day 96: Kubernetes Data Protection with OpenEBS and Rook
