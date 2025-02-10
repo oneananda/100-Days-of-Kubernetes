@@ -200,3 +200,34 @@ kubectl get volumesnapshot
    - Implement RBAC and encryption policies for storage to protect sensitive data.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day96.md` file, include:
+- Commands and output logs for deploying OpenEBS and Rook.
+- YAML configuration files used for StorageClasses, PVCs, and VolumeSnapshots.
+- Screenshots or summaries from the dashboards of your deployed storage solutions.
+- Observations on dynamic provisioning performance and snapshot recovery tests.
+- Lessons learned regarding scalability and data protection.
+
+---
+
+### 🎯 Outcome for Day 96
+
+By the end of this session, you will:
+1. Successfully deploy OpenEBS for container-attached storage.
+2. Manage a scalable Ceph storage cluster using Rook.
+3. Implement dynamic provisioning and snapshot management to protect your Kubernetes data.
+
+---
+
+### 🔗 Additional Resources
+
+- [OpenEBS Documentation](https://docs.openebs.io/)
+- [Rook Documentation](https://rook.io/docs/rook/latest/)
+- [Ceph Documentation](https://docs.ceph.com/en/latest/)
+- [Kubernetes CSI Snapshots](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html)
+- [Dynamic Provisioning in Kubernetes](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)
+
+---
