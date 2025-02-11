@@ -158,3 +158,23 @@ For Splunk integration, use the Splunk HEC output:
 ```
 
 ---
+
+
+### Best Practices for Log Management with Fluent Bit
+
+1. **Optimize Log Collection:**  
+   - Tail only the necessary log files to reduce overhead and noise.
+   
+2. **Implement Effective Filtering:**  
+   - Use filters to remove redundant or sensitive information and to enrich logs with contextual metadata.
+
+3. **Secure Log Transmission:**  
+   - Encrypt log data in transit and restrict access to logging endpoints.
+
+4. **Monitor Performance:**  
+   - Continuously monitor Fluent Bit performance to ensure it doesn't become a bottleneck in log processing.
+
+5. **Version Control Configurations:**  
+   - Store Fluent Bit configuration files in version control for consistency and auditability.
+
+---
