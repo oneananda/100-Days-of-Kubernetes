@@ -178,3 +178,34 @@ For Splunk integration, use the Splunk HEC output:
    - Store Fluent Bit configuration files in version control for consistency and auditability.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day97.md` file, include:
+- Steps and commands for deploying Fluent Bit in your cluster.
+- Configuration files for inputs, filters, parsers, and outputs.
+- Screenshots or terminal outputs from the Fluent Bit dashboard or logs.
+- Observations on the effectiveness of log filtering and integration with your chosen backend.
+- Lessons learned and any troubleshooting steps encountered.
+
+---
+
+### 🎯 Outcome for Day 97
+
+By the end of this session, you will:
+1. Deploy Fluent Bit as a log aggregation solution in your Kubernetes environment.
+2. Implement filtering and transformation to structure and enrich log data.
+3. Integrate Fluent Bit with Elasticsearch, Loki, or Splunk to centralize and analyze logs effectively.
+
+---
+
+### 🔗 Additional Resources
+
+- [Fluent Bit Documentation](https://docs.fluentbit.io/)
+- [Fluent Bit Helm Charts](https://github.com/fluent/helm-charts)
+- [Elasticsearch Integration Guide](https://docs.fluentbit.io/manual/pipeline/outputs/elasticsearch)
+- [Loki Documentation](https://grafana.com/docs/loki/latest/)
+- [Splunk HEC Documentation](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)
+
+---
