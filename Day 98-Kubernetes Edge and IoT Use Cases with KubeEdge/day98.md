@@ -176,3 +176,33 @@ kubectl logs -n kubeedge -l app=kubeedge-edgecore
    - Regularly simulate network disruptions and other edge conditions to ensure resilience.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day98.md` file, include:
+- Installation and configuration steps for both CloudCore and EdgeCore.
+- Deployment manifests and outputs from your edge application.
+- Observations from data synchronization tests, especially during simulated disconnections.
+- Lessons learned and any adjustments made for optimal edge performance.
+
+---
+
+### 🎯 Outcome for Day 98
+
+By the end of this session, you will:
+1. Gain a deep understanding of KubeEdge and its architecture for managing IoT and edge workloads.
+2. Successfully deploy and manage edge applications, ensuring real-time data synchronization.
+3. Develop strategies to handle disconnected environments, ensuring resilient and continuous operations at the edge.
+
+---
+
+### 🔗 Additional Resources
+
+- [KubeEdge Documentation](https://kubeedge.io/en/docs/)
+- [KubeEdge GitHub Repository](https://github.com/kubeedge/kubeedge)
+- [Edge Computing Best Practices](https://www.cncf.io/blog/2020/06/30/edge-computing-and-kubernetes/)
+- [IoT Device Management with KubeEdge](https://kubeedge.io/en/docs/devices/)
+- [KubeEdge Use Cases](https://kubeedge.io/en/docs/use-cases/)
+
+---
