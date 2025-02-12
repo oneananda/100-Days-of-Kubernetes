@@ -96,3 +96,5 @@
 - Day 94: Kubernetes Cost Management and Optimization
 - Day 95: Kubernetes High Availability and Resilience
 - Day 96: Kubernetes Data Protection with OpenEBS and Rook
+- Day 97: Kubernetes Observability Pipelines with Fluent Bit
+- Day 98: Kubernetes Edge and IoT Use Cases with KubeEdge
