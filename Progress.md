@@ -98,3 +98,4 @@
 - Day 96: Kubernetes Data Protection with OpenEBS and Rook
 - Day 97: Kubernetes Observability Pipelines with Fluent Bit
 - Day 98: Kubernetes Edge and IoT Use Cases with KubeEdge
+- Day 99: Kubernetes API Gateway with Kong
