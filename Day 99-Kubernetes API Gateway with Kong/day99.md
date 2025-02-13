@@ -214,3 +214,33 @@ kubectl apply -f http-logging.yaml
    - Version control your Kong configuration files and integrate them with your CI/CD pipelines for consistent deployments.
 
 ---
+
+
+### 📝 Document Your Progress
+
+In your `day99.md` file, include:
+- Steps and commands for deploying Kong with Helm.
+- Configuration files for services, routes, and plugins.
+- Screenshots or logs showing API routing, rate limiting, and authentication in action.
+- Observations on the performance and security benefits of using Kong as your API gateway.
+
+---
+
+### 🎯 Outcome for Day 99
+
+By the end of this session, you will:
+1. Deploy and configure Kong as an API gateway in your Kubernetes cluster.
+2. Manage APIs and direct microservices traffic effectively using Kong routes and services.
+3. Enhance API security and reliability with advanced features such as rate limiting, authentication, and integrated analytics.
+
+---
+
+### 🔗 Additional Resources
+
+- [Kong Documentation](https://docs.konghq.com/)
+- [Kong Kubernetes Ingress Controller](https://docs.konghq.com/kubernetes-ingress-controller/)
+- [Kong Plugin Hub](https://docs.konghq.com/hub/)
+- [Helm Charts for Kong](https://github.com/Kong/charts)
+- [Kubernetes API Gateway Patterns](https://cloud.google.com/architecture/api-management)
+
+---
